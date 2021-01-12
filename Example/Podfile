@@ -1,0 +1,13 @@
+use_frameworks!
+
+platform :ios, '9.0'
+
+target 'MKLoRaTracker_Example' do
+  pod 'MKLoRaTracker', :path => '../'
+
+  target 'MKLoRaTracker_Tests' do
+    inherit! :search_paths
+
+    pod 'FBSnapshotTestCase'
+  end
+end
