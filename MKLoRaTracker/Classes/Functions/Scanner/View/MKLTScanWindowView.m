@@ -30,13 +30,13 @@ static CGFloat const maxLabelHeight = 15.f;
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
-        [self setThumbImage:[LOADICON(@"MKLoRaTracker", @"MKLTTriggerSenSlider", @"mk_lt_sensitivityThumbIcon.png") resizableImageWithCapInsets:UIEdgeInsetsZero]
+        [self setThumbImage:[LOADICON(@"MKLoRaTracker", @"MKLTTriggerSenSlider", @"lt_sensitivityThumbIcon.png") resizableImageWithCapInsets:UIEdgeInsetsZero]
                    forState:UIControlStateNormal];
-        [self setThumbImage:[LOADICON(@"MKLoRaTracker", @"MKLTTriggerSenSlider", @"mk_lt_sensitivityThumbIcon.png") resizableImageWithCapInsets:UIEdgeInsetsZero]
+        [self setThumbImage:[LOADICON(@"MKLoRaTracker", @"MKLTTriggerSenSlider", @"lt_sensitivityThumbIcon.png") resizableImageWithCapInsets:UIEdgeInsetsZero]
                    forState:UIControlStateHighlighted];
-        [self setMinimumTrackImage:[LOADICON(@"MKLoRaTracker", @"MKLTTriggerSenSlider", @"mk_lt_sensitivityMinTrackIcon.png") resizableImageWithCapInsets:UIEdgeInsetsZero]
+        [self setMinimumTrackImage:[LOADICON(@"MKLoRaTracker", @"MKLTTriggerSenSlider", @"lt_sensitivityMinTrackIcon.png") resizableImageWithCapInsets:UIEdgeInsetsZero]
                           forState:UIControlStateNormal];
-        [self setMaximumTrackImage:[LOADICON(@"MKLoRaTracker", @"MKLTTriggerSenSlider", @"mk_lt_sensitivityMaxTrackIcon.png") resizableImageWithCapInsets:UIEdgeInsetsZero] forState:UIControlStateNormal];
+        [self setMaximumTrackImage:[LOADICON(@"MKLoRaTracker", @"MKLTTriggerSenSlider", @"lt_sensitivityMaxTrackIcon.png") resizableImageWithCapInsets:UIEdgeInsetsZero] forState:UIControlStateNormal];
     }
     return self;
 }

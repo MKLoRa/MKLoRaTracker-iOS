@@ -131,7 +131,7 @@ static CGFloat const switchButtonHeight = 30.f;
 #pragma mark - event method
 - (void)switchButtonPressed{
     self.switchButton.selected = !self.switchButton.selected;
-    UIImage *buttonImage = (self.switchButton.isSelected ? LOADICON(@"MKCustomUIModule", @"MKTextSwitchCell", @"mk_MKCustomUIModule_switchSelectedIcon.png") : LOADICON(@"MKCustomUIModule", @"MKTextSwitchCell", @"mk_MKCustomUIModule_switchUnselectedIcon.png"));
+    UIImage *buttonImage = (self.switchButton.isSelected ? LOADICON(@"MKCustomUIModule", @"MKTextSwitchCell", @"mk_customUI_switchSelectedIcon.png") : LOADICON(@"MKCustomUIModule", @"MKTextSwitchCell", @"mk_customUI_switchUnselectedIcon.png"));
     [self.switchButton setImage:buttonImage forState:UIControlStateNormal];
     if ([self.delegate respondsToSelector:@selector(mk_textSwitchCellStatusChanged:index:)]) {
         [self.delegate mk_textSwitchCellStatusChanged:self.switchButton.isSelected index:self.dataModel.index];
@@ -150,7 +150,7 @@ static CGFloat const switchButtonHeight = 30.f;
     self.msgLabel.textColor = (_dataModel.msgColor ? _dataModel.msgColor : DEFAULT_TEXT_COLOR);
     self.switchButton.enabled = _dataModel.switchEnable;
     self.switchButton.selected = _dataModel.isOn;
-    UIImage *buttonImage = (self.switchButton.isSelected ? LOADICON(@"MKCustomUIModule", @"MKTextSwitchCell", @"mk_MKCustomUIModule_switchSelectedIcon.png") : LOADICON(@"MKCustomUIModule", @"MKTextSwitchCell", @"mk_MKCustomUIModule_switchUnselectedIcon.png"));
+    UIImage *buttonImage = (self.switchButton.isSelected ? LOADICON(@"MKCustomUIModule", @"MKTextSwitchCell", @"mk_customUI_switchSelectedIcon.png") : LOADICON(@"MKCustomUIModule", @"MKTextSwitchCell", @"mk_customUI_switchUnselectedIcon.png"));
     [self.switchButton setImage:buttonImage forState:UIControlStateNormal];
     if (self.leftIcon && self.leftIcon.superview) {
         [self.leftIcon removeFromSuperview];
@@ -209,7 +209,7 @@ static CGFloat const switchButtonHeight = 30.f;
 - (UIButton *)switchButton {
     if (!_switchButton) {
         _switchButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_switchButton setImage:LOADICON(@"MKCustomUIModule", @"MKTextSwitchCell", @"mk_MKCustomUIModule_switchUnselectedIcon.png") forState:UIControlStateNormal];
+        [_switchButton setImage:LOADICON(@"MKCustomUIModule", @"MKTextSwitchCell", @"mk_customUI_switchUnselectedIcon.png") forState:UIControlStateNormal];
         [_switchButton addTarget:self
                           action:@selector(switchButtonPressed)
                 forControlEvents:UIControlEventTouchUpInside];

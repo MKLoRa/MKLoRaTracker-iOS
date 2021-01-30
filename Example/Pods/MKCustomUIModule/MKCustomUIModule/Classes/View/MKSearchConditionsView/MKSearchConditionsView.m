@@ -210,7 +210,7 @@ static CGFloat const signalIconHeight = 15.f;
                                                                     offset_X * 3 + 30.f,
                                                                     signalIconWidth,
                                                                     signalIconHeight)];
-        _signalIcon.image = LOADICON(@"MKCustomUIModule", @"MKSearchConditionsView", @"wifisignalIcon.png");
+        _signalIcon.image = LOADICON(@"MKCustomUIModule", @"MKSearchConditionsView", @"mk_customUI_wifisignalIcon.png");
     }
     return _signalIcon;
 }

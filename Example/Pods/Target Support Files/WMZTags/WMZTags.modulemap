@@ -1,6 +1,0 @@
-framework module WMZTags {
-  umbrella header "WMZTags-umbrella.h"
-
-  export *
-  module * { export * }
-}

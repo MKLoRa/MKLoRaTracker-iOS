@@ -55,7 +55,7 @@ static CGFloat const functionButtonHeight = 45.f;
 - (UIImageView *)icon {
     if (!_icon) {
         _icon = [[UIImageView alloc] init];
-        _icon.image = LOADICON(@"MKCustomUIModule", @"MKLoraDeviceTypeCell", @"deviceType_unselectedIcon.png");
+        _icon.image = LOADICON(@"MKCustomUIModule", @"MKLoraDeviceTypeCell", @"mk_customUI_deviceTypeUnselectedIcon.png");
     }
     return _icon;
 }
@@ -131,8 +131,8 @@ static CGFloat const functionButtonHeight = 45.f;
         return;
     }
     self.currentType = mk_loraDeviceType_first;
-    self.classButton1.icon.image = LOADICON(@"MKCustomUIModule", @"MKLoraDeviceTypeCell", @"deviceType_selectedIcon.png");
-    self.classButton2.icon.image = LOADICON(@"MKCustomUIModule", @"MKLoraDeviceTypeCell", @"deviceType_unselectedIcon.png");
+    self.classButton1.icon.image = LOADICON(@"MKCustomUIModule", @"MKLoraDeviceTypeCell", @"mk_customUI_deviceTypeSelectedIcon.png");
+    self.classButton2.icon.image = LOADICON(@"MKCustomUIModule", @"MKLoraDeviceTypeCell", @"mk_customUI_deviceTypeUnselectedIcon.png");
     if ([self.delegate respondsToSelector:@selector(mk_loraDeviceTypeSelected:deviceType:)]) {
         [self.delegate mk_loraDeviceTypeSelected:self.dataModel.index deviceType:mk_loraDeviceType_first];
     }
@@ -143,8 +143,8 @@ static CGFloat const functionButtonHeight = 45.f;
         return;
     }
     self.currentType = mk_loraDeviceType_second;
-    self.classButton1.icon.image = LOADICON(@"MKCustomUIModule", @"MKLoraDeviceTypeCell", @"deviceType_unselectedIcon.png");
-    self.classButton2.icon.image = LOADICON(@"MKCustomUIModule", @"MKLoraDeviceTypeCell", @"deviceType_selectedIcon.png");
+    self.classButton1.icon.image = LOADICON(@"MKCustomUIModule", @"MKLoraDeviceTypeCell", @"mk_customUI_deviceTypeUnselectedIcon.png");
+    self.classButton2.icon.image = LOADICON(@"MKCustomUIModule", @"MKLoraDeviceTypeCell", @"mk_customUI_deviceTypeSelectedIcon.png");
     if ([self.delegate respondsToSelector:@selector(mk_loraDeviceTypeSelected:deviceType:)]) {
         [self.delegate mk_loraDeviceTypeSelected:self.dataModel.index deviceType:mk_loraDeviceType_second];
     }
@@ -162,13 +162,13 @@ static CGFloat const functionButtonHeight = 45.f;
     self.classButton2.msgLabel.text = SafeStr(_dataModel.buttonTitle2);
     self.currentType = _dataModel.type;
     if (_dataModel.type == mk_loraDeviceType_first) {
-        self.classButton1.icon.image = LOADICON(@"MKCustomUIModule", @"MKLoraDeviceTypeCell", @"deviceType_selectedIcon.png");
-        self.classButton2.icon.image = LOADICON(@"MKCustomUIModule", @"MKLoraDeviceTypeCell", @"deviceType_unselectedIcon.png");
+        self.classButton1.icon.image = LOADICON(@"MKCustomUIModule", @"MKLoraDeviceTypeCell", @"mk_customUI_deviceTypeSelectedIcon.png");
+        self.classButton2.icon.image = LOADICON(@"MKCustomUIModule", @"MKLoraDeviceTypeCell", @"mk_customUI_deviceTypeUnselectedIcon.png");
         return;
     }
     if (_dataModel.type == mk_loraDeviceType_second) {
-        self.classButton1.icon.image = LOADICON(@"MKCustomUIModule", @"MKLoraDeviceTypeCell", @"deviceType_unselectedIcon.png");
-        self.classButton2.icon.image = LOADICON(@"MKCustomUIModule", @"MKLoraDeviceTypeCell", @"deviceType_selectedIcon.png");
+        self.classButton1.icon.image = LOADICON(@"MKCustomUIModule", @"MKLoraDeviceTypeCell", @"mk_customUI_deviceTypeUnselectedIcon.png");
+        self.classButton2.icon.image = LOADICON(@"MKCustomUIModule", @"MKLoraDeviceTypeCell", @"mk_customUI_deviceTypeSelectedIcon.png");
         return;
     }
 }

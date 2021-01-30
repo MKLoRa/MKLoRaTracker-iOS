@@ -1,8 +1,8 @@
 //
-//  Target_LoRaWAN-LT_Module.h
+//  Target_LoRaWANLT_Module.h
 //  MKLoRaTracker_Example
 //
-//  Created by aa on 2021/1/20.
+//  Created by aa on 2021/1/28.
 //  Copyright © 2021 aadyx2007@163.com. All rights reserved.
 //
 
@@ -12,7 +12,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Target_LoRaWAN_LT_Module : NSObject
+@interface Target_LoRaWANLT_Module : NSObject
+
+/// 扫描页面
+- (UIViewController *)Action_LoRaWANLT_Module_ScanController:(NSDictionary *)params;
 
 @end
 

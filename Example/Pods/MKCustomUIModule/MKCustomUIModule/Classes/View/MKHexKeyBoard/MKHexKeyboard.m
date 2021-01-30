@@ -173,7 +173,7 @@ static CGFloat const buttonSpace_X = 20.f;
     delBtn.frame = CGRectMake(buttonSpace_X, 5 * buttonHeight + 6 * buttonSpace, buttonWidth, buttonHeight);
     [delBtn setBackgroundColor:UIColorFromRGB(0x999999)];
     
-    [delBtn setImage:LOADICON(@"MKCustomUIModule", @"MKHexKeyboard", @"keyboardDelIcon.png")
+    [delBtn setImage:LOADICON(@"MKCustomUIModule", @"MKHexKeyboard", @"mk_customUI_keyboardDelIcon.png")
             forState:UIControlStateNormal];
     [delBtn addTarget:self action:@selector(deleteButtonPressed) forControlEvents:UIControlEventTouchUpInside];
     [self.bottomView addSubview:delBtn];

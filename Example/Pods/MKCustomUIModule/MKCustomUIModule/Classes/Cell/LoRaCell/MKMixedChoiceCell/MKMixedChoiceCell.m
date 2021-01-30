@@ -234,10 +234,10 @@ static NSInteger const buttonViewBaseTag = 2021010801;
 - (void)buttonViewPressed:(MKMixedChoiceButton *)buttonView {
     buttonView.selected = !buttonView.selected;
     if (buttonView.selected) {
-        UIImage *selectedIcon = (buttonView.dataModel.selectedIcon ? buttonView.dataModel.selectedIcon : LOADICON(@"MKCustomUIModule", @"MKMixedChoiceCell", @"listButtonSelectedIcon.png"));
+        UIImage *selectedIcon = (buttonView.dataModel.selectedIcon ? buttonView.dataModel.selectedIcon : LOADICON(@"MKCustomUIModule", @"MKMixedChoiceCell", @"mk_customUI_listButtonSelectedIcon.png"));
         buttonView.icon.image = selectedIcon;
     }else {
-        UIImage *normalIcon = (buttonView.dataModel.normalIcon ? buttonView.dataModel.normalIcon : LOADICON(@"MKCustomUIModule", @"MKMixedChoiceCell", @"listButtonUnselectedIcon.png"));
+        UIImage *normalIcon = (buttonView.dataModel.normalIcon ? buttonView.dataModel.normalIcon : LOADICON(@"MKCustomUIModule", @"MKMixedChoiceCell", @"mk_customUI_listButtonUnselectedIcon.png"));
         buttonView.icon.image = normalIcon;
     }
     if ([self.delegate respondsToSelector:@selector(mk_mixedChoiceSubButtonEventMethod:cellIndex:buttonIndex:)]) {
@@ -320,10 +320,10 @@ static NSInteger const buttonViewBaseTag = 2021010801;
     buttonView.enabled = buttonModel.enabled;
     buttonView.selected = buttonModel.selected;
     if (buttonModel.selected) {
-        UIImage *selectedIcon = (buttonModel.selectedIcon ? buttonModel.selectedIcon : LOADICON(@"MKCustomUIModule", @"MKMixedChoiceCell", @"listButtonSelectedIcon.png"));
+        UIImage *selectedIcon = (buttonModel.selectedIcon ? buttonModel.selectedIcon : LOADICON(@"MKCustomUIModule", @"MKMixedChoiceCell", @"mk_customUI_listButtonSelectedIcon.png"));
         buttonView.icon.image = selectedIcon;
     }else {
-        UIImage *normalIcon = (buttonModel.normalIcon ? buttonModel.normalIcon : LOADICON(@"MKCustomUIModule", @"MKMixedChoiceCell", @"listButtonUnselectedIcon.png"));
+        UIImage *normalIcon = (buttonModel.normalIcon ? buttonModel.normalIcon : LOADICON(@"MKCustomUIModule", @"MKMixedChoiceCell", @"mk_customUI_listButtonUnselectedIcon.png"));
         buttonView.icon.image = normalIcon;
     }
     buttonView.msgLabel.text = SafeStr(buttonModel.buttonMsg);

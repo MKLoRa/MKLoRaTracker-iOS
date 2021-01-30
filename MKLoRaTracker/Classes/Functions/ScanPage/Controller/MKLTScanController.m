@@ -27,6 +27,7 @@
 
 #import "MKLTConnectModel.h"
 #import "MKLTScanPageModel.h"
+
 #import "MKLTScanPageCell.h"
 
 #import "MKLTTabBarController.h"
@@ -110,6 +111,7 @@ MKLTTabBarControllerDelegate>
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     //移除runloop的监听
     CFRunLoopRemoveObserver(CFRunLoopGetCurrent(), self.observerRef, kCFRunLoopCommonModes);
+    [[MKLTCentralManager shared] stopScan];
     [MKLTCentralManager removeFromCentralList];
 }
 
@@ -126,9 +128,9 @@ MKLTTabBarControllerDelegate>
 
 - (void)rightButtonMethod {
     MKLTAboutPageModel *model = [[MKLTAboutPageModel alloc] init];
-//    model.aboutIcon = LOADICON(@"MKLoRaWAN-B", @"MKLTScanController", @"lb_about_logo.png");
-//    model.appName = @"MokoTracker+";
-//    model.appVersion = @"1.0.0";
+    model.aboutIcon = LOADICON(@"MKLoRaTracker", @"MKLTScanController", @"lt_lw004CT-aboutIcon.png");
+    model.appName = @"LW004-CT";
+    model.appVersion = @"2.1";
     MKTrackerAboutController *vc = [[MKTrackerAboutController alloc] initWithProtocol:model];
     [self.navigationController pushViewController:vc animated:YES];
 }

@@ -78,7 +78,7 @@
 
 - (void)switchButtonPressed {
     self.switchButton.selected = !self.switchButton.selected;
-    UIImage *buttonImage = (self.switchButton.isSelected ? LOADICON(@"MKCustomUIModule", @"MKLoRaAdvancedSettingCell", @"mk_MKCustomUIModule_switchSelectedIcon.png") : LOADICON(@"MKCustomUIModule", @"MKLoRaAdvancedSettingCell", @"mk_MKCustomUIModule_switchUnselectedIcon.png"));
+    UIImage *buttonImage = (self.switchButton.isSelected ? LOADICON(@"MKCustomUIModule", @"MKLoRaAdvancedSettingCell", @"mk_customUI_switchSelectedIcon.png") : LOADICON(@"MKCustomUIModule", @"MKLoRaAdvancedSettingCell", @"mk_customUI_switchUnselectedIcon.png"));
     [self.switchButton setImage:buttonImage forState:UIControlStateNormal];
     if ([self.delegate respondsToSelector:@selector(mk_loraSetting_advanceCell_switchStatusChanged:)]) {
         [self.delegate mk_loraSetting_advanceCell_switchStatusChanged:self.switchButton.isSelected];
@@ -94,7 +94,7 @@
     }
     [self.switchButton setEnabled:_dataModel.switchEnable];
     [self.switchButton setSelected:_dataModel.isOn];
-    UIImage *buttonImage = (self.switchButton.isSelected ? LOADICON(@"MKCustomUIModule", @"MKLoRaAdvancedSettingCell", @"mk_MKCustomUIModule_switchSelectedIcon.png") : LOADICON(@"MKCustomUIModule", @"MKLoRaAdvancedSettingCell", @"mk_MKCustomUIModule_switchUnselectedIcon.png"));
+    UIImage *buttonImage = (self.switchButton.isSelected ? LOADICON(@"MKCustomUIModule", @"MKLoRaAdvancedSettingCell", @"mk_customUI_switchSelectedIcon.png") : LOADICON(@"MKCustomUIModule", @"MKLoRaAdvancedSettingCell", @"mk_customUI_switchUnselectedIcon.png"));
     [self.switchButton setImage:buttonImage forState:UIControlStateNormal];
 }
 
@@ -113,7 +113,7 @@
 - (UIButton *)switchButton {
     if (!_switchButton) {
         _switchButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_switchButton setImage:LOADICON(@"MKCustomUIModule", @"MKLoRaAdvancedSettingCell", @"mk_MKCustomUIModule_switchUnselectedIcon.png") forState:UIControlStateNormal];
+        [_switchButton setImage:LOADICON(@"MKCustomUIModule", @"MKLoRaAdvancedSettingCell", @"mk_customUI_switchUnselectedIcon.png") forState:UIControlStateNormal];
         [_switchButton addTarget:self
                           action:@selector(switchButtonPressed)
                 forControlEvents:UIControlEventTouchUpInside];

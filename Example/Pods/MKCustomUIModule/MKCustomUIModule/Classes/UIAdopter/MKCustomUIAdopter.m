@@ -30,7 +30,7 @@
 }
 
 + (NSMutableAttributedString *)attributedString:(NSArray <NSString *>*)strings
-                                          fonts:(NSArray <NSFont *>*)fonts
+                                          fonts:(NSArray <UIFont *>*)fonts
                                          colors:(NSArray <UIColor *>*)colors {
     if (!ValidArray(strings) || !ValidArray(fonts) || !ValidArray(colors)) {
         return [[NSMutableAttributedString alloc] initWithString:@""];

@@ -29,12 +29,252 @@ TODO: Add long description of the pod here.
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '12.0'
-
-  s.source_files = 'MKLoRaTracker/Classes/**/*'
   
   s.resource_bundles = {
     'MKLoRaTracker' => ['MKLoRaTracker/Assets/*.png']
   }
+  
+  s.subspec 'ApplicationModule' do |ss|
+    ss.source_files = 'MKLoRaTracker/Classes/ApplicationModule/**'
+  end
+  
+  s.subspec 'CTMediator' do |ss|
+    ss.source_files = 'MKLoRaTracker/Classes/CTMediator/**'
+  end
+  
+  s.subspec 'CustomCell' do |ss|
+    ss.subspec 'MKLTNormalTextCell' do |sss|
+      sss.source_files = 'MKLoRaTracker/Classes/CustomCell/MKLTNormalTextCell/**'
+    end
+  end
+  
+  s.subspec 'SDK-LT' do |ss|
+    ss.source_files = 'MKLoRaTracker/Classes/SDK-LT/**'
+  end
+  
+  s.subspec 'Target' do |ss|
+    ss.source_files = 'MKLoRaTracker/Classes/Target/**'
+    ss.dependency 'MKLoRaTracker/Functions'
+  end
+  
+  s.subspec 'Functions' do |ss|
+    
+    ss.subspec 'AdvertiserPage' do |sss|
+      sss.subspec 'Controller' do |ssss|
+        ssss.source_files = 'MKLoRaTracker/Classes/Functions/AdvertiserPage/Controller/**'
+        
+        ssss.dependency 'MKLoRaTracker/Functions/AdvertiserPage/Model'
+      end
+      sss.subspec 'Model' do |ssss|
+        ssss.source_files = 'MKLoRaTracker/Classes/Functions/AdvertiserPage/Model/**'
+      end
+    end
+    
+    ss.subspec 'AxisPage' do |sss|
+      sss.subspec 'Controller' do |ssss|
+        ssss.source_files = 'MKLoRaTracker/Classes/Functions/AxisPage/Controller/**'
+        ssss.dependency 'MKLoRaTracker/Functions/AxisPage/Model'
+        ssss.dependency 'MKLoRaTracker/Functions/AxisPage/View'
+      end
+      sss.subspec 'View' do |ssss|
+        ssss.source_files = 'MKLoRaTracker/Classes/Functions/AxisPage/View/**'
+      end
+      sss.subspec 'Model' do |ssss|
+        ssss.source_files = 'MKLoRaTracker/Classes/Functions/AxisPage/Model/**'
+      end
+    end
+    
+    ss.subspec 'DevicePage' do |sss|
+      sss.subspec 'Controller' do |ssss|
+        ssss.source_files = 'MKLoRaTracker/Classes/Functions/DevicePage/Controller/**'
+        ssss.dependency 'MKLoRaTracker/Functions/DevicePage/Model'
+        ssss.dependency 'MKLoRaTracker/Functions/DevicePage/View'
+        
+        ssss.dependency 'MKLoRaTracker/Functions/UpdatePage'
+      end
+      sss.subspec 'View' do |ssss|
+        ssss.source_files = 'MKLoRaTracker/Classes/Functions/DevicePage/View/**'
+      end
+      sss.subspec 'Model' do |ssss|
+        ssss.source_files = 'MKLoRaTracker/Classes/Functions/DevicePage/Model/**'
+      end
+    end
+    
+    ss.subspec 'FilterCondition' do |sss|
+      sss.subspec 'Controller' do |ssss|
+        ssss.source_files = 'MKLoRaTracker/Classes/Functions/FilterCondition/Controller/**'
+        ssss.dependency 'MKLoRaTracker/Functions/FilterCondition/Model'
+      end
+      sss.subspec 'Model' do |ssss|
+        ssss.source_files = 'MKLoRaTracker/Classes/Functions/FilterCondition/Model/**'
+      end
+    end
+    
+    ss.subspec 'FilterOptions' do |sss|
+      sss.subspec 'Controller' do |ssss|
+        ssss.source_files = 'MKLoRaTracker/Classes/Functions/FilterOptions/Controller/**'
+        ssss.dependency 'MKLoRaTracker/Functions/FilterOptions/Model'
+        ssss.dependency 'MKLoRaTracker/Functions/FilterOptions/View'
+        
+        ssss.dependency 'MKLoRaTracker/Functions/FilterCondition'
+      end
+      sss.subspec 'View' do |ssss|
+        ssss.source_files = 'MKLoRaTracker/Classes/Functions/FilterOptions/View/**'
+      end
+      sss.subspec 'Model' do |ssss|
+        ssss.source_files = 'MKLoRaTracker/Classes/Functions/FilterOptions/Model/**'
+      end
+    end
+    
+    ss.subspec 'GPSPage' do |sss|
+      sss.subspec 'Controller' do |ssss|
+        ssss.source_files = 'MKLoRaTracker/Classes/Functions/GPSPage/Controller/**'
+        ssss.dependency 'MKLoRaTracker/Functions/GPSPage/Model'
+      end
+      sss.subspec 'Model' do |ssss|
+        ssss.source_files = 'MKLoRaTracker/Classes/Functions/GPSPage/Model/**'
+      end
+    end
+    
+    ss.subspec 'LoRaPage' do |sss|
+      sss.subspec 'Controller' do |ssss|
+        ssss.source_files = 'MKLoRaTracker/Classes/Functions/LoRaPage/Controller/**'
+        ssss.dependency 'MKLoRaTracker/Functions/LoRaPage/Model'
+        
+        ssss.dependency 'MKLoRaTracker/Functions/LoRaSettingPage'
+        ssss.dependency 'MKLoRaTracker/Functions/NetworkCheck'
+        ssss.dependency 'MKLoRaTracker/Functions/PayloadPage'
+      end
+      sss.subspec 'Model' do |ssss|
+        ssss.source_files = 'MKLoRaTracker/Classes/Functions/LoRaPage/Model/**'
+      end
+    end
+    
+    ss.subspec 'LoRaSettingPage' do |sss|
+      sss.subspec 'Controller' do |ssss|
+        ssss.source_files = 'MKLoRaTracker/Classes/Functions/LoRaSettingPage/Controller/**'
+        ssss.dependency 'MKLoRaTracker/Functions/LoRaSettingPage/Model'
+      end
+      sss.subspec 'Model' do |ssss|
+        ssss.source_files = 'MKLoRaTracker/Classes/Functions/LoRaSettingPage/Model/**'
+      end
+    end
+    
+    ss.subspec 'NetworkCheck' do |sss|
+      sss.subspec 'Controller' do |ssss|
+        ssss.source_files = 'MKLoRaTracker/Classes/Functions/NetworkCheck/Controller/**'
+        ssss.dependency 'MKLoRaTracker/Functions/NetworkCheck/Model'
+      end
+      sss.subspec 'Model' do |ssss|
+        ssss.source_files = 'MKLoRaTracker/Classes/Functions/NetworkCheck/Model/**'
+      end
+    end
+    
+    ss.subspec 'PayloadPage' do |sss|
+      sss.subspec 'Controller' do |ssss|
+        ssss.source_files = 'MKLoRaTracker/Classes/Functions/PayloadPage/Controller/**'
+        ssss.dependency 'MKLoRaTracker/Functions/PayloadPage/Model'
+      end
+      sss.subspec 'Model' do |ssss|
+        ssss.source_files = 'MKLoRaTracker/Classes/Functions/PayloadPage/Model/**'
+      end
+    end
+    
+    ss.subspec 'Scanner' do |sss|
+      sss.subspec 'Controller' do |ssss|
+        ssss.source_files = 'MKLoRaTracker/Classes/Functions/Scanner/Controller/**'
+        ssss.dependency 'MKLoRaTracker/Functions/Scanner/Model'
+        ssss.dependency 'MKLoRaTracker/Functions/Scanner/View'
+        
+        ssss.dependency 'MKLoRaTracker/Functions/FilterOptions'
+      end
+      sss.subspec 'View' do |ssss|
+        ssss.source_files = 'MKLoRaTracker/Classes/Functions/Scanner/View/**'
+      end
+      sss.subspec 'Model' do |ssss|
+        ssss.source_files = 'MKLoRaTracker/Classes/Functions/Scanner/Model/**'
+      end
+    end
+    
+    ss.subspec 'ScanPage' do |sss|
+      sss.subspec 'Controller' do |ssss|
+        ssss.source_files = 'MKLoRaTracker/Classes/Functions/ScanPage/Controller/**'
+        ssss.dependency 'MKLoRaTracker/Functions/ScanPage/Model'
+        ssss.dependency 'MKLoRaTracker/Functions/ScanPage/View'
+        
+        ssss.dependency 'MKLoRaTracker/Functions/TabBarPage'
+      end
+      sss.subspec 'View' do |ssss|
+        ssss.source_files = 'MKLoRaTracker/Classes/Functions/ScanPage/View/**'
+        ssss.dependency 'MKLoRaTracker/Functions/ScanPage/Model'
+      end
+      sss.subspec 'Model' do |ssss|
+        ssss.source_files = 'MKLoRaTracker/Classes/Functions/ScanPage/Model/**'
+      end
+    end
+    
+    ss.subspec 'SettingPage' do |sss|
+      sss.subspec 'Controller' do |ssss|
+        ssss.source_files = 'MKLoRaTracker/Classes/Functions/SettingPage/Controller/**'
+        ssss.dependency 'MKLoRaTracker/Functions/SettingPage/Model'
+        
+        ssss.dependency 'MKLoRaTracker/Functions/AdvertiserPage'
+        ssss.dependency 'MKLoRaTracker/Functions/VibrationSetting'
+        ssss.dependency 'MKLoRaTracker/Functions/SOSPage'
+        ssss.dependency 'MKLoRaTracker/Functions/GPSPage'
+        ssss.dependency 'MKLoRaTracker/Functions/AxisPage'
+      end
+      sss.subspec 'Model' do |ssss|
+        ssss.source_files = 'MKLoRaTracker/Classes/Functions/SettingPage/Model/**'
+      end
+    end
+    
+    ss.subspec 'SOSPage' do |sss|
+      sss.subspec 'Controller' do |ssss|
+        ssss.source_files = 'MKLoRaTracker/Classes/Functions/SOSPage/Controller/**'
+        ssss.dependency 'MKLoRaTracker/Functions/SOSPage/Model'
+      end
+      sss.subspec 'Model' do |ssss|
+        ssss.source_files = 'MKLoRaTracker/Classes/Functions/SOSPage/Model/**'
+      end
+    end
+    
+    ss.subspec 'TabBarPage' do |sss|
+      sss.subspec 'Controller' do |ssss|
+        ssss.source_files = 'MKLoRaTracker/Classes/Functions/TabBarPage/Controller/**'
+        
+        ssss.dependency 'MKLoRaTracker/Functions/LoRaPage'
+        ssss.dependency 'MKLoRaTracker/Functions/Scanner'
+        ssss.dependency 'MKLoRaTracker/Functions/SettingPage'
+        ssss.dependency 'MKLoRaTracker/Functions/DevicePage'
+      end
+    end
+    
+    ss.subspec 'UpdatePage' do |sss|
+      sss.subspec 'Controller' do |ssss|
+        ssss.source_files = 'MKLoRaTracker/Classes/Functions/UpdatePage/Controller/**'
+        ssss.dependency 'MKLoRaTracker/Functions/UpdatePage/Model'
+      end
+      sss.subspec 'Model' do |ssss|
+        ssss.source_files = 'MKLoRaTracker/Classes/Functions/UpdatePage/Model/**'
+      end
+    end
+    
+    ss.subspec 'VibrationSetting' do |sss|
+      sss.subspec 'Controller' do |ssss|
+        ssss.source_files = 'MKLoRaTracker/Classes/Functions/VibrationSetting/Controller/**'
+        ssss.dependency 'MKLoRaTracker/Functions/VibrationSetting/Model'
+      end
+      sss.subspec 'Model' do |ssss|
+        ssss.source_files = 'MKLoRaTracker/Classes/Functions/VibrationSetting/Model/**'
+      end
+    end
+  
+    ss.dependency 'MKLoRaTracker/SDK-LT'
+    ss.dependency 'MKLoRaTracker/CustomCell'
+    ss.dependency 'MKLoRaTracker/CTMediator'
+  
+  end
 
   s.dependency 'MKBaseBleModule'
   s.dependency 'MKBaseModuleLibrary'
@@ -44,6 +284,5 @@ TODO: Add long description of the pod here.
   s.dependency 'MLInputDodger'
   s.dependency 'iOSDFULibrary','4.6.1'
   s.dependency 'CTMediator'
-  s.dependency 'WMZTags'
   
 end

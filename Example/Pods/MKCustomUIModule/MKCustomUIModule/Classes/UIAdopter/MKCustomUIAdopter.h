@@ -31,7 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param fonts 富文本内容字体大小
 /// @param colors 富文本字体颜色
 + (NSMutableAttributedString *)attributedString:(NSArray <NSString *>*)strings
-                                          fonts:(NSArray <NSFont *>*)fonts
+                                          fonts:(NSArray <UIFont *>*)fonts
                                          colors:(NSArray <UIColor *>*)colors;
 
 /// 求富文本字符串所在控件的高度
