@@ -82,8 +82,8 @@
     [self.dfuModule updateWithFileUrl:filePath progressBlock:^(CGFloat progress) {
         
     } sucBlock:^{
-        [[MKHudManager share] showHUDWithTitle:@"Update firmware successfully!" inView:weakSelf.view isPenetration:NO];
-        [weakSelf performSelector:@selector(updateComplete) withObject:nil afterDelay:1.f];
+        [[MKHudManager share] showHUDWithTitle:@"Update firmware successfully! Please reconnect the device." inView:weakSelf.view isPenetration:NO];
+        [weakSelf performSelector:@selector(updateComplete) withObject:nil afterDelay:3.f];
     } failedBlock:^(NSError * _Nonnull error) {
         [[MKHudManager share] showHUDWithTitle:@"Opps!DFU Failed. Please try again!" inView:weakSelf.view isPenetration:NO];
         [weakSelf performSelector:@selector(updateComplete) withObject:nil afterDelay:1.f];

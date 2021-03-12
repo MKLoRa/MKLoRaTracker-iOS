@@ -122,10 +122,6 @@ MKLTGatheringWarningCellDelegate
         [self.navigationController pushViewController:vc animated:YES];
         return;
     }
-    if (indexPath.section == 5 && indexPath.row == 0) {
-        [self showScanWindow];
-        return;
-    }
 }
 
 #pragma mark - UITableViewDataSource
@@ -185,8 +181,9 @@ MKLTGatheringWarningCellDelegate
         cell.delegate = self;
         return cell;
     }
-    MKLTNormalTextCell *cell = [MKLTNormalTextCell initCellWithTableView:tableView];
+    MKTextButtonCell *cell = [MKTextButtonCell initCellWithTableView:tableView];
     cell.dataModel = self.section5List[indexPath.row];
+    cell.delegate = self;
     return cell;
 }
 
@@ -203,6 +200,13 @@ MKLTGatheringWarningCellDelegate
         self.dataModel.alarmNotification = dataListIndex;
         MKTextButtonCellModel *alarmNotiModel = self.section2List[0];
         alarmNotiModel.dataListIndex = self.dataModel.alarmNotification;
+        return;
+    }
+    if (index == 1) {
+        //扫描参数
+        self.dataModel.scanWindow = dataListIndex;
+        MKTextButtonCellModel *scanModel = self.section5List[0];
+        scanModel.dataListIndex = self.dataModel.scanWindow;
         return;
     }
 }
@@ -261,18 +265,8 @@ MKLTGatheringWarningCellDelegate
     gatheringModel.triggerRssi = self.dataModel.triggerRssi;
     gatheringModel.gatheringWarningRssi = self.dataModel.gatheringWarningRssi;
     
-    MKLTNormalTextCellModel *scanWindowModel = self.section5List[0];
-    if (self.dataModel.scanWindow == 0) {
-        scanWindowModel.leftMsg = @"Scan Window(0)";
-    }else if (self.dataModel.scanWindow == 1) {
-        scanWindowModel.leftMsg = @"Scan Window(1)";
-    }else if (self.dataModel.scanWindow == 2) {
-        scanWindowModel.leftMsg = @"Scan Window(1/2)";
-    }else if (self.dataModel.scanWindow == 3) {
-        scanWindowModel.leftMsg = @"Scan Window(1/4)";
-    }else if (self.dataModel.scanWindow == 4) {
-        scanWindowModel.leftMsg = @"Scan Window(1/8)";
-    }
+    MKTextButtonCellModel *scanWindowModel = self.section5List[0];
+    scanWindowModel.dataListIndex = self.dataModel.scanWindow;
     
     [self.tableView reloadData];
 }
@@ -300,43 +294,6 @@ MKLTGatheringWarningCellDelegate
     }
     gatheringModel.gatheringWarningRssi = self.dataModel.gatheringWarningRssi;
     [self.tableView mk_reloadSection:4 withRowAnimation:UITableViewRowAnimationNone];
-}
-
-- (void)showScanWindow {
-    WS(weakSelf);
-    MKLTScanWindowView *view = [[MKLTScanWindowView alloc] init];
-    [view showViewWithValue:self.dataModel.scanWindow completeBlock:^(mk_lt_scanWindowViewType resultType) {
-        __strong typeof(self) sself = weakSelf;
-        [sself configScanWindow:resultType];
-    }];
-}
-
-- (void)configScanWindow:(mk_lt_scanWindowType)windowType {
-    [[MKHudManager share] showHUDWithTitle:@"Config..." inView:self.view isPenetration:NO];
-    [MKLTInterface lt_configScanWindow:windowType sucBlock:^{
-        [[MKHudManager share] hide];
-        
-        self.dataModel.scanWindow = windowType;
-        
-        MKLTNormalTextCellModel *scanWindowModel = self.section5List[0];
-        if (self.dataModel.scanWindow == 0) {
-            scanWindowModel.leftMsg = @"Scan Window(0)";
-        }else if (self.dataModel.scanWindow == 1) {
-            scanWindowModel.leftMsg = @"Scan Window(1)";
-        }else if (self.dataModel.scanWindow == 2) {
-            scanWindowModel.leftMsg = @"Scan Window(1/2)";
-        }else if (self.dataModel.scanWindow == 3) {
-            scanWindowModel.leftMsg = @"Scan Window(1/4)";
-        }else if (self.dataModel.scanWindow == 4) {
-            scanWindowModel.leftMsg = @"Scan Window(1/8)";
-        }
-        
-        [self.tableView mk_reloadSection:5 withRowAnimation:UITableViewRowAnimationNone];
-        
-    } failedBlock:^(NSError * _Nonnull error) {
-        [[MKHudManager share] hide];
-        [self.view showCentralToast:error.userInfo[@"errorInfo"]];
-    }];
 }
 
 #pragma mark - loadSectionDatas
@@ -375,7 +332,7 @@ MKLTGatheringWarningCellDelegate
 }
 
 - (void)loadSection2Datas {
-    MKTextButtonCellModel *cellModel = [MKTextButtonCellModel alloc];
+    MKTextButtonCellModel *cellModel = [[MKTextButtonCellModel alloc] init];
     cellModel.msg = @"Alarm Notification";
     cellModel.index = 0;
     cellModel.dataList = @[@"Off",@"Light",@"Vibration",@"Light+Vibration"];
@@ -402,8 +359,11 @@ MKLTGatheringWarningCellDelegate
 }
 
 - (void)loadSection5Datas {
-    MKLTNormalTextCellModel *cellModel = [[MKLTNormalTextCellModel alloc] init];
-    cellModel.leftMsg = @"Scan Window(1/2)";
+    MKTextButtonCellModel *cellModel = [[MKTextButtonCellModel alloc] init];
+    cellModel.msg = @"Scan intensity";
+    cellModel.index = 1;
+    cellModel.dataList = @[@"Off",@"Low",@"Medium",@"Strong"];
+    cellModel.buttonEnable = YES;
     [self.section5List addObject:cellModel];
 }
 

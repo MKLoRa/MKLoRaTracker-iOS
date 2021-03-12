@@ -84,18 +84,20 @@ MKFilterRawAdvDataCellDelegate>
 #pragma mark - super method
 - (void)rightButtonMethod {
     NSMutableArray *list = [NSMutableArray array];
-    for (NSInteger i = 0; i < self.section3List.count; i ++) {
-        MKFilterRawAdvDataCellModel *cellModel = self.section3List[i];
-        if (![cellModel validParamsSuccess]) {
-            [self.view showCentralToast:@"Filter by Raw Adv Data Params Error"];
-            return;
+    if (self.dataModel.rawDataIson) {
+        for (NSInteger i = 0; i < self.section3List.count; i ++) {
+            MKFilterRawAdvDataCellModel *cellModel = self.section3List[i];
+            if (![cellModel validParamsSuccess]) {
+                [self.view showCentralToast:@"Filter by Raw Adv Data Params Error"];
+                return;
+            }
+            MKLTFilterRawAdvDataModel *model = [[MKLTFilterRawAdvDataModel alloc] init];
+            model.dataType = cellModel.dataType;
+            model.maxIndex = [cellModel.maxIndex integerValue];
+            model.minIndex = [cellModel.minIndex integerValue];
+            model.rawData = cellModel.rawData;
+            [list addObject:model];
         }
-        MKLTFilterRawAdvDataModel *model = [[MKLTFilterRawAdvDataModel alloc] init];
-        model.dataType = cellModel.dataType;
-        model.maxIndex = [cellModel.maxIndex integerValue];
-        model.minIndex = [cellModel.minIndex integerValue];
-        model.rawData = cellModel.rawData;
-        [list addObject:model];
     }
     [[MKHudManager share] showHUDWithTitle:@"Config..." inView:self.view isPenetration:NO];
     WS(weakSelf);
@@ -299,7 +301,7 @@ MKFilterRawAdvDataCellDelegate>
 #pragma mark - MKRawAdvDataOperationCellDelegate
 /// +号按钮点击事件
 - (void)mk_rawAdvDataOperation_addMethod {
-    if (self.section3List.count > 5) {
+    if (self.section3List.count >= 5) {
         [self.view showCentralToast:@"You can set up to 5 filters!"];
         return;
     }
@@ -443,9 +445,10 @@ MKFilterRawAdvDataCellDelegate>
     MKFilterDataCellModel *uuidModel = [[MKFilterDataCellModel alloc] init];
     uuidModel.index = 2;
     uuidModel.msg = @"Filter by iBeacon Proximity UUID";
-    uuidModel.textFieldPlaceholder = @"16 Bytes";
-    uuidModel.textFieldType = mk_uuidMode;
+    uuidModel.textFieldPlaceholder = @"1 ~ 16 Bytes";
+    uuidModel.textFieldType = mk_hexCharOnly;
     uuidModel.isOn = self.dataModel.uuidIson;
+    uuidModel.maxLength = 32;
     uuidModel.selected = self.dataModel.uuidWhiteListIson;
     uuidModel.textFieldValue = self.dataModel.uuidValue;
     [self.section1List addObject:uuidModel];
@@ -474,8 +477,8 @@ MKFilterRawAdvDataCellDelegate>
 - (void)loadSection2Datas {
     MKRawAdvDataOperationCellModel *cellModel = [[MKRawAdvDataOperationCellModel alloc] init];
     cellModel.msg = @"Filter by Raw Adv Data";
-    cellModel.selected = self.dataModel.rawDataIson;
-    cellModel.isOn = self.dataModel.rawDataWhiteListIson;
+    cellModel.isOn = self.dataModel.rawDataIson;
+    cellModel.selected = self.dataModel.rawDataWhiteListIson;
     [self.section2List addObject:cellModel];
 }
 

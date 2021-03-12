@@ -13,6 +13,8 @@
 #import "MKLTInterface.h"
 #import "MKLTInterface+MKLTConfig.h"
 
+#import "MKLTConnectModel.h"
+
 @interface MKLTUplinkPayloadModel ()
 
 @property (nonatomic, strong)dispatch_queue_t readQueue;
@@ -53,13 +55,15 @@
             [self operationFailedBlockWithMsg:@"Read SOS Optional Payload Content Error" block:failedBlock];
             return;
         }
-        if (![self readGPSReportInterval]) {
-            [self operationFailedBlockWithMsg:@"Read GPS Data Report Interval Error" block:failedBlock];
-            return;
-        }
-        if (![self readGPSOptionalPayloadContent]) {
-            [self operationFailedBlockWithMsg:@"Read GPS Optional Payload Content Error" block:failedBlock];
-            return;
+        if ([MKLTConnectModel shared].supportGps) {
+            if (![self readGPSReportInterval]) {
+                [self operationFailedBlockWithMsg:@"Read GPS Data Report Interval Error" block:failedBlock];
+                return;
+            }
+            if (![self readGPSOptionalPayloadContent]) {
+                [self operationFailedBlockWithMsg:@"Read GPS Optional Payload Content Error" block:failedBlock];
+                return;
+            }
         }
         if (![self readAxisReportInterval]) {
             [self operationFailedBlockWithMsg:@"Read Axis Data Report Interval Error" block:failedBlock];
@@ -111,13 +115,15 @@
             [self operationFailedBlockWithMsg:@"Config SOS Optional Payload Content Error" block:failedBlock];
             return;
         }
-        if (![self configGPSReportInterval]) {
-            [self operationFailedBlockWithMsg:@"Config GPS Data Report Interval Error" block:failedBlock];
-            return;
-        }
-        if (![self configGPSOptionalPayloadContent]) {
-            [self operationFailedBlockWithMsg:@"Config GPS Optional Payload Content Error" block:failedBlock];
-            return;
+        if ([MKLTConnectModel shared].supportGps) {
+            if (![self configGPSReportInterval]) {
+                [self operationFailedBlockWithMsg:@"Config GPS Data Report Interval Error" block:failedBlock];
+                return;
+            }
+            if (![self configGPSOptionalPayloadContent]) {
+                [self operationFailedBlockWithMsg:@"Config GPS Optional Payload Content Error" block:failedBlock];
+                return;
+            }
         }
         if (![self configAxisReportInterval]) {
             [self operationFailedBlockWithMsg:@"Config Axis Data Report Interval Error" block:failedBlock];

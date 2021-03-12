@@ -22,11 +22,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign)NSInteger gatheringWarningRssi;
 
 /*
- 0,            //close.
- 1,             //open.
- 2,         //Open in half time.
- 3,      //Open a quarter of the time.
- 4,    //Open in one eighth time.
+ 0,            //Off.
+ 1,             //Low.
+ 2,         //Medium.
+ 3,      //Strong.
  */
 @property (nonatomic, assign)NSInteger scanWindow;
 

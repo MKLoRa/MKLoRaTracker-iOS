@@ -218,7 +218,7 @@ MKTextFieldCellDelegate>
 
 #pragma mark - UI
 - (void)loadSubViews {
-    self.defaultTitle = @"LoRa";
+    self.defaultTitle = @"LORA";
     [self.rightButton setImage:LOADICON(@"MKLoRaTracker", @"MKLTLoRaController", @"lt_slotSaveIcon.png") forState:UIControlStateNormal];
     [self.view addSubview:self.tableView];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {

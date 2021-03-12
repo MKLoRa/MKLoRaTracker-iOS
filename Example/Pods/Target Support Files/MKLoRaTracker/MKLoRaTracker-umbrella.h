@@ -12,6 +12,7 @@
 
 #import "MKLTApplicationModule.h"
 #import "CTMediator+MKLTAdd.h"
+#import "MKLTConnectModel.h"
 #import "MKLTNormalTextCell.h"
 #import "MKLTAdvertiserController.h"
 #import "MKLTAdvertiserDataModel.h"
@@ -39,7 +40,6 @@
 #import "MKLTSOSController.h"
 #import "MKLTSOSPageModel.h"
 #import "MKLTScanController.h"
-#import "MKLTConnectModel.h"
 #import "MKLTScanPageModel.h"
 #import "MKLTScanPageCell.h"
 #import "MKLTScannerController.h"

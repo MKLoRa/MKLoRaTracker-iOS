@@ -99,7 +99,7 @@
                       sucBlock:(void (^)(void))sucBlock
                    failedBlock:(void (^)(NSError *error))failedBlock {
     dispatch_async(self.readQueue, ^{
-        if (![self configAxisSwitchStatus]) {
+        if (![self configAxisSwitchStatus:isOn]) {
             [self operationFailedBlockWithMsg:@"Config 3-Axis Switch Error" block:failedBlock];
             return;
         }
@@ -119,7 +119,7 @@
                       sucBlock:(void (^)(void))sucBlock
                    failedBlock:(void (^)(NSError *error))failedBlock {
     dispatch_async(self.readQueue, ^{
-        if (![self configAxisSeneorDataStatus]) {
+        if (![self configAxisSeneorDataStatus:isOn]) {
             [self operationFailedBlockWithMsg:@"Config Sensor Data Switch Status Error" block:failedBlock];
             return;
         }
@@ -149,9 +149,9 @@
     return success;
 }
 
-- (BOOL)configAxisSwitchStatus {
+- (BOOL)configAxisSwitchStatus:(BOOL)isOn {
     __block BOOL success = NO;
-    [MKLTInterface lt_configAxisSensorSwitchStatus:self.axisIsOn sucBlock:^{
+    [MKLTInterface lt_configAxisSensorSwitchStatus:isOn sucBlock:^{
         success = YES;
         dispatch_semaphore_signal(self.semaphore);
     } failedBlock:^(NSError * _Nonnull error) {
@@ -300,10 +300,11 @@
     return success;
 }
 
-- (BOOL)configAxisSeneorDataStatus {
+- (BOOL)configAxisSeneorDataStatus:(BOOL)isOn {
     __block BOOL success = NO;
-    [MKLTInterface lt_configAxisSensorDataStatus:self.sensorDataIsOn sucBlock:^{
+    [MKLTInterface lt_configAxisSensorDataStatus:isOn sucBlock:^{
         success = YES;
+        self.sensorDataIsOn = isOn;
         dispatch_semaphore_signal(self.semaphore);
     } failedBlock:^(NSError * _Nonnull error) {
         dispatch_semaphore_signal(self.semaphore);

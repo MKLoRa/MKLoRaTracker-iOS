@@ -143,8 +143,8 @@ static CGFloat const signalIconHeight = 15.f;
     if (ValidStr(searchKey)) {
         [self.textField setText:searchKey];
     }
-    [self.slider setValue:rssiValue];
     [self.slider setMinimumValue:minSearchRssi];
+    [self.slider setValue:rssiValue];
     [self.rssiValueLabel setText:[NSString stringWithFormat:@"%lddBm",(long)rssiValue]];
     [UIView animateWithDuration:0.25 animations:^{
         self.backView.transform = CGAffineTransformMakeTranslation(0, backViewHeight + statusBarHeight);

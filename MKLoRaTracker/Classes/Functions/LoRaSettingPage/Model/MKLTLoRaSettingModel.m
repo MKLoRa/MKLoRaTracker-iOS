@@ -195,16 +195,16 @@
             [self operationFailedBlockWithMsg:@"Config ADR Error" block:failedBlock];
             return;
         }
-        if (!self.adrIsOn) {
-            if (![self configDRValue]) {
-                [self operationFailedBlockWithMsg:@"Config DR Error" block:failedBlock];
-                return;
-            }
-        }
         if (self.region == 0 || self.region == 1) {
             //AS923、AU915
             if (![self configDellTime]) {
                 [self operationFailedBlockWithMsg:@"Config Uplink Dell Time Error" block:failedBlock];
+                return;
+            }
+        }
+        if (!self.adrIsOn) {
+            if (![self configDRValue]) {
+                [self operationFailedBlockWithMsg:@"Config DR Error" block:failedBlock];
                 return;
             }
         }
@@ -777,21 +777,6 @@
         return 9;
     }
     return 0;
-}
-
-- (NSDictionary *)RegionDic {
-    return @{
-        @"0":@"AS923",
-        @"1":@"AU915",
-        @"2":@"CN470",
-        @"3":@"CN779",
-        @"4":@"EU433",
-        @"5":@"EU868",
-        @"6":@"KR920",
-        @"7":@"IN865",
-        @"8":@"US915",
-        @"9":@"RU864"
-    };
 }
 
 - (NSArray *)loadStringWithMaxValue:(NSInteger)max {

@@ -50,11 +50,17 @@ TODO: Add long description of the pod here.
   
   s.subspec 'SDK-LT' do |ss|
     ss.source_files = 'MKLoRaTracker/Classes/SDK-LT/**'
+    ss.dependency 'MKBaseBleModule'
   end
   
   s.subspec 'Target' do |ss|
     ss.source_files = 'MKLoRaTracker/Classes/Target/**'
     ss.dependency 'MKLoRaTracker/Functions'
+  end
+  
+  s.subspec 'ConnectModule' do |ss|
+    ss.source_files = 'MKLoRaTracker/Classes/ConnectModule/**'
+    ss.dependency 'MKLoRaTracker/SDK-LT'
   end
   
   s.subspec 'Functions' do |ss|
@@ -273,6 +279,7 @@ TODO: Add long description of the pod here.
     ss.dependency 'MKLoRaTracker/SDK-LT'
     ss.dependency 'MKLoRaTracker/CustomCell'
     ss.dependency 'MKLoRaTracker/CTMediator'
+    ss.dependency 'MKLoRaTracker/ConnectModule'
   
   end
 

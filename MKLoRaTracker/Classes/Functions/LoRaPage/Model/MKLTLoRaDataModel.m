@@ -92,8 +92,7 @@
     __block BOOL success = NO;
     [MKLTInterface lt_readLorawanRegionWithSucBlock:^(id  _Nonnull returnData) {
         success = YES;
-        NSDictionary *regionDic = [self RegionDic];
-        self.region = regionDic[returnData[@"result"][@"region"]];
+        self.region = [self regionMsg:[returnData[@"result"][@"region"] integerValue]];
         dispatch_semaphore_signal(self.semaphore);
     } failedBlock:^(NSError * _Nonnull error) {
         dispatch_semaphore_signal(self.semaphore);
@@ -106,13 +105,13 @@
     __block BOOL success = NO;
     [MKLTInterface lt_readLorawanNetworkStatusWithSucBlock:^(id  _Nonnull returnData) {
         success = YES;
-        NSInteger type = [returnData[@"status"] integerValue];
+        NSInteger type = [returnData[@"result"][@"status"] integerValue];
         if (type == 0) {
             self.networkStatus = @"Disconnected";
         }else if (type == 1) {
-            self.networkStatus = @"Connecting";
-        }else {
             self.networkStatus = @"Connected";
+        }else {
+            self.networkStatus = @"Connecting";
         }
         dispatch_semaphore_signal(self.semaphore);
     } failedBlock:^(NSError * _Nonnull error) {
@@ -167,19 +166,38 @@
     return YES;
 }
 
-- (NSDictionary *)RegionDic {
-    return @{
-        @"0":@"AS923",
-        @"1":@"AU915",
-        @"2":@"CN470",
-        @"3":@"CN779",
-        @"4":@"EU433",
-        @"5":@"EU868",
-        @"6":@"KR920",
-        @"7":@"IN865",
-        @"8":@"US915",
-        @"9":@"RU864"
-    };
+- (NSString *)regionMsg:(NSInteger)dataRegion {
+    if (dataRegion == 0) {
+        return @"EU868";
+    }
+    if (dataRegion == 1) {
+        return @"US915";
+    }
+    if (dataRegion == 3) {
+        return @"CN779";
+    }
+    if (dataRegion == 4) {
+        return @"EU433";
+    }
+    if (dataRegion == 5) {
+        return @"AU915";
+    }
+    if (dataRegion == 7) {
+        return @"CN470";
+    }
+    if (dataRegion == 8) {
+        return @"AS923";
+    }
+    if (dataRegion == 9) {
+        return @"KR920";
+    }
+    if (dataRegion == 10) {
+        return @"IN865";
+    }
+    if (dataRegion == 13) {
+        return @"RU864";
+    }
+    return @"EU868";
 }
 
 #pragma mark - getter

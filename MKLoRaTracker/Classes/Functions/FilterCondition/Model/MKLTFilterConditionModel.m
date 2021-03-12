@@ -74,9 +74,12 @@
                      sucBlock:(void (^)(void))sucBlock
                   failedBlock:(void (^)(NSError *error))failedBlock {
     dispatch_async(self.readQueue, ^{
-        if (![self validParams]) {
+        if (![self validParams:list]) {
             [self operationFailedBlockWithMsg:@"Opps！Save failed. Please check the input characters and try again." block:failedBlock];
             return ;
+        }
+        if (self.rawDataIson) {
+            
         }
         if (![self configRssi]) {
             [self operationFailedBlockWithMsg:@"Config rssi error" block:failedBlock];
@@ -362,7 +365,7 @@
 }
 
 #pragma mark - params valid
-- (BOOL)validParams {
+- (BOOL)validParams:(NSArray *)list {
     if (self.macIson) {
         if (self.macValue.length % 2 != 0 || self.macValue.length == 0 || self.macValue.length > 12) {
             return NO;
@@ -374,7 +377,7 @@
         }
     }
     if (self.uuidIson) {
-        if (![self.uuidValue isUUIDNumber]) {
+        if (![self.uuidValue regularExpressions:isHexadecimal] || self.uuidValue.length % 2 != 0) {
             return NO;
         }
     }
@@ -399,6 +402,10 @@
         if ([self.minorMaxValue integerValue] < [self.minorMinValue integerValue]) {
             return NO;
         }
+    }
+    if (self.rawDataIson && !ValidArray(list)) {
+        //打开了原始数据过滤
+        return NO;
     }
     
     return YES;

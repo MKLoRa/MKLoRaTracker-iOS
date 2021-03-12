@@ -22,7 +22,7 @@ static CGFloat const connectButtonWidth = 80.f;
 static CGFloat const connectButtonHeight = 30.f;
 static CGFloat const batteryIconWidth = 25.f;
 static CGFloat const batteryIconHeight = 25.f;
-static CGFloat const valueLabelWidth = 130.f;
+static CGFloat const valueLabelWidth = 110.f;
 
 #pragma mark - cell顶部视图
 
@@ -211,14 +211,14 @@ static CGFloat const valueLabelWidth = 130.f;
     }];
     
     [self.trackLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(self.txPowerLabel.mas_right).mas_offset(10.f);
-        make.width.mas_equalTo(valueLabelWidth);
+        make.left.mas_equalTo(self.txPowerLabel.mas_right).mas_offset(5.f);
+        make.width.mas_equalTo(70.f);
         make.centerY.mas_equalTo(self.txPowerLabel.mas_centerY);
         make.height.mas_equalTo(MKFont(12.f).lineHeight);
     }];
     [self.timeLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(self.trackLabel.mas_right).mas_offset(10.f);
-        make.width.mas_equalTo(self.trackLabel.mas_width);
+        make.left.mas_equalTo(self.trackLabel.mas_right).mas_offset(5.f);
+        make.right.mas_equalTo(-15.f);
         make.centerY.mas_equalTo(self.txPowerLabel.mas_centerY);
         make.height.mas_equalTo(MKFont(12.f).lineHeight);
     }];
@@ -312,7 +312,7 @@ static CGFloat const valueLabelWidth = 130.f;
     if (!_timeLabel) {
         _timeLabel = [[UILabel alloc] init];
         _timeLabel.textColor = DEFAULT_TEXT_COLOR;
-        _timeLabel.textAlignment = NSTextAlignmentCenter;
+        _timeLabel.textAlignment = NSTextAlignmentLeft;
         _timeLabel.font = MKFont(12.f);
         _timeLabel.text = @"N/A";
     }

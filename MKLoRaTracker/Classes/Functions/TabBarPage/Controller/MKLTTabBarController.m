@@ -78,8 +78,8 @@
     WS(weakSelf);
     [self dismissViewControllerAnimated:YES completion:^{
         __strong typeof(self) sself = weakSelf;
-        if ([sself.delegate respondsToSelector:@selector(mk_needResetScanDelegate:)]) {
-            [sself.delegate mk_needResetScanDelegate:NO];
+        if ([sself.delegate respondsToSelector:@selector(mk_lt_needResetScanDelegate:)]) {
+            [sself.delegate mk_lt_needResetScanDelegate:NO];
         }
     }];
 }
@@ -88,8 +88,8 @@
     WS(weakSelf);
     [self dismissViewControllerAnimated:YES completion:^{
         __strong typeof(self) sself = weakSelf;
-        if ([sself.delegate respondsToSelector:@selector(mk_needResetScanDelegate:)]) {
-            [sself.delegate mk_needResetScanDelegate:YES];
+        if ([sself.delegate respondsToSelector:@selector(mk_lt_needResetScanDelegate:)]) {
+            [sself.delegate mk_lt_needResetScanDelegate:YES];
         }
     }];
 }
@@ -119,7 +119,7 @@
     if (self.disconnectType) {
         return;
     }
-    if ([MKLTCentralManager shared].centralStatus != MKCentralManagerStateEnable) {
+    if ([MKLTCentralManager shared].centralStatus != mk_lt_centralManagerStatusEnable) {
         [self showAlertWithMsg:@"The current system of bluetooth is not available!" title:@"Dismiss"];
     }
 }

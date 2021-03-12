@@ -36,7 +36,7 @@ static dispatch_once_t onceToken;
 
 @property (nonatomic, copy)void (^failedBlock)(NSError *error);
 
-@property (nonatomic, assign)mk_lt_bleCentralConnectStatus connectStatus;
+@property (nonatomic, assign)mk_lt_centralConnectStatus connectStatus;
 
 @end
 
@@ -109,13 +109,13 @@ static dispatch_once_t onceToken;
 - (void)MKBLEBasePeripheralConnectStateChanged:(MKPeripheralConnectState)connectState {
     //连接成功的判断必须是发送密码成功之后
     if (connectState == MKPeripheralConnectStateUnknow) {
-        self.connectStatus = mk_lt_bleCentralConnectStatusUnknow;
+        self.connectStatus = mk_lt_centralConnectStatusUnknow;
     }else if (connectState == MKPeripheralConnectStateConnecting) {
-        self.connectStatus = mk_lt_bleCentralConnectStatusConnecting;
+        self.connectStatus = mk_lt_centralConnectStatusConnecting;
     }else if (connectState == MKPeripheralConnectStateConnectedFailed) {
-        self.connectStatus = mk_lt_bleCentralConnectStatusConnectedFailed;
+        self.connectStatus = mk_lt_centralConnectStatusConnectedFailed;
     }else if (connectState == MKPeripheralConnectStateDisconnect) {
-        self.connectStatus = mk_lt_bleCentralConnectStatusDisconnect;
+        self.connectStatus = mk_lt_centralConnectStatusDisconnect;
     }
     NSLog(@"当前连接状态发生改变了:%@",@(connectState));
     [[NSNotificationCenter defaultCenter] postNotificationName:mk_lt_peripheralConnectStateChangedNotification object:nil];
@@ -143,9 +143,9 @@ static dispatch_once_t onceToken;
         if ([type isEqualToString:@"03"]) {
             //三轴
             NSDictionary *dic = @{
-                @"x-axis":[MKBLEBaseSDKAdopter getDecimalStringWithHex:content range:NSMakeRange(8, 2)],
-                @"y-axis":[MKBLEBaseSDKAdopter getDecimalStringWithHex:content range:NSMakeRange(10, 2)],
-                @"z-axis":[MKBLEBaseSDKAdopter getDecimalStringWithHex:content range:NSMakeRange(12, 2)],
+                @"x-axis":[MKBLEBaseSDKAdopter getDecimalStringWithHex:content range:NSMakeRange(8, 4)],
+                @"y-axis":[MKBLEBaseSDKAdopter getDecimalStringWithHex:content range:NSMakeRange(12, 4)],
+                @"z-axis":[MKBLEBaseSDKAdopter getDecimalStringWithHex:content range:NSMakeRange(16, 4)],
             };
             [[NSNotificationCenter defaultCenter] postNotificationName:mk_lt_receive3AxisSensorDataNotification
                                                                 object:nil
@@ -172,8 +172,10 @@ static dispatch_once_t onceToken;
     return [MKBLEBaseCentralManager shared].peripheral;
 }
 
-- (MKCentralManagerState )centralStatus {
-    return [MKBLEBaseCentralManager shared].centralStatus;
+- (mk_lt_centralManagerStatus )centralStatus {
+    return ([MKBLEBaseCentralManager shared].centralStatus == MKCentralManagerStateEnable)
+    ? mk_lt_centralManagerStatusEnable
+    : mk_lt_centralManagerStatusUnable;
 }
 
 - (void)startScan {
@@ -221,7 +223,7 @@ static dispatch_once_t onceToken;
 }
 
 - (BOOL)notifyGPSDataData:(BOOL)notify {
-    if (self.connectStatus != mk_lt_bleCentralConnectStatusConnected || [MKBLEBaseCentralManager shared].peripheral == nil || [MKBLEBaseCentralManager shared].peripheral.lt_gpsData == nil) {
+    if (self.connectStatus != mk_lt_centralConnectStatusConnected || [MKBLEBaseCentralManager shared].peripheral == nil || [MKBLEBaseCentralManager shared].peripheral.lt_gpsData == nil) {
         return NO;
     }
     [[MKBLEBaseCentralManager shared].peripheral setNotifyValue:notify
@@ -293,7 +295,7 @@ static dispatch_once_t onceToken;
         }
         //密码正确
         MKBLEBase_main_safe(^{
-            self.connectStatus = mk_lt_bleCentralConnectStatusConnected;
+            self.connectStatus = mk_lt_centralConnectStatusConnected;
             [[NSNotificationCenter defaultCenter] postNotificationName:mk_lt_peripheralConnectStateChangedNotification object:nil];
             if (self.sucBlock) {
                 self.sucBlock([MKBLEBaseCentralManager shared].peripheral);

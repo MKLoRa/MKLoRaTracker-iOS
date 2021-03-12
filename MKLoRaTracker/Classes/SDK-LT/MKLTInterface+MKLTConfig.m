@@ -207,17 +207,13 @@
 + (void)lt_configScanWindow:(mk_lt_scanWindowType)scanWindow
                    sucBlock:(void (^)(void))sucBlock
                 failedBlock:(void (^)(NSError *error))failedBlock {
-    NSString *commandString = @"ed0129020001";
-    if (scanWindow != mk_lt_scanWindowTypeClose) {
-        if (scanWindow == mk_lt_scanWindowTypeOpen) {
-            commandString = @"ed0129020101";
-        }else if (scanWindow == mk_lt_scanWindowTypeHalfOpen) {
-            commandString = @"ed0129020102";
-        }else if (scanWindow == mk_lt_scanWindowTypeQuarterOpen) {
-            commandString = @"ed0129020103";
-        }else if (scanWindow == mk_lt_scanWindowTypeOneEighthOpen) {
-            commandString = @"ed0129020104";
-        }
+    NSString *commandString = @"ed01290100";
+    if (scanWindow == mk_lt_scanWindowTypeLow) {
+        commandString = @"ed01290101";
+    }else if (scanWindow == mk_lt_scanWindowTypeMedium) {
+        commandString = @"ed01290102";
+    }else if (scanWindow == mk_lt_scanWindowTypeStrong) {
+        commandString = @"ed01290103";
     }
     [self configDataWithTaskID:mk_lt_taskConfigScanWindowOperation
                           data:commandString
@@ -504,7 +500,7 @@
     }else if (value.length == 3) {
         value = [@"0" stringByAppendingString:value];
     }
-    NSString *commandString = [NSString stringWithFormat:@"%@%@",@"ed013d01",value];
+    NSString *commandString = [NSString stringWithFormat:@"%@%@",@"ed013d02",value];
     [self configDataWithTaskID:mk_lt_taskConfigVibrationCycleOfMotorOperation
                           data:commandString
                       sucBlock:sucBlock
@@ -1191,7 +1187,7 @@
                        failedBlock:failedBlock];
         return;
     }
-    if (![MKBLEBaseSDKAdopter isUUIDString:uuid]) {
+    if (![MKBLEBaseSDKAdopter checkHexCharacter:uuid] || uuid.length > 32 || uuid.length % 2 != 0) {
         [self operationParamsErrorBlock:failedBlock];
         return;
     }
@@ -1238,6 +1234,10 @@
                               data:commandString
                           sucBlock:sucBlock
                        failedBlock:failedBlock];
+        return;
+    }
+    if (!MKValidArray(rawDataList) || rawDataList.count > 5) {
+        [self operationParamsErrorBlock:failedBlock];
         return;
     }
     NSString *contentData = @"";

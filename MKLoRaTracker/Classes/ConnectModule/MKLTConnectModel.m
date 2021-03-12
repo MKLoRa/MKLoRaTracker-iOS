@@ -14,6 +14,7 @@
 
 #import "MKLTCentralManager.h"
 #import "MKLTInterface+MKLTConfig.h"
+#import "MKLTInterface.h"
 
 @interface MKLTConnectModel ()
 
@@ -21,9 +22,22 @@
 
 @property (nonatomic, strong)dispatch_semaphore_t semaphore;
 
+@property (nonatomic, assign)BOOL supportGps;
+
 @end
 
 @implementation MKLTConnectModel
+
++ (MKLTConnectModel *)shared {
+    static MKLTConnectModel *connectModel = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        if (!connectModel) {
+            connectModel = [MKLTConnectModel new];
+        }
+    });
+    return connectModel;
+}
 
 - (void)connectDevice:(CBPeripheral *)peripheral
              password:(NSString *)password
@@ -37,6 +51,11 @@
         }
         if (![self configDate]) {
             [self operationFailedMsg:@"Config Date Error" completeBlock:failedBlock];
+            return;
+        }
+        if (![self readGPSSupportStatus]) {
+            [self operationFailedMsg:@"Read GPS Hard Support Status Error" completeBlock:failedBlock];
+            return;
         }
         moko_dispatch_main_safe(^{
             if (sucBlock) {
@@ -70,6 +89,19 @@
     long long recordTime = [[NSDate date] timeIntervalSince1970];
     [MKLTInterface lt_configDeviceTime:recordTime sucBlock:^{
         success = YES;
+        dispatch_semaphore_signal(self.semaphore);
+    } failedBlock:^(NSError * _Nonnull error) {
+        dispatch_semaphore_signal(self.semaphore);
+    }];
+    dispatch_semaphore_wait(self.semaphore, DISPATCH_TIME_FOREVER);
+    return success;
+}
+
+- (BOOL)readGPSSupportStatus {
+    __block BOOL success = NO;
+    [MKLTInterface lt_readGPSHardwareStatusWithSucBlock:^(id  _Nonnull returnData) {
+        success = YES;
+        self.supportGps = [returnData[@"result"][@"contain"] boolValue];
         dispatch_semaphore_signal(self.semaphore);
     } failedBlock:^(NSError * _Nonnull error) {
         dispatch_semaphore_signal(self.semaphore);

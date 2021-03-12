@@ -263,9 +263,9 @@ MKLTAxisSensorCellDelegate>
         return;
     }
     MKLTAxisSensorCellModel *cellModel = self.section4List[0];
-    cellModel.xAxisSensorData = dic[@"x-axis"];
-    cellModel.yAxisSensorData = dic[@"y-axis"];
-    cellModel.zAxisSensorData = dic[@"z-axis"];
+    cellModel.xAxisSensorData = dic[@"axisData"][@"x-axis"];
+    cellModel.yAxisSensorData = dic[@"axisData"][@"y-axis"];
+    cellModel.zAxisSensorData = dic[@"axisData"][@"z-axis"];
     [self.tableView mk_reloadSection:4 withRowAnimation:UITableViewRowAnimationNone];
 }
 

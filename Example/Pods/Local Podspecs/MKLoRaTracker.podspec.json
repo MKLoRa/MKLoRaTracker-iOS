@@ -69,13 +69,27 @@
     },
     {
       "name": "SDK-LT",
-      "source_files": "MKLoRaTracker/Classes/SDK-LT/**"
+      "source_files": "MKLoRaTracker/Classes/SDK-LT/**",
+      "dependencies": {
+        "MKBaseBleModule": [
+
+        ]
+      }
     },
     {
       "name": "Target",
       "source_files": "MKLoRaTracker/Classes/Target/**",
       "dependencies": {
         "MKLoRaTracker/Functions": [
+
+        ]
+      }
+    },
+    {
+      "name": "ConnectModule",
+      "source_files": "MKLoRaTracker/Classes/ConnectModule/**",
+      "dependencies": {
+        "MKLoRaTracker/SDK-LT": [
 
         ]
       }
@@ -90,6 +104,9 @@
 
         ],
         "MKLoRaTracker/CTMediator": [
+
+        ],
+        "MKLoRaTracker/ConnectModule": [
 
         ]
       },

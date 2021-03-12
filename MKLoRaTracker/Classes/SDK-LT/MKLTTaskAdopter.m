@@ -157,10 +157,8 @@ NSString *const mk_lt_communicationDataNum = @"mk_lt_communicationDataNum";
         operationID = mk_lt_taskReadDeviceNameOperation;
     }else if ([cmd isEqualToString:@"29"]) {
         //读取设备扫描窗口参数
-        BOOL isOn = [[content substringWithRange:NSMakeRange(0, 2)] isEqualToString:@"01"];
-        NSString *scanWindow = [MKBLEBaseSDKAdopter getDecimalStringWithHex:content range:NSMakeRange(2, content.length - 2)];
+        NSString *scanWindow = [MKBLEBaseSDKAdopter getDecimalStringWithHex:content range:NSMakeRange(0, 2)];
         resultDic = @{
-            @"isOn":@(isOn),
             @"scanWindow":scanWindow
         };
         operationID = mk_lt_taskReadScanParamsOperation;
@@ -397,7 +395,7 @@ NSString *const mk_lt_communicationDataNum = @"mk_lt_communicationDataNum";
         //读取Tracking过滤规则A - 原始数据
         NSString *rule = [MKBLEBaseSDKAdopter getDecimalStringWithHex:content range:NSMakeRange(0, 2)];
         NSMutableArray *filterList = [NSMutableArray array];
-        if ([rule integerValue] > 0) {
+        if ([rule integerValue] > 0 && content.length > 2) {
             NSInteger subIndex = 2;
             //最多五条过滤数据
             for (NSInteger i = 0; i < 5; i ++) {
@@ -516,7 +514,7 @@ NSString *const mk_lt_communicationDataNum = @"mk_lt_communicationDataNum";
         //读取Tracking过滤规则B - 原始数据
         NSString *rule = [MKBLEBaseSDKAdopter getDecimalStringWithHex:content range:NSMakeRange(0, 2)];
         NSMutableArray *filterList = [NSMutableArray array];
-        if ([rule integerValue] > 0) {
+        if ([rule integerValue] > 0 && content.length > 2) {
             NSInteger subIndex = 2;
             //最多五条过滤数据
             for (NSInteger i = 0; i < 5; i ++) {
@@ -679,7 +677,7 @@ NSString *const mk_lt_communicationDataNum = @"mk_lt_communicationDataNum";
         //读取Location过滤规则A - 原始数据
         NSString *rule = [MKBLEBaseSDKAdopter getDecimalStringWithHex:content range:NSMakeRange(0, 2)];
         NSMutableArray *filterList = [NSMutableArray array];
-        if ([rule integerValue] > 0) {
+        if ([rule integerValue] > 0 && content.length > 2) {
             NSInteger subIndex = 2;
             //最多五条过滤数据
             for (NSInteger i = 0; i < 5; i ++) {
@@ -798,7 +796,7 @@ NSString *const mk_lt_communicationDataNum = @"mk_lt_communicationDataNum";
         //读取Location过滤规则B - 原始数据
         NSString *rule = [MKBLEBaseSDKAdopter getDecimalStringWithHex:content range:NSMakeRange(0, 2)];
         NSMutableArray *filterList = [NSMutableArray array];
-        if ([rule integerValue] > 0) {
+        if ([rule integerValue] > 0 && content.length > 2) {
             NSInteger subIndex = 2;
             //最多五条过滤数据
             for (NSInteger i = 0; i < 5; i ++) {

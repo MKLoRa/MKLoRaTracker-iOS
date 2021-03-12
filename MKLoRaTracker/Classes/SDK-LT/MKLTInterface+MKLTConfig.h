@@ -50,11 +50,10 @@ typedef NS_ENUM(NSInteger, mk_lt_loraWanMessageType) {
 };
 
 typedef NS_ENUM(NSInteger, mk_lt_scanWindowType) {
-    mk_lt_scanWindowTypeClose,            //close.
-    mk_lt_scanWindowTypeOpen,             //open.
-    mk_lt_scanWindowTypeHalfOpen,         //Open in half time.
-    mk_lt_scanWindowTypeQuarterOpen,      //Open a quarter of the time.
-    mk_lt_scanWindowTypeOneEighthOpen,    //Open in one eighth time.
+    mk_lt_scanWindowTypeOff,            //close.
+    mk_lt_scanWindowTypeLow,            //Low.
+    mk_lt_scanWindowTypeMedium,         //Medium.
+    mk_lt_scanWindowTypeStrong,         //Strong.
 };
 
 typedef NS_ENUM(NSInteger, mk_lt_threeAxisDataSamplingRate) {

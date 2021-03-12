@@ -77,7 +77,7 @@
     __block BOOL success = NO;
     [MKLTInterface lt_readLowPowerPromptWithSucBlock:^(id  _Nonnull returnData) {
         success = YES;
-        self.lowPowerAlarm = ([returnData[@"result"][@"percent"] integerValue] / 10);
+        self.lowPowerAlarm = ([returnData[@"result"][@"percent"] integerValue] / 10 - 1);
         dispatch_semaphore_signal(self.semaphore);
     } failedBlock:^(NSError * _Nonnull error) {
         dispatch_semaphore_signal(self.semaphore);

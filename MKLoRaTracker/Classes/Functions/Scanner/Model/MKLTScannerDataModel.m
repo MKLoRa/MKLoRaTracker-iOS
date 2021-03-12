@@ -71,6 +71,10 @@
             [self operationFailedBlockWithMsg:@"Config Gathering Warning Error" block:failedBlock];
             return;
         }
+        if (![self configScanParams]) {
+            [self operationFailedBlockWithMsg:@"Config Scan Intensity Error" block:failedBlock];
+            return;
+        }
         moko_dispatch_main_safe(^{
             if (sucBlock) {
                 sucBlock();
@@ -184,13 +188,19 @@
     __block BOOL success = NO;
     [MKLTInterface lt_readDeviceScanParamsWithSucBlock:^(id  _Nonnull returnData) {
         success = YES;
-        if (![returnData[@"result"][@"isOn"] boolValue]) {
-            //关闭
-            self.scanWindow = 0;
-        }else {
-            //打开
-            self.scanWindow = [returnData[@"result"][@"scanWindow"] integerValue];
-        }
+        self.scanWindow = [returnData[@"result"][@"scanWindow"] integerValue];
+        dispatch_semaphore_signal(self.semaphore);
+    } failedBlock:^(NSError * _Nonnull error) {
+        dispatch_semaphore_signal(self.semaphore);
+    }];
+    dispatch_semaphore_wait(self.semaphore, DISPATCH_TIME_FOREVER);
+    return success;
+}
+
+- (BOOL)configScanParams {
+    __block BOOL success = NO;
+    [MKLTInterface lt_configScanWindow:self.scanWindow sucBlock:^{
+        success = YES;
         dispatch_semaphore_signal(self.semaphore);
     } failedBlock:^(NSError * _Nonnull error) {
         dispatch_semaphore_signal(self.semaphore);

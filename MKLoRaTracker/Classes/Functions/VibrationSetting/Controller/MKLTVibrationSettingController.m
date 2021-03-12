@@ -59,7 +59,7 @@ MKTextFieldCellDelegate>
 #pragma mark - super method
 
 - (void)rightButtonMethod {
-    if (![self.dataModel.cycle integerValue] < [self.dataModel.duration integerValue]) {
+    if ([self.dataModel.cycle integerValue] < [self.dataModel.duration integerValue]) {
         [self.view showCentralToast:@"Vibration Cycle cannot be less than the value of Duration Of Vibration!"];
         return;
     }

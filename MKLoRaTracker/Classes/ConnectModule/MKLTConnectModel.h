@@ -13,6 +13,11 @@ NS_ASSUME_NONNULL_BEGIN
 @class CBPeripheral;
 @interface MKLTConnectModel : NSObject
 
+/// 部分设备不支持gps
+@property (nonatomic, assign, readonly)BOOL supportGps;
+
++ (MKLTConnectModel *)shared;
+
 /// 连接设备
 /// @param peripheral 设备
 /// @param password 密码

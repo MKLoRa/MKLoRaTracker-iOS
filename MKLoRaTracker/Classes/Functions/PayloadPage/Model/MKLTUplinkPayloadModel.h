@@ -39,7 +39,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, assign)BOOL sosMacIsOn;
 
-#pragma mark - GPS Payload
+#pragma mark - GPS Payload 部分设备不支持GPS功能
 
 /// 0~19
 @property (nonatomic, assign)NSInteger gpsInterval;

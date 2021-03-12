@@ -24,6 +24,8 @@
 
 #import "MKLTInterface+MKLTConfig.h"
 
+#import "MKLTConnectModel.h"
+
 #import "MKLTSettingDataModel.h"
 
 #import "MKLTAdvertiserController.h"
@@ -48,14 +50,16 @@ mk_textSwitchCellDelegate
 
 @property (nonatomic, strong)MKLTSettingDataModel *dataModel;
 
-@property (nonatomic, strong)UITextField *passwordField;
-
 @property (nonatomic, strong)UITextField *passwordTextField;
 
 @property (nonatomic, strong)UITextField *confirmTextField;
 
 /// 当前present的alert
 @property (nonatomic, strong)UIAlertController *currentAlert;
+
+@property (nonatomic, copy)NSString *passwordAsciiStr;
+
+@property (nonatomic, copy)NSString *confirmAsciiStr;
 
 @end
 
@@ -106,41 +110,14 @@ mk_textSwitchCellDelegate
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 0 && indexPath.row == 0) {
-        //
-        MKLTAdvertiserController *vc = [[MKLTAdvertiserController alloc] init];
-        [self.navigationController pushViewController:vc animated:YES];
-        return;
-    }
-    if (indexPath.section == 0 && indexPath.row == 1) {
-        //
-        MKLTVibrationSettingController *vc = [[MKLTVibrationSettingController alloc] init];
-        [self.navigationController pushViewController:vc animated:YES];
-        return;
-    }
-    if (indexPath.section == 0 && indexPath.row == 2) {
-        MKLTSOSController *vc = [[MKLTSOSController alloc] init];
-        [self.navigationController pushViewController:vc animated:YES];
-        return;
-    }
-    if (indexPath.section == 0 && indexPath.row == 3) {
-        MKLTGPSController *vc = [[MKLTGPSController alloc] init];
-        [self.navigationController pushViewController:vc animated:YES];
-        return;
-    }
-    if (indexPath.section == 0 && indexPath.row == 4) {
-        MKLTAxisController *vc = [[MKLTAxisController alloc] init];
-        [self.navigationController pushViewController:vc animated:YES];
-        return;
-    }
-    if (indexPath.section == 0 && indexPath.row == 5) {
-        //修改密码
-        [self configPassword];
-        return;
-    }
-    if (indexPath.section == 0 && indexPath.row == 6) {
-        //恢复出厂设置
-        [self factoryReset];
+    if (indexPath.section == 0) {
+        MKNormalTextCellModel *cellModel = self.section0List[indexPath.row];
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+        if ([self respondsToSelector:NSSelectorFromString(cellModel.methodName)]) {
+            [self performSelector:NSSelectorFromString(cellModel.methodName) withObject:nil];
+        }
+#pragma clang diagnostic pop
         return;
     }
 }
@@ -209,7 +186,7 @@ mk_textSwitchCellDelegate
     if (index == 0) {
         //低电量报警
         [[MKHudManager share] showHUDWithTitle:@"Config..." inView:self.view isPenetration:NO];
-        [MKLTInterface lt_configLowPowerPrompt:dataListIndex sucBlock:^{
+        [MKLTInterface lt_configLowPowerPrompt:(dataListIndex + 1) sucBlock:^{
             [[MKHudManager share] hide];
             
             MKTextButtonCellModel *cellModel = self.section2List[0];
@@ -232,6 +209,32 @@ mk_textSwitchCellDelegate
     }
 }
 
+#pragma mark - section0 的点击事件
+- (void)pushAdvertiserPage {
+    MKLTAdvertiserController *vc = [[MKLTAdvertiserController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)pushVibrationSettingPage {
+    MKLTVibrationSettingController *vc = [[MKLTVibrationSettingController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)pushSOSFunctionPage {
+    MKLTSOSController *vc = [[MKLTSOSController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)pushGPSFunctionPage {
+    MKLTGPSController *vc = [[MKLTGPSController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)pushAxisSensorPage {
+    MKLTAxisController *vc = [[MKLTAxisController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 #pragma mark - 设置密码
 - (void)configPassword{
     WS(weakSelf);
@@ -243,6 +246,7 @@ mk_textSwitchCellDelegate
     [self.currentAlert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
         weakSelf.passwordTextField = nil;
         weakSelf.passwordTextField = textField;
+        weakSelf.passwordAsciiStr = @"";
         [weakSelf.passwordTextField setPlaceholder:@"Enter new password"];
         [weakSelf.passwordTextField addTarget:weakSelf
                                        action:@selector(passwordTextFieldValueChanged:)
@@ -251,6 +255,7 @@ mk_textSwitchCellDelegate
     [self.currentAlert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
         weakSelf.confirmTextField = nil;
         weakSelf.confirmTextField = textField;
+        weakSelf.confirmAsciiStr = @"";
         [weakSelf.confirmTextField setPlaceholder:@"Enter new password again"];
         [weakSelf.confirmTextField addTarget:weakSelf
                                       action:@selector(passwordTextFieldValueChanged:)
@@ -267,12 +272,44 @@ mk_textSwitchCellDelegate
 }
 
 - (void)passwordTextFieldValueChanged:(UITextField *)textField{
-    NSString *tempInputString = textField.text;
-    if (!ValidStr(tempInputString)) {
+    NSString *inputValue = textField.text;
+    if (!ValidStr(inputValue)) {
         textField.text = @"";
+        if (textField == self.passwordTextField) {
+            self.passwordAsciiStr = @"";
+        }else if (textField == self.confirmTextField) {
+            self.confirmAsciiStr = @"";
+        }
         return;
     }
-    textField.text = (tempInputString.length > 8 ? [tempInputString substringToIndex:8] : tempInputString);
+    NSInteger strLen = inputValue.length;
+    NSInteger dataLen = [inputValue dataUsingEncoding:NSUTF8StringEncoding].length;
+    
+    NSString *currentStr = @"";
+    if (textField == self.passwordTextField) {
+        currentStr = self.passwordAsciiStr;
+    }else {
+        currentStr = self.confirmAsciiStr;
+    }
+    if (dataLen == strLen) {
+        //当前输入是ascii字符
+        currentStr = inputValue;
+    }
+    if (currentStr.length > 8) {
+        textField.text = [currentStr substringToIndex:8];
+        if (textField == self.passwordTextField) {
+            self.passwordAsciiStr = [currentStr substringToIndex:8];
+        }else {
+            self.confirmAsciiStr = [currentStr substringToIndex:8];
+        }
+    }else {
+        textField.text = currentStr;
+        if (textField == self.passwordTextField) {
+            self.passwordAsciiStr = currentStr;
+        }else {
+            self.confirmAsciiStr = currentStr;
+        }
+    }
 }
 
 - (void)setPasswordToDevice{
@@ -448,36 +485,45 @@ mk_textSwitchCellDelegate
     MKNormalTextCellModel *cellModel1 = [[MKNormalTextCellModel alloc] init];
     cellModel1.leftMsg = @"Advertiser";
     cellModel1.showRightIcon = YES;
+    cellModel1.methodName = @"pushAdvertiserPage";
     [self.section0List addObject:cellModel1];
     
     MKNormalTextCellModel *cellModel2 = [[MKNormalTextCellModel alloc] init];
     cellModel2.leftMsg = @"Vibration Setting";
     cellModel2.showRightIcon = YES;
+    cellModel2.methodName = @"pushVibrationSettingPage";
     [self.section0List addObject:cellModel2];
     
     MKNormalTextCellModel *cellModel3 = [[MKNormalTextCellModel alloc] init];
     cellModel3.leftMsg = @"SOS Function";
     cellModel3.showRightIcon = YES;
+    cellModel3.methodName = @"pushSOSFunctionPage";
     [self.section0List addObject:cellModel3];
     
-    MKNormalTextCellModel *cellModel4 = [[MKNormalTextCellModel alloc] init];
-    cellModel4.leftMsg = @"GPS Function";
-    cellModel4.showRightIcon = YES;
-    [self.section0List addObject:cellModel4];
+    if ([MKLTConnectModel shared].supportGps) {
+        MKNormalTextCellModel *cellModel4 = [[MKNormalTextCellModel alloc] init];
+        cellModel4.leftMsg = @"GPS Function";
+        cellModel4.showRightIcon = YES;
+        cellModel4.methodName = @"pushGPSFunctionPage";
+        [self.section0List addObject:cellModel4];
+    }
     
     MKNormalTextCellModel *cellModel5 = [[MKNormalTextCellModel alloc] init];
     cellModel5.leftMsg = @"3-Axis Sensor";
     cellModel5.showRightIcon = YES;
+    cellModel5.methodName = @"pushAxisSensorPage";
     [self.section0List addObject:cellModel5];
     
     MKNormalTextCellModel *cellModel6 = [[MKNormalTextCellModel alloc] init];
     cellModel6.leftMsg = @"Change Password";
     cellModel6.showRightIcon = YES;
+    cellModel6.methodName = @"configPassword";
     [self.section0List addObject:cellModel6];
     
     MKNormalTextCellModel *cellModel7 = [[MKNormalTextCellModel alloc] init];
     cellModel7.leftMsg = @"Factory Reset";
     cellModel7.showRightIcon = YES;
+    cellModel7.methodName = @"factoryReset";
     [self.section0List addObject:cellModel7];
 }
 

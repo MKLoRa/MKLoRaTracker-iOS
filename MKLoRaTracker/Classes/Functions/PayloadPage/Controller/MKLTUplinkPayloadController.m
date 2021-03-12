@@ -23,6 +23,8 @@
 #import "MKMixedChoiceCell.h"
 #import "MKTextSwitchCell.h"
 
+#import "MKLTConnectModel.h"
+
 #import "MKLTUplinkPayloadModel.h"
 
 static CGFloat const sectionHeaderHeight = 55.f;
@@ -155,14 +157,14 @@ MKMixedChoiceCellDelegate>
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    if (section == 0 || section == 1 || section == 5 || section == 7 || section == 9) {
+    if (section == 0 || section == 1 || section == 5 || ([MKLTConnectModel shared].supportGps && section == 7) || section == 9) {
         return 60.f;
     }
     return 0.01;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    if (section == 0 || section == 1 || section == 5 || section == 7 || section == 9) {
+    if (section == 0 || section == 1 || section == 5 || section == 9 || ([MKLTConnectModel shared].supportGps && section == 7)) {
         UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kViewWidth, sectionHeaderHeight)];
         headerView.backgroundColor = RGBCOLOR(242, 242, 242);
         
@@ -227,10 +229,10 @@ MKMixedChoiceCellDelegate>
         return self.section6List.count;
     }
     if (section == 7) {
-        return self.section7List.count;
+        return ([MKLTConnectModel shared].supportGps ? self.section7List.count : 0);
     }
     if (section == 8) {
-        return self.section8List.count;
+        return ([MKLTConnectModel shared].supportGps ? self.section8List.count : 0);
     }
     if (section == 9) {
         return self.section9List.count;

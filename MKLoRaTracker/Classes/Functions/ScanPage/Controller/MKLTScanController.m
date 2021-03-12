@@ -26,6 +26,7 @@
 #import "MKLTSDK.h"
 
 #import "MKLTConnectModel.h"
+
 #import "MKLTScanPageModel.h"
 
 #import "MKLTScanPageCell.h"
@@ -100,7 +101,8 @@ MKLTTabBarControllerDelegate>
 
 @property (nonatomic, strong)UITextField *passwordField;
 
-@property (nonatomic, strong)MKLTConnectModel *connectModel;
+/// 保存当前密码输入框ascii字符部分
+@property (nonatomic, copy)NSString *asciiText;
 
 @end
 
@@ -199,7 +201,7 @@ MKLTTabBarControllerDelegate>
 }
 
 #pragma mark - MKLTTabBarControllerDelegate
-- (void)mk_needResetScanDelegate:(BOOL)need {
+- (void)mk_lt_needResetScanDelegate:(BOOL)need {
     if (need) {
         [MKLTCentralManager shared].delegate = self;
     }
@@ -208,7 +210,7 @@ MKLTTabBarControllerDelegate>
 
 #pragma mark - event method
 - (void)refreshButtonPressed {
-    if ([MKLTCentralManager shared].centralStatus != MKCentralManagerStateEnable) {
+    if ([MKLTCentralManager shared].centralStatus != mk_lt_centralManagerStatusEnable) {
         [self.view showCentralToast:@"The current system of bluetooth is not available!"];
         return;
     }
@@ -234,7 +236,7 @@ MKLTTabBarControllerDelegate>
 #pragma mark - notice method
 
 - (void)showCentralStatus{
-    if ([MKLTCentralManager shared].centralStatus != MKCentralManagerStateEnable) {
+    if ([MKLTCentralManager shared].centralStatus != mk_lt_centralManagerStatusEnable) {
         NSString *msg = @"The current system of bluetooth is not available!";
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Dismiss"
                                                                                  message:msg
@@ -402,6 +404,7 @@ MKLTTabBarControllerDelegate>
         weakSelf.passwordField = textField;
         NSString *localPassword = [[NSUserDefaults standardUserDefaults] objectForKey:localPasswordKey];
         textField.text = localPassword;
+        weakSelf.asciiText = localPassword;
         weakSelf.passwordField.placeholder = @"The password is 8 characters.";
         [textField addTarget:self action:@selector(passwordInput) forControlEvents:UIControlEventEditingChanged];
     }];
@@ -427,7 +430,7 @@ MKLTTabBarControllerDelegate>
     }
     [[MKHudManager share] showHUDWithTitle:@"Connecting..." inView:self.view isPenetration:NO];
     WS(weakSelf);
-    [self.connectModel connectDevice:trackerModel.peripheral password:password sucBlock:^{
+    [[MKLTConnectModel shared] connectDevice:trackerModel.peripheral password:password sucBlock:^{
         [[NSUserDefaults standardUserDefaults] setObject:password forKey:localPasswordKey];
         [[MKHudManager share] hide];
         [weakSelf.view showCentralToast:@"Time sync completed!"];
@@ -459,12 +462,26 @@ MKLTTabBarControllerDelegate>
  监听输入的密码
  */
 - (void)passwordInput{
-    NSString *tempInputString = self.passwordField.text;
-    if (!ValidStr(tempInputString)) {
+    NSString *inputValue = self.passwordField.text;
+    if (!ValidStr(inputValue)) {
         self.passwordField.text = @"";
+        self.asciiText = @"";
         return;
     }
-    self.passwordField.text = (tempInputString.length > 8 ? [tempInputString substringToIndex:8] : tempInputString);
+    NSInteger strLen = inputValue.length;
+    NSInteger dataLen = [inputValue dataUsingEncoding:NSUTF8StringEncoding].length;
+    NSString *currentStr = self.asciiText;
+    if (dataLen == strLen) {
+        //当前输入是ascii字符
+        currentStr = inputValue;
+    }
+    if (currentStr.length > 8) {
+        self.passwordField.text = [currentStr substringToIndex:8];
+        self.asciiText = [currentStr substringToIndex:8];
+    }else {
+        self.passwordField.text = currentStr;
+        self.asciiText = currentStr;
+    }
 }
 
 #pragma mark - UI
@@ -567,13 +584,6 @@ MKLTTabBarControllerDelegate>
         _dataList = [NSMutableArray array];
     }
     return _dataList;
-}
-
-- (MKLTConnectModel *)connectModel {
-    if (!_connectModel) {
-        _connectModel = [[MKLTConnectModel alloc] init];
-    }
-    return _connectModel;
 }
 
 @end

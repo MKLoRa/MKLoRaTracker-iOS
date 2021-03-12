@@ -43,9 +43,11 @@
 
 - (void)configDataWithSucBlock:(void (^)(void))sucBlock failedBlock:(void (^)(NSError * error))failedBlock {
     dispatch_async(self.readQueue, ^{
-        if (self.checkStatus && ([self.checkInterval integerValue] < 0 || [self.checkInterval integerValue] > 240)) {
-            [self operationFailedBlockWithMsg:@"Network Check Interval must be 0 ~ 240" block:failedBlock];
-            return;
+        if (self.checkStatus) {
+            if (!ValidStr(self.checkInterval) || [self.checkInterval integerValue] < 0 || [self.checkInterval integerValue] > 240) {
+                [self operationFailedBlockWithMsg:@"Opps！Save failed. Please check the input characters and try again." block:failedBlock];
+                return;
+            }
         }
         if (![self configNetworkCheckInterval]) {
             [self operationFailedBlockWithMsg:@"Config network check interval error" block:failedBlock];
@@ -97,13 +99,13 @@
     __block BOOL success = NO;
     [MKLTInterface lt_readLorawanNetworkStatusWithSucBlock:^(id  _Nonnull returnData) {
         success = YES;
-        NSInteger type = [returnData[@"status"] integerValue];
+        NSInteger type = [returnData[@"result"][@"status"] integerValue];
         if (type == 0) {
             self.networkStatus = @"Disconnected";
         }else if (type == 1) {
-            self.networkStatus = @"Connecting";
-        }else {
             self.networkStatus = @"Connected";
+        }else {
+            self.networkStatus = @"Connecting";
         }
         dispatch_semaphore_signal(self.semaphore);
     } failedBlock:^(NSError * _Nonnull error) {
