@@ -9,7 +9,6 @@
 #import "MKSearchConditionsView.h"
 
 #import "MKMacroDefines.h"
-#import "MKCustomUIAdopter.h"
 #import "MKSlider.h"
 
 static CGFloat const offset_X = 10.f;
@@ -175,7 +174,7 @@ static CGFloat const signalIconHeight = 15.f;
         _textField.borderStyle = UITextBorderStyleNone;
         _textField.font = MKFont(13.f);
         _textField.textColor = DEFAULT_TEXT_COLOR;
-        _textField.attributedPlaceholder = [MKCustomUIAdopter attributedString:@[@"Device name or mac address"] fonts:@[MKFont(15.f)] colors:@[RGBCOLOR(222, 222, 222)]];
+        _textField.placeholder = @"Device name or mac address";
         _textField.clearButtonMode = UITextFieldViewModeWhileEditing;
         _textField.layer.masksToBounds = YES;
         _textField.layer.borderColor = UIColorFromRGB(0x2F84D0).CGColor;

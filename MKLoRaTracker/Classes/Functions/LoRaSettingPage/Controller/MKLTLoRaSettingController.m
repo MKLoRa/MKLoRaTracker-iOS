@@ -172,11 +172,8 @@ MKLoRaSettingCHCellDelegate>
     }
     if (section == 5) {
         //Duty-cycle
-        if (self.dataModel.region == 0 || self.dataModel.region == 3
-             || self.dataModel.region == 4 || self.dataModel.region == 5
-             || self.dataModel.region == 6 || self.dataModel.region == 7
-             || self.dataModel.region == 9) {
-            //EU868,CN779, EU433,AS923,KR920,IN865,and RU864
+        if (self.dataModel.region == 3 || self.dataModel.region == 4 || self.dataModel.region == 5 || self.dataModel.region == 9) {
+            //EU868,CN779, EU433,RU864
             return self.optionsList2.count;
         }
     }
@@ -602,7 +599,7 @@ MKLoRaSettingCHCellDelegate>
     MKTextSwitchCellModel *dutyModel = [[MKTextSwitchCellModel alloc] init];
     dutyModel.index = 0;
     dutyModel.msg = @"Duty-cycle";
-    dutyModel.noteMsg = @"*It is only used for EU868,CN779, EU433,AS923,KR920,IN865,and RU864. Off: The uplink report interval will not be limit by region freqency. On:The uplink report interval will be limit by region freqency.";
+    dutyModel.noteMsg = @"*It is only used for EU868,CN779, EU433,,and RU864. Off: The uplink report interval will not be limit by region freqency. On:The uplink report interval will be limit by region freqency.";
     dutyModel.noteMsgColor = RGBCOLOR(102, 102, 102);
     dutyModel.isOn = self.dataModel.dutyIsOn;
     [self.optionsList2 addObject:dutyModel];

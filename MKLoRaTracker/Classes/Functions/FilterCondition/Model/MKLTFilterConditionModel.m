@@ -12,10 +12,56 @@
 #import "NSObject+MKModel.h"
 #import "NSString+MKAdd.h"
 
+#import "MKBLEBaseSDKAdopter.h"
+
 #import "MKLTInterface.h"
 #import "MKLTInterface+MKLTConfig.h"
 
 @implementation MKLTFilterRawAdvDataModel
+
+- (BOOL)validParams {
+    if (!ValidStr(self.dataType) || self.dataType.length != 2 || ![MKBLEBaseSDKAdopter checkHexCharacter:self.dataType]) {
+        return NO;
+    }
+    NSArray *typeList = [self dataTypeList];
+    if (![typeList containsObject:[self.dataType uppercaseString]]) {
+        return NO;
+    }
+    if (self.minIndex == 0 && self.maxIndex == 0) {
+        if (!ValidStr(self.rawData) || self.rawData.length > 124 || ![MKBLEBaseSDKAdopter checkHexCharacter:self.rawData] || (self.rawData.length % 2 != 0)) {
+            return NO;
+        }
+        return YES;
+    }
+    if (self.minIndex < 0 || self.minIndex > 62 || self.maxIndex < 0 || self.maxIndex > 62) {
+        return NO;
+    }
+    
+    if (self.maxIndex < self.minIndex) {
+        return NO;
+    }
+    if (!ValidStr(self.rawData) || self.rawData.length > 124 || ![MKBLEBaseSDKAdopter checkHexCharacter:self.rawData]) {
+        return NO;
+    }
+    NSInteger totalLen = (self.maxIndex - self.minIndex + 1) * 2;
+    if (totalLen > 58 || self.rawData.length != totalLen) {
+        return NO;
+    }
+    return YES;
+}
+
+- (NSArray *)dataTypeList {
+    return @[@"01",@"02",@"03",@"04",@"05",
+             @"06",@"07",@"08",@"09",@"0A",
+             @"0D",@"0E",@"0F",@"10",@"11",
+             @"12",@"14",@"15",@"16",@"17",
+             @"18",@"19",@"1A",@"1B",@"1C",
+             @"1D",@"1E",@"1F",@"20",@"21",
+             @"22",@"23",@"24",@"25",@"26",
+             @"27",@"28",@"29",@"2A",@"2B",
+             @"2C",@"2D",@"3D",@"FF"];
+}
+
 @end
 
 @interface MKLTFilterConditionModel ()
@@ -77,9 +123,6 @@
         if (![self validParams:list]) {
             [self operationFailedBlockWithMsg:@"Opps！Save failed. Please check the input characters and try again." block:failedBlock];
             return ;
-        }
-        if (self.rawDataIson) {
-            
         }
         if (![self configRssi]) {
             [self operationFailedBlockWithMsg:@"Config rssi error" block:failedBlock];

@@ -1467,23 +1467,23 @@
         return NO;
     }
     if (protocol.minIndex == 0 && protocol.maxIndex == 0) {
-        if (!MKValidStr(protocol.rawData) || protocol.rawData.length > 58 || ![MKBLEBaseSDKAdopter checkHexCharacter:protocol.rawData] || (protocol.rawData.length % 2 != 0)) {
+        if (!MKValidStr(protocol.rawData) || protocol.rawData.length > 124 || ![MKBLEBaseSDKAdopter checkHexCharacter:protocol.rawData] || (protocol.rawData.length % 2 != 0)) {
             return NO;
         }
         return YES;
     }
-    if (protocol.minIndex < 0 || protocol.minIndex > 29 || protocol.maxIndex < 0 || protocol.maxIndex > 29) {
+    if (protocol.minIndex < 0 || protocol.minIndex > 62 || protocol.maxIndex < 0 || protocol.maxIndex > 62) {
         return NO;
     }
     
     if (protocol.maxIndex < protocol.minIndex) {
         return NO;
     }
-    if (!MKValidStr(protocol.rawData) || protocol.rawData.length > 58 || ![MKBLEBaseSDKAdopter checkHexCharacter:protocol.rawData]) {
+    if (!MKValidStr(protocol.rawData) || protocol.rawData.length > 124 || ![MKBLEBaseSDKAdopter checkHexCharacter:protocol.rawData]) {
         return NO;
     }
     NSInteger totalLen = (protocol.maxIndex - protocol.minIndex + 1) * 2;
-    if (protocol.rawData.length != totalLen) {
+    if (totalLen > 58 || protocol.rawData.length != totalLen) {
         return NO;
     }
     return YES;

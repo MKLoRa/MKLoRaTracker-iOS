@@ -83,11 +83,8 @@
             }
         }
         //Duty-cycle
-        if (self.region == 0 || self.region == 3
-             || self.region == 4 || self.region == 5
-             || self.region == 6 || self.region == 7
-             || self.region == 9) {
-            //EU868,CN779, EU433,AS923,KR920,IN865,and RU864
+        if (self.region == 3 || self.region == 4 || self.region == 5 || self.region == 9) {
+            //EU868,CN779, EU433,RU864
             if (![self readDutyStatus]) {
                 [self operationFailedBlockWithMsg:@"Read Duty Cycle Error" block:failedBlock];
                 return;
@@ -183,8 +180,8 @@
                 return;
             }
         }
-        if (self.region == 0 || self.region == 3 || self.region == 4
-            || self.region == 5 || self.region == 6 || self.region == 7 || self.region == 9) {
+        if (self.region == 3 || self.region == 4 || self.region == 5 || self.region == 9) {
+            //EU868,CN779, EU433,RU864
             if (![self configDutyStatus]) {
                 [self operationFailedBlockWithMsg:@"Config Duty Cycle Error" block:failedBlock];
                 return;

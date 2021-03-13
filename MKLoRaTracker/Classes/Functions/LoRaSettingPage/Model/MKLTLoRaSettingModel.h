@@ -60,6 +60,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, assign)NSInteger CHH;
 
+///  EU868,CN779, EU433,,and RU864.
 @property (nonatomic, assign)BOOL dutyIsOn;
 
 @property (nonatomic, assign)BOOL adrIsOn;

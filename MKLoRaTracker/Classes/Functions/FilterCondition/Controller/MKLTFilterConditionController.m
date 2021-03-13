@@ -87,15 +87,15 @@ MKFilterRawAdvDataCellDelegate>
     if (self.dataModel.rawDataIson) {
         for (NSInteger i = 0; i < self.section3List.count; i ++) {
             MKFilterRawAdvDataCellModel *cellModel = self.section3List[i];
-            if (![cellModel validParamsSuccess]) {
-                [self.view showCentralToast:@"Filter by Raw Adv Data Params Error"];
-                return;
-            }
             MKLTFilterRawAdvDataModel *model = [[MKLTFilterRawAdvDataModel alloc] init];
             model.dataType = cellModel.dataType;
             model.maxIndex = [cellModel.maxIndex integerValue];
             model.minIndex = [cellModel.minIndex integerValue];
             model.rawData = cellModel.rawData;
+            if (![model validParams]) {
+                [self.view showCentralToast:@"Filter by Raw Adv Data Params Error"];
+                return;
+            }
             [list addObject:model];
         }
     }
@@ -306,6 +306,11 @@ MKFilterRawAdvDataCellDelegate>
         return;
     }
     MKFilterRawAdvDataCellModel *cellModel = [[MKFilterRawAdvDataCellModel alloc] init];
+    cellModel.dataTypePlaceHolder = @"00-FF";
+    cellModel.minTextFieldPlaceHolder = @"00-FF";
+    cellModel.maxTextFieldPlaceHolder = @"00-FF";
+    cellModel.rawTextFieldPlaceHolder = @"00-FF";
+    cellModel.rawDataMaxBytes = 62;
     cellModel.index = self.section3List.count;
     [self.section3List addObject:cellModel];
     [self.tableView mk_reloadSection:3 withRowAnimation:UITableViewRowAnimationNone];
@@ -487,6 +492,11 @@ MKFilterRawAdvDataCellDelegate>
         NSDictionary *dic = self.dataModel.rawDataList[i];
         MKFilterRawAdvDataCellModel *cellModel = [[MKFilterRawAdvDataCellModel alloc] init];
         [cellModel mk_modelSetWithJSON:dic];
+        cellModel.dataTypePlaceHolder = @"00-FF";
+        cellModel.minTextFieldPlaceHolder = @"00-FF";
+        cellModel.maxTextFieldPlaceHolder = @"00-FF";
+        cellModel.rawTextFieldPlaceHolder = @"00-FF";
+        cellModel.rawDataMaxBytes = 62;
         [self.section3List addObject:cellModel];
     }
 }

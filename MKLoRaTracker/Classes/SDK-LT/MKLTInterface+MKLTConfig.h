@@ -107,7 +107,7 @@ typedef NS_ENUM(NSInteger, mk_lt_filterRules) {
 /// Data location to end filtering.
 @property (nonatomic, assign)NSInteger maxIndex;
 
-/// The currently filtered content. The data length should be maxIndex-minIndex, if maxIndex=0&&minIndex==0, the item length is not checked whether it meets the requirements.MAX length:29 Bytes
+/// The currently filtered content. The data length should be maxIndex-minIndex, if maxIndex=0&&minIndex==0, the item length is not checked whether it meets the requirements.MAX length:29 Bytes,maxIndex - minIndex <= 29 Bytes
 @property (nonatomic, copy)NSString *rawData;
 
 @end
