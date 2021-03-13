@@ -400,7 +400,7 @@ static CGFloat const valueLabelWidth = 110.f;
     self.bottomView.majorLabel.text = [NSString stringWithFormat:@"Major:                  %ld",(long)dataModel.major];
     self.bottomView.minorLabel.text = [NSString stringWithFormat:@"Minor:                  %ld",(long)dataModel.minor];
     self.bottomView.rssi1mLabel.text = [NSString stringWithFormat:@"RSSI@1m:           %lddBm",(long)dataModel.rssi1m];
-    self.bottomView.proximityLabel.text = [NSString stringWithFormat:@"Proximity State:  %@",dataModel.proximity];
+    self.bottomView.proximityLabel.text = [NSString stringWithFormat:@"Proximity:           %@",dataModel.proximity];
     self.bottomView.timeLabel.text = dataModel.scanTime;
 }
 

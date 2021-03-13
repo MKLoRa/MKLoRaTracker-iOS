@@ -17,6 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 /// 0~19
 @property (nonatomic, assign)NSInteger gpsInterval;
 
+@property (nonatomic, assign)NSInteger nonAlarmInterval;
+
 @property (nonatomic, copy)NSString *searchTime;
 
 @property (nonatomic, assign)BOOL gpsAltitudeIsOn;

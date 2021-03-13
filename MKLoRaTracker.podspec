@@ -46,6 +46,9 @@ TODO: Add long description of the pod here.
     ss.subspec 'MKLTNormalTextCell' do |sss|
       sss.source_files = 'MKLoRaTracker/Classes/CustomCell/MKLTNormalTextCell/**'
     end
+    ss.subspec 'MKLTGPSReportInterval' do |sss|
+      sss.source_files = 'MKLoRaTracker/Classes/CustomCell/MKLTGPSReportInterval/**'
+    end
   end
   
   s.subspec 'SDK-LT' do |ss|

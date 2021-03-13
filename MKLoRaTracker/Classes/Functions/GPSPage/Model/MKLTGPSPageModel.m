@@ -25,6 +25,10 @@
 
 - (void)readDataWithSucBlock:(void (^)(void))sucBlock failedBlock:(void (^)(NSError *error))failedBlock {
     dispatch_async(self.readQueue, ^{
+        if (![self readNonAlarmReportInterval]) {
+            [self operationFailedBlockWithMsg:@"Read Non Alarm Report Interval Error" block:failedBlock];
+            return;
+        }
         if (![self readGPSStatus]) {
             [self operationFailedBlockWithMsg:@"Read GPS Function Switch Error" block:failedBlock];
             return;
@@ -80,6 +84,19 @@
 }
 
 #pragma mark - interface
+- (BOOL)readNonAlarmReportInterval {
+    __block BOOL success = NO;
+    [MKLTInterface lt_readScanDatasReportIntervalWithSucBlock:^(id  _Nonnull returnData) {
+        success = YES;
+        self.nonAlarmInterval = [returnData[@"result"][@"interval"] integerValue];
+        dispatch_semaphore_signal(self.semaphore);
+    } failedBlock:^(NSError * _Nonnull error) {
+        dispatch_semaphore_signal(self.semaphore);
+    }];
+    dispatch_semaphore_wait(self.semaphore, DISPATCH_TIME_FOREVER);
+    return success;
+}
+
 - (BOOL)readGPSStatus {
     __block BOOL success = NO;
     [MKLTInterface lt_readGPSSwitchStatusWithSucBlock:^(id  _Nonnull returnData) {

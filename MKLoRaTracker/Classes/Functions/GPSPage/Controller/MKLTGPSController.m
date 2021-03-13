@@ -21,7 +21,8 @@
 #import "MKTextFieldCell.h"
 #import "MKTextSwitchCell.h"
 #import "MKMixedChoiceCell.h"
-#import "MKTextButtonCell.h"
+
+#import "MKLTGPSReportIntervalCell.h"
 
 #import "MKLTGPSPageModel.h"
 
@@ -30,7 +31,7 @@ UITableViewDataSource,
 mk_textSwitchCellDelegate,
 MKTextFieldCellDelegate,
 MKMixedChoiceCellDelegate,
-MKTextButtonCellDelegate>
+MKLTGPSReportIntervalCellDelegate>
 
 @property (nonatomic, strong)MKBaseTableView *tableView;
 
@@ -79,11 +80,6 @@ MKTextButtonCellDelegate>
 
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 1) {
-        //GPS Payload Report Interval
-        MKTextButtonCellModel *cellModel = self.section1List[indexPath.row];
-        return [cellModel cellHeightWithContentWidth:kViewWidth];
-    }
     if (indexPath.section == 3) {
         MKMixedChoiceCellModel *cellModel = self.section3List[indexPath.row];
         return [cellModel cellHeightWithContentWidth:kViewWidth];
@@ -120,7 +116,7 @@ MKTextButtonCellDelegate>
         return cell;
     }
     if (indexPath.section == 1) {
-        MKTextButtonCell *cell = [MKTextButtonCell initCellWithTableView:tableView];
+        MKLTGPSReportIntervalCell *cell = [MKLTGPSReportIntervalCell initCellWithTableView:tableView];
         cell.dataModel = self.section1List[indexPath.row];
         cell.delegate = self;
         return cell;
@@ -147,21 +143,12 @@ MKTextButtonCellDelegate>
     }
 }
 
-#pragma mark - MKTextButtonCellDelegate
-/// 右侧按钮点击触发的回调事件
-/// @param index 当前cell所在的index
-/// @param dataListIndex 点击按钮选中的dataList里面的index
-/// @param value dataList[dataListIndex]
-- (void)mk_loraTextButtonCellSelected:(NSInteger)index
-                        dataListIndex:(NSInteger)dataListIndex
-                                value:(NSString *)value {
-    if (index == 0) {
-        //GPS Payload:GPS Payload Report Interval
-        self.dataModel.gpsInterval = dataListIndex;
-        MKTextButtonCellModel *cellModel = self.section1List[0];
-        cellModel.dataListIndex = dataListIndex;
-        return;
-    }
+#pragma mark - MKLTGPSReportIntervalCellDelegate
+- (void)mk_lt_gpsReportIntervalChanged:(NSInteger)index {
+    //GPS Payload:GPS Payload Report Interval
+    self.dataModel.gpsInterval = index;
+    MKLTGPSReportIntervalCellModel *cellModel = self.section1List[0];
+    cellModel.gpsReportIntervalIndex = index;
 }
 
 #pragma mark - MKTextFieldCellDelegate
@@ -247,17 +234,9 @@ MKTextButtonCellDelegate>
 }
 
 - (void)loadSection1Datas {
-    MKTextButtonCellModel *cellModel = [[MKTextButtonCellModel alloc] init];
-    cellModel.msg = @"GPS Payload Report Interval";
-    cellModel.index = 0;
-    
-    NSMutableArray *list = [NSMutableArray array];
-    for (NSInteger i = 1; i < 21; i ++) {
-        NSString *string = [NSString stringWithFormat:@"%ld",(long)i * 10];
-        [list addObject:string];
-    }
-    cellModel.dataList = list;
-    cellModel.dataListIndex = self.dataModel.gpsInterval;
+    MKLTGPSReportIntervalCellModel *cellModel = [[MKLTGPSReportIntervalCellModel alloc] init];
+    cellModel.gpsReportIntervalIndex = self.dataModel.gpsInterval;
+    cellModel.nonAlarmReportInterval = self.dataModel.nonAlarmInterval;
     [self.section1List addObject:cellModel];
 }
 

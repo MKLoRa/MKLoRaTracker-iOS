@@ -25,6 +25,8 @@
 
 #import "MKLTConnectModel.h"
 
+#import "MKLTGPSReportIntervalCell.h"
+
 #import "MKLTUplinkPayloadModel.h"
 
 static CGFloat const sectionHeaderHeight = 55.f;
@@ -35,7 +37,8 @@ UITableViewDataSource,
 MKTextFieldCellDelegate,
 mk_textSwitchCellDelegate,
 MKTextButtonCellDelegate,
-MKMixedChoiceCellDelegate>
+MKMixedChoiceCellDelegate,
+MKLTGPSReportIntervalCellDelegate>
 
 @property (nonatomic, strong)MKBaseTableView *tableView;
 
@@ -90,6 +93,10 @@ MKMixedChoiceCellDelegate>
     [self.dataModel configDataWithSucBlock:^{
         [[MKHudManager share] hide];
         [weakSelf.view showCentralToast:@"Success!"];
+        //因为gps report interval按钮标题要与nonAlarmInterval联动，所以需要刷新gps report interval所在cell
+        MKLTGPSReportIntervalCellModel *cellModel = weakSelf.section7List[0];
+        cellModel.nonAlarmReportInterval = [self.dataModel.nonAlarmInterval integerValue];
+        [weakSelf.tableView mk_reloadSection:7 withRowAnimation:UITableViewRowAnimationNone];
     } failedBlock:^(NSError * _Nonnull error) {
         [[MKHudManager share] hide];
         [weakSelf.view showCentralToast:error.userInfo[@"errorInfo"]];
@@ -135,8 +142,7 @@ MKMixedChoiceCellDelegate>
     }
     if (indexPath.section == 7) {
         //GPS Payload Report Interval
-        MKTextButtonCellModel *cellModel = self.section7List[indexPath.row];
-        return [cellModel cellHeightWithContentWidth:kViewWidth];
+        return 44.f;
     }
     if (indexPath.section == 8) {
         //Optional Payload Content
@@ -295,7 +301,7 @@ MKMixedChoiceCellDelegate>
     }
     if (indexPath.section == 7) {
         //GPS Payload Report Interval
-        MKTextButtonCell *cell = [MKTextButtonCell initCellWithTableView:tableView];
+        MKLTGPSReportIntervalCell *cell = [MKLTGPSReportIntervalCell initCellWithTableView:tableView];
         cell.dataModel = self.section7List[indexPath.row];
         cell.delegate = self;
         return cell;
@@ -382,13 +388,6 @@ MKMixedChoiceCellDelegate>
         //Tracking And Location Payload:Reported Location Beacons
         self.dataModel.locationBeacons = (dataListIndex + 1);
         MKTextButtonCellModel *cellModel = self.section2List[0];
-        cellModel.dataListIndex = dataListIndex;
-        return;
-    }
-    if (index == 1) {
-        //GPS Payload:GPS Payload Report Interval
-        self.dataModel.gpsInterval = dataListIndex;
-        MKTextButtonCellModel *cellModel = self.section7List[0];
         cellModel.dataListIndex = dataListIndex;
         return;
     }
@@ -495,6 +494,14 @@ MKMixedChoiceCellDelegate>
         
         return;
     }
+}
+
+#pragma mark - MKLTGPSReportIntervalCellDelegate
+- (void)mk_lt_gpsReportIntervalChanged:(NSInteger)index {
+    //GPS Payload:GPS Payload Report Interval
+    self.dataModel.gpsInterval = index;
+    MKLTGPSReportIntervalCellModel *cellModel = self.section7List[0];
+    cellModel.gpsReportIntervalIndex = index;
 }
 
 #pragma mark - interface
@@ -622,17 +629,10 @@ MKMixedChoiceCellDelegate>
 }
 
 - (void)loadSection7Datas {
-    MKTextButtonCellModel *cellModel = [[MKTextButtonCellModel alloc] init];
-    cellModel.msg = @"GPS Payload Report Interval";
-    cellModel.index = 1;
+    MKLTGPSReportIntervalCellModel *cellModel = [[MKLTGPSReportIntervalCellModel alloc] init];
+    cellModel.gpsReportIntervalIndex = self.dataModel.gpsInterval;
+    cellModel.nonAlarmReportInterval = [self.dataModel.nonAlarmInterval integerValue];
     
-    NSMutableArray *list = [NSMutableArray array];
-    for (NSInteger i = 1; i < 21; i ++) {
-        NSString *string = [NSString stringWithFormat:@"%ld",(long)i * 10];
-        [list addObject:string];
-    }
-    cellModel.dataList = list;
-    cellModel.dataListIndex = self.dataModel.gpsInterval;
     [self.section7List addObject:cellModel];
 }
 

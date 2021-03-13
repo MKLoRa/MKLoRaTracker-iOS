@@ -13,6 +13,7 @@
 #import "MKLTApplicationModule.h"
 #import "CTMediator+MKLTAdd.h"
 #import "MKLTConnectModel.h"
+#import "MKLTGPSReportIntervalCell.h"
 #import "MKLTNormalTextCell.h"
 #import "MKLTAdvertiserController.h"
 #import "MKLTAdvertiserDataModel.h"

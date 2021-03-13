@@ -64,6 +64,10 @@
         {
           "name": "MKLTNormalTextCell",
           "source_files": "MKLoRaTracker/Classes/CustomCell/MKLTNormalTextCell/**"
+        },
+        {
+          "name": "MKLTGPSReportInterval",
+          "source_files": "MKLoRaTracker/Classes/CustomCell/MKLTGPSReportInterval/**"
         }
       ]
     },

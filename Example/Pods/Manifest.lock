@@ -352,7 +352,17 @@ PODS:
     - MKBaseBleModule
     - MKBaseModuleLibrary
     - MKCustomUIModule
+    - MKLoRaTracker/CustomCell/MKLTGPSReportInterval (= 1.0.0)
     - MKLoRaTracker/CustomCell/MKLTNormalTextCell (= 1.0.0)
+    - MLInputDodger
+  - MKLoRaTracker/CustomCell/MKLTGPSReportInterval (1.0.0):
+    - CTMediator
+    - FMDB
+    - HHTransition
+    - iOSDFULibrary (= 4.6.1)
+    - MKBaseBleModule
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
     - MLInputDodger
   - MKLoRaTracker/CustomCell/MKLTNormalTextCell (1.0.0):
     - CTMediator
@@ -1243,7 +1253,7 @@ SPEC CHECKSUMS:
   MKBaseBleModule: 553e5ac68fd89acd0642ae7fc0ba7a5f2ce25950
   MKBaseModuleLibrary: 7fb73829fe9bef794deeb4484ec80256c03a95e6
   MKCustomUIModule: f63341f8169460823a7cf6ea57b1e250931f8be5
-  MKLoRaTracker: 08d08a3de9312af0fc162bef05de4e5a47c68976
+  MKLoRaTracker: c4436562227467062845359027dcb3a95ffc9399
   MLInputDodger: 79a0e420a80d0d3bba122bf2639603cc76609ba8
   Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
   ZIPFoundation: 89df685c971926b0323087952320bdfee9f0b6ef
