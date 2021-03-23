@@ -72,13 +72,8 @@
       ]
     },
     {
-      "name": "SDK-LT",
-      "source_files": "MKLoRaTracker/Classes/SDK-LT/**",
-      "dependencies": {
-        "MKBaseBleModule": [
-
-        ]
-      }
+      "name": "SDK",
+      "source_files": "MKLoRaTracker/Classes/SDK/**"
     },
     {
       "name": "Target",
@@ -93,7 +88,7 @@
       "name": "ConnectModule",
       "source_files": "MKLoRaTracker/Classes/ConnectModule/**",
       "dependencies": {
-        "MKLoRaTracker/SDK-LT": [
+        "MKLoRaTracker/SDK": [
 
         ]
       }
@@ -101,7 +96,7 @@
     {
       "name": "Functions",
       "dependencies": {
-        "MKLoRaTracker/SDK-LT": [
+        "MKLoRaTracker/SDK": [
 
         ],
         "MKLoRaTracker/CustomCell": [

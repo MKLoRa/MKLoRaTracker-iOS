@@ -312,7 +312,7 @@ PODS:
     - MKLoRaTracker/CTMediator (= 1.0.0)
     - MKLoRaTracker/CustomCell (= 1.0.0)
     - MKLoRaTracker/Functions (= 1.0.0)
-    - MKLoRaTracker/SDK-LT (= 1.0.0)
+    - MKLoRaTracker/SDK (= 1.0.0)
     - MKLoRaTracker/Target (= 1.0.0)
     - MLInputDodger
   - MKLoRaTracker/ApplicationModule (1.0.0):
@@ -332,7 +332,7 @@ PODS:
     - MKBaseBleModule
     - MKBaseModuleLibrary
     - MKCustomUIModule
-    - MKLoRaTracker/SDK-LT
+    - MKLoRaTracker/SDK
     - MLInputDodger
   - MKLoRaTracker/CTMediator (1.0.0):
     - CTMediator
@@ -400,7 +400,7 @@ PODS:
     - MKLoRaTracker/Functions/TabBarPage (= 1.0.0)
     - MKLoRaTracker/Functions/UpdatePage (= 1.0.0)
     - MKLoRaTracker/Functions/VibrationSetting (= 1.0.0)
-    - MKLoRaTracker/SDK-LT
+    - MKLoRaTracker/SDK
     - MLInputDodger
   - MKLoRaTracker/Functions/AdvertiserPage (1.0.0):
     - CTMediator
@@ -415,7 +415,7 @@ PODS:
     - MKLoRaTracker/CustomCell
     - MKLoRaTracker/Functions/AdvertiserPage/Controller (= 1.0.0)
     - MKLoRaTracker/Functions/AdvertiserPage/Model (= 1.0.0)
-    - MKLoRaTracker/SDK-LT
+    - MKLoRaTracker/SDK
     - MLInputDodger
   - MKLoRaTracker/Functions/AdvertiserPage/Controller (1.0.0):
     - CTMediator
@@ -429,7 +429,7 @@ PODS:
     - MKLoRaTracker/CTMediator
     - MKLoRaTracker/CustomCell
     - MKLoRaTracker/Functions/AdvertiserPage/Model
-    - MKLoRaTracker/SDK-LT
+    - MKLoRaTracker/SDK
     - MLInputDodger
   - MKLoRaTracker/Functions/AdvertiserPage/Model (1.0.0):
     - CTMediator
@@ -442,7 +442,7 @@ PODS:
     - MKLoRaTracker/ConnectModule
     - MKLoRaTracker/CTMediator
     - MKLoRaTracker/CustomCell
-    - MKLoRaTracker/SDK-LT
+    - MKLoRaTracker/SDK
     - MLInputDodger
   - MKLoRaTracker/Functions/AxisPage (1.0.0):
     - CTMediator
@@ -458,7 +458,7 @@ PODS:
     - MKLoRaTracker/Functions/AxisPage/Controller (= 1.0.0)
     - MKLoRaTracker/Functions/AxisPage/Model (= 1.0.0)
     - MKLoRaTracker/Functions/AxisPage/View (= 1.0.0)
-    - MKLoRaTracker/SDK-LT
+    - MKLoRaTracker/SDK
     - MLInputDodger
   - MKLoRaTracker/Functions/AxisPage/Controller (1.0.0):
     - CTMediator
@@ -473,7 +473,7 @@ PODS:
     - MKLoRaTracker/CustomCell
     - MKLoRaTracker/Functions/AxisPage/Model
     - MKLoRaTracker/Functions/AxisPage/View
-    - MKLoRaTracker/SDK-LT
+    - MKLoRaTracker/SDK
     - MLInputDodger
   - MKLoRaTracker/Functions/AxisPage/Model (1.0.0):
     - CTMediator
@@ -486,7 +486,7 @@ PODS:
     - MKLoRaTracker/ConnectModule
     - MKLoRaTracker/CTMediator
     - MKLoRaTracker/CustomCell
-    - MKLoRaTracker/SDK-LT
+    - MKLoRaTracker/SDK
     - MLInputDodger
   - MKLoRaTracker/Functions/AxisPage/View (1.0.0):
     - CTMediator
@@ -499,7 +499,7 @@ PODS:
     - MKLoRaTracker/ConnectModule
     - MKLoRaTracker/CTMediator
     - MKLoRaTracker/CustomCell
-    - MKLoRaTracker/SDK-LT
+    - MKLoRaTracker/SDK
     - MLInputDodger
   - MKLoRaTracker/Functions/DevicePage (1.0.0):
     - CTMediator
@@ -515,7 +515,7 @@ PODS:
     - MKLoRaTracker/Functions/DevicePage/Controller (= 1.0.0)
     - MKLoRaTracker/Functions/DevicePage/Model (= 1.0.0)
     - MKLoRaTracker/Functions/DevicePage/View (= 1.0.0)
-    - MKLoRaTracker/SDK-LT
+    - MKLoRaTracker/SDK
     - MLInputDodger
   - MKLoRaTracker/Functions/DevicePage/Controller (1.0.0):
     - CTMediator
@@ -531,7 +531,7 @@ PODS:
     - MKLoRaTracker/Functions/DevicePage/Model
     - MKLoRaTracker/Functions/DevicePage/View
     - MKLoRaTracker/Functions/UpdatePage
-    - MKLoRaTracker/SDK-LT
+    - MKLoRaTracker/SDK
     - MLInputDodger
   - MKLoRaTracker/Functions/DevicePage/Model (1.0.0):
     - CTMediator
@@ -544,7 +544,7 @@ PODS:
     - MKLoRaTracker/ConnectModule
     - MKLoRaTracker/CTMediator
     - MKLoRaTracker/CustomCell
-    - MKLoRaTracker/SDK-LT
+    - MKLoRaTracker/SDK
     - MLInputDodger
   - MKLoRaTracker/Functions/DevicePage/View (1.0.0):
     - CTMediator
@@ -557,7 +557,7 @@ PODS:
     - MKLoRaTracker/ConnectModule
     - MKLoRaTracker/CTMediator
     - MKLoRaTracker/CustomCell
-    - MKLoRaTracker/SDK-LT
+    - MKLoRaTracker/SDK
     - MLInputDodger
   - MKLoRaTracker/Functions/FilterCondition (1.0.0):
     - CTMediator
@@ -572,7 +572,7 @@ PODS:
     - MKLoRaTracker/CustomCell
     - MKLoRaTracker/Functions/FilterCondition/Controller (= 1.0.0)
     - MKLoRaTracker/Functions/FilterCondition/Model (= 1.0.0)
-    - MKLoRaTracker/SDK-LT
+    - MKLoRaTracker/SDK
     - MLInputDodger
   - MKLoRaTracker/Functions/FilterCondition/Controller (1.0.0):
     - CTMediator
@@ -586,7 +586,7 @@ PODS:
     - MKLoRaTracker/CTMediator
     - MKLoRaTracker/CustomCell
     - MKLoRaTracker/Functions/FilterCondition/Model
-    - MKLoRaTracker/SDK-LT
+    - MKLoRaTracker/SDK
     - MLInputDodger
   - MKLoRaTracker/Functions/FilterCondition/Model (1.0.0):
     - CTMediator
@@ -599,7 +599,7 @@ PODS:
     - MKLoRaTracker/ConnectModule
     - MKLoRaTracker/CTMediator
     - MKLoRaTracker/CustomCell
-    - MKLoRaTracker/SDK-LT
+    - MKLoRaTracker/SDK
     - MLInputDodger
   - MKLoRaTracker/Functions/FilterOptions (1.0.0):
     - CTMediator
@@ -615,7 +615,7 @@ PODS:
     - MKLoRaTracker/Functions/FilterOptions/Controller (= 1.0.0)
     - MKLoRaTracker/Functions/FilterOptions/Model (= 1.0.0)
     - MKLoRaTracker/Functions/FilterOptions/View (= 1.0.0)
-    - MKLoRaTracker/SDK-LT
+    - MKLoRaTracker/SDK
     - MLInputDodger
   - MKLoRaTracker/Functions/FilterOptions/Controller (1.0.0):
     - CTMediator
@@ -631,7 +631,7 @@ PODS:
     - MKLoRaTracker/Functions/FilterCondition
     - MKLoRaTracker/Functions/FilterOptions/Model
     - MKLoRaTracker/Functions/FilterOptions/View
-    - MKLoRaTracker/SDK-LT
+    - MKLoRaTracker/SDK
     - MLInputDodger
   - MKLoRaTracker/Functions/FilterOptions/Model (1.0.0):
     - CTMediator
@@ -644,7 +644,7 @@ PODS:
     - MKLoRaTracker/ConnectModule
     - MKLoRaTracker/CTMediator
     - MKLoRaTracker/CustomCell
-    - MKLoRaTracker/SDK-LT
+    - MKLoRaTracker/SDK
     - MLInputDodger
   - MKLoRaTracker/Functions/FilterOptions/View (1.0.0):
     - CTMediator
@@ -657,7 +657,7 @@ PODS:
     - MKLoRaTracker/ConnectModule
     - MKLoRaTracker/CTMediator
     - MKLoRaTracker/CustomCell
-    - MKLoRaTracker/SDK-LT
+    - MKLoRaTracker/SDK
     - MLInputDodger
   - MKLoRaTracker/Functions/GPSPage (1.0.0):
     - CTMediator
@@ -672,7 +672,7 @@ PODS:
     - MKLoRaTracker/CustomCell
     - MKLoRaTracker/Functions/GPSPage/Controller (= 1.0.0)
     - MKLoRaTracker/Functions/GPSPage/Model (= 1.0.0)
-    - MKLoRaTracker/SDK-LT
+    - MKLoRaTracker/SDK
     - MLInputDodger
   - MKLoRaTracker/Functions/GPSPage/Controller (1.0.0):
     - CTMediator
@@ -686,7 +686,7 @@ PODS:
     - MKLoRaTracker/CTMediator
     - MKLoRaTracker/CustomCell
     - MKLoRaTracker/Functions/GPSPage/Model
-    - MKLoRaTracker/SDK-LT
+    - MKLoRaTracker/SDK
     - MLInputDodger
   - MKLoRaTracker/Functions/GPSPage/Model (1.0.0):
     - CTMediator
@@ -699,7 +699,7 @@ PODS:
     - MKLoRaTracker/ConnectModule
     - MKLoRaTracker/CTMediator
     - MKLoRaTracker/CustomCell
-    - MKLoRaTracker/SDK-LT
+    - MKLoRaTracker/SDK
     - MLInputDodger
   - MKLoRaTracker/Functions/LoRaPage (1.0.0):
     - CTMediator
@@ -714,7 +714,7 @@ PODS:
     - MKLoRaTracker/CustomCell
     - MKLoRaTracker/Functions/LoRaPage/Controller (= 1.0.0)
     - MKLoRaTracker/Functions/LoRaPage/Model (= 1.0.0)
-    - MKLoRaTracker/SDK-LT
+    - MKLoRaTracker/SDK
     - MLInputDodger
   - MKLoRaTracker/Functions/LoRaPage/Controller (1.0.0):
     - CTMediator
@@ -731,7 +731,7 @@ PODS:
     - MKLoRaTracker/Functions/LoRaSettingPage
     - MKLoRaTracker/Functions/NetworkCheck
     - MKLoRaTracker/Functions/PayloadPage
-    - MKLoRaTracker/SDK-LT
+    - MKLoRaTracker/SDK
     - MLInputDodger
   - MKLoRaTracker/Functions/LoRaPage/Model (1.0.0):
     - CTMediator
@@ -744,7 +744,7 @@ PODS:
     - MKLoRaTracker/ConnectModule
     - MKLoRaTracker/CTMediator
     - MKLoRaTracker/CustomCell
-    - MKLoRaTracker/SDK-LT
+    - MKLoRaTracker/SDK
     - MLInputDodger
   - MKLoRaTracker/Functions/LoRaSettingPage (1.0.0):
     - CTMediator
@@ -759,7 +759,7 @@ PODS:
     - MKLoRaTracker/CustomCell
     - MKLoRaTracker/Functions/LoRaSettingPage/Controller (= 1.0.0)
     - MKLoRaTracker/Functions/LoRaSettingPage/Model (= 1.0.0)
-    - MKLoRaTracker/SDK-LT
+    - MKLoRaTracker/SDK
     - MLInputDodger
   - MKLoRaTracker/Functions/LoRaSettingPage/Controller (1.0.0):
     - CTMediator
@@ -773,7 +773,7 @@ PODS:
     - MKLoRaTracker/CTMediator
     - MKLoRaTracker/CustomCell
     - MKLoRaTracker/Functions/LoRaSettingPage/Model
-    - MKLoRaTracker/SDK-LT
+    - MKLoRaTracker/SDK
     - MLInputDodger
   - MKLoRaTracker/Functions/LoRaSettingPage/Model (1.0.0):
     - CTMediator
@@ -786,7 +786,7 @@ PODS:
     - MKLoRaTracker/ConnectModule
     - MKLoRaTracker/CTMediator
     - MKLoRaTracker/CustomCell
-    - MKLoRaTracker/SDK-LT
+    - MKLoRaTracker/SDK
     - MLInputDodger
   - MKLoRaTracker/Functions/NetworkCheck (1.0.0):
     - CTMediator
@@ -801,7 +801,7 @@ PODS:
     - MKLoRaTracker/CustomCell
     - MKLoRaTracker/Functions/NetworkCheck/Controller (= 1.0.0)
     - MKLoRaTracker/Functions/NetworkCheck/Model (= 1.0.0)
-    - MKLoRaTracker/SDK-LT
+    - MKLoRaTracker/SDK
     - MLInputDodger
   - MKLoRaTracker/Functions/NetworkCheck/Controller (1.0.0):
     - CTMediator
@@ -815,7 +815,7 @@ PODS:
     - MKLoRaTracker/CTMediator
     - MKLoRaTracker/CustomCell
     - MKLoRaTracker/Functions/NetworkCheck/Model
-    - MKLoRaTracker/SDK-LT
+    - MKLoRaTracker/SDK
     - MLInputDodger
   - MKLoRaTracker/Functions/NetworkCheck/Model (1.0.0):
     - CTMediator
@@ -828,7 +828,7 @@ PODS:
     - MKLoRaTracker/ConnectModule
     - MKLoRaTracker/CTMediator
     - MKLoRaTracker/CustomCell
-    - MKLoRaTracker/SDK-LT
+    - MKLoRaTracker/SDK
     - MLInputDodger
   - MKLoRaTracker/Functions/PayloadPage (1.0.0):
     - CTMediator
@@ -843,7 +843,7 @@ PODS:
     - MKLoRaTracker/CustomCell
     - MKLoRaTracker/Functions/PayloadPage/Controller (= 1.0.0)
     - MKLoRaTracker/Functions/PayloadPage/Model (= 1.0.0)
-    - MKLoRaTracker/SDK-LT
+    - MKLoRaTracker/SDK
     - MLInputDodger
   - MKLoRaTracker/Functions/PayloadPage/Controller (1.0.0):
     - CTMediator
@@ -857,7 +857,7 @@ PODS:
     - MKLoRaTracker/CTMediator
     - MKLoRaTracker/CustomCell
     - MKLoRaTracker/Functions/PayloadPage/Model
-    - MKLoRaTracker/SDK-LT
+    - MKLoRaTracker/SDK
     - MLInputDodger
   - MKLoRaTracker/Functions/PayloadPage/Model (1.0.0):
     - CTMediator
@@ -870,7 +870,7 @@ PODS:
     - MKLoRaTracker/ConnectModule
     - MKLoRaTracker/CTMediator
     - MKLoRaTracker/CustomCell
-    - MKLoRaTracker/SDK-LT
+    - MKLoRaTracker/SDK
     - MLInputDodger
   - MKLoRaTracker/Functions/Scanner (1.0.0):
     - CTMediator
@@ -886,7 +886,7 @@ PODS:
     - MKLoRaTracker/Functions/Scanner/Controller (= 1.0.0)
     - MKLoRaTracker/Functions/Scanner/Model (= 1.0.0)
     - MKLoRaTracker/Functions/Scanner/View (= 1.0.0)
-    - MKLoRaTracker/SDK-LT
+    - MKLoRaTracker/SDK
     - MLInputDodger
   - MKLoRaTracker/Functions/Scanner/Controller (1.0.0):
     - CTMediator
@@ -902,7 +902,7 @@ PODS:
     - MKLoRaTracker/Functions/FilterOptions
     - MKLoRaTracker/Functions/Scanner/Model
     - MKLoRaTracker/Functions/Scanner/View
-    - MKLoRaTracker/SDK-LT
+    - MKLoRaTracker/SDK
     - MLInputDodger
   - MKLoRaTracker/Functions/Scanner/Model (1.0.0):
     - CTMediator
@@ -915,7 +915,7 @@ PODS:
     - MKLoRaTracker/ConnectModule
     - MKLoRaTracker/CTMediator
     - MKLoRaTracker/CustomCell
-    - MKLoRaTracker/SDK-LT
+    - MKLoRaTracker/SDK
     - MLInputDodger
   - MKLoRaTracker/Functions/Scanner/View (1.0.0):
     - CTMediator
@@ -928,7 +928,7 @@ PODS:
     - MKLoRaTracker/ConnectModule
     - MKLoRaTracker/CTMediator
     - MKLoRaTracker/CustomCell
-    - MKLoRaTracker/SDK-LT
+    - MKLoRaTracker/SDK
     - MLInputDodger
   - MKLoRaTracker/Functions/ScanPage (1.0.0):
     - CTMediator
@@ -944,7 +944,7 @@ PODS:
     - MKLoRaTracker/Functions/ScanPage/Controller (= 1.0.0)
     - MKLoRaTracker/Functions/ScanPage/Model (= 1.0.0)
     - MKLoRaTracker/Functions/ScanPage/View (= 1.0.0)
-    - MKLoRaTracker/SDK-LT
+    - MKLoRaTracker/SDK
     - MLInputDodger
   - MKLoRaTracker/Functions/ScanPage/Controller (1.0.0):
     - CTMediator
@@ -960,7 +960,7 @@ PODS:
     - MKLoRaTracker/Functions/ScanPage/Model
     - MKLoRaTracker/Functions/ScanPage/View
     - MKLoRaTracker/Functions/TabBarPage
-    - MKLoRaTracker/SDK-LT
+    - MKLoRaTracker/SDK
     - MLInputDodger
   - MKLoRaTracker/Functions/ScanPage/Model (1.0.0):
     - CTMediator
@@ -973,7 +973,7 @@ PODS:
     - MKLoRaTracker/ConnectModule
     - MKLoRaTracker/CTMediator
     - MKLoRaTracker/CustomCell
-    - MKLoRaTracker/SDK-LT
+    - MKLoRaTracker/SDK
     - MLInputDodger
   - MKLoRaTracker/Functions/ScanPage/View (1.0.0):
     - CTMediator
@@ -987,7 +987,7 @@ PODS:
     - MKLoRaTracker/CTMediator
     - MKLoRaTracker/CustomCell
     - MKLoRaTracker/Functions/ScanPage/Model
-    - MKLoRaTracker/SDK-LT
+    - MKLoRaTracker/SDK
     - MLInputDodger
   - MKLoRaTracker/Functions/SettingPage (1.0.0):
     - CTMediator
@@ -1002,7 +1002,7 @@ PODS:
     - MKLoRaTracker/CustomCell
     - MKLoRaTracker/Functions/SettingPage/Controller (= 1.0.0)
     - MKLoRaTracker/Functions/SettingPage/Model (= 1.0.0)
-    - MKLoRaTracker/SDK-LT
+    - MKLoRaTracker/SDK
     - MLInputDodger
   - MKLoRaTracker/Functions/SettingPage/Controller (1.0.0):
     - CTMediator
@@ -1021,7 +1021,7 @@ PODS:
     - MKLoRaTracker/Functions/SettingPage/Model
     - MKLoRaTracker/Functions/SOSPage
     - MKLoRaTracker/Functions/VibrationSetting
-    - MKLoRaTracker/SDK-LT
+    - MKLoRaTracker/SDK
     - MLInputDodger
   - MKLoRaTracker/Functions/SettingPage/Model (1.0.0):
     - CTMediator
@@ -1034,7 +1034,7 @@ PODS:
     - MKLoRaTracker/ConnectModule
     - MKLoRaTracker/CTMediator
     - MKLoRaTracker/CustomCell
-    - MKLoRaTracker/SDK-LT
+    - MKLoRaTracker/SDK
     - MLInputDodger
   - MKLoRaTracker/Functions/SOSPage (1.0.0):
     - CTMediator
@@ -1049,7 +1049,7 @@ PODS:
     - MKLoRaTracker/CustomCell
     - MKLoRaTracker/Functions/SOSPage/Controller (= 1.0.0)
     - MKLoRaTracker/Functions/SOSPage/Model (= 1.0.0)
-    - MKLoRaTracker/SDK-LT
+    - MKLoRaTracker/SDK
     - MLInputDodger
   - MKLoRaTracker/Functions/SOSPage/Controller (1.0.0):
     - CTMediator
@@ -1063,7 +1063,7 @@ PODS:
     - MKLoRaTracker/CTMediator
     - MKLoRaTracker/CustomCell
     - MKLoRaTracker/Functions/SOSPage/Model
-    - MKLoRaTracker/SDK-LT
+    - MKLoRaTracker/SDK
     - MLInputDodger
   - MKLoRaTracker/Functions/SOSPage/Model (1.0.0):
     - CTMediator
@@ -1076,7 +1076,7 @@ PODS:
     - MKLoRaTracker/ConnectModule
     - MKLoRaTracker/CTMediator
     - MKLoRaTracker/CustomCell
-    - MKLoRaTracker/SDK-LT
+    - MKLoRaTracker/SDK
     - MLInputDodger
   - MKLoRaTracker/Functions/TabBarPage (1.0.0):
     - CTMediator
@@ -1090,7 +1090,7 @@ PODS:
     - MKLoRaTracker/CTMediator
     - MKLoRaTracker/CustomCell
     - MKLoRaTracker/Functions/TabBarPage/Controller (= 1.0.0)
-    - MKLoRaTracker/SDK-LT
+    - MKLoRaTracker/SDK
     - MLInputDodger
   - MKLoRaTracker/Functions/TabBarPage/Controller (1.0.0):
     - CTMediator
@@ -1107,7 +1107,7 @@ PODS:
     - MKLoRaTracker/Functions/LoRaPage
     - MKLoRaTracker/Functions/Scanner
     - MKLoRaTracker/Functions/SettingPage
-    - MKLoRaTracker/SDK-LT
+    - MKLoRaTracker/SDK
     - MLInputDodger
   - MKLoRaTracker/Functions/UpdatePage (1.0.0):
     - CTMediator
@@ -1122,7 +1122,7 @@ PODS:
     - MKLoRaTracker/CustomCell
     - MKLoRaTracker/Functions/UpdatePage/Controller (= 1.0.0)
     - MKLoRaTracker/Functions/UpdatePage/Model (= 1.0.0)
-    - MKLoRaTracker/SDK-LT
+    - MKLoRaTracker/SDK
     - MLInputDodger
   - MKLoRaTracker/Functions/UpdatePage/Controller (1.0.0):
     - CTMediator
@@ -1136,7 +1136,7 @@ PODS:
     - MKLoRaTracker/CTMediator
     - MKLoRaTracker/CustomCell
     - MKLoRaTracker/Functions/UpdatePage/Model
-    - MKLoRaTracker/SDK-LT
+    - MKLoRaTracker/SDK
     - MLInputDodger
   - MKLoRaTracker/Functions/UpdatePage/Model (1.0.0):
     - CTMediator
@@ -1149,7 +1149,7 @@ PODS:
     - MKLoRaTracker/ConnectModule
     - MKLoRaTracker/CTMediator
     - MKLoRaTracker/CustomCell
-    - MKLoRaTracker/SDK-LT
+    - MKLoRaTracker/SDK
     - MLInputDodger
   - MKLoRaTracker/Functions/VibrationSetting (1.0.0):
     - CTMediator
@@ -1164,7 +1164,7 @@ PODS:
     - MKLoRaTracker/CustomCell
     - MKLoRaTracker/Functions/VibrationSetting/Controller (= 1.0.0)
     - MKLoRaTracker/Functions/VibrationSetting/Model (= 1.0.0)
-    - MKLoRaTracker/SDK-LT
+    - MKLoRaTracker/SDK
     - MLInputDodger
   - MKLoRaTracker/Functions/VibrationSetting/Controller (1.0.0):
     - CTMediator
@@ -1178,7 +1178,7 @@ PODS:
     - MKLoRaTracker/CTMediator
     - MKLoRaTracker/CustomCell
     - MKLoRaTracker/Functions/VibrationSetting/Model
-    - MKLoRaTracker/SDK-LT
+    - MKLoRaTracker/SDK
     - MLInputDodger
   - MKLoRaTracker/Functions/VibrationSetting/Model (1.0.0):
     - CTMediator
@@ -1191,9 +1191,9 @@ PODS:
     - MKLoRaTracker/ConnectModule
     - MKLoRaTracker/CTMediator
     - MKLoRaTracker/CustomCell
-    - MKLoRaTracker/SDK-LT
+    - MKLoRaTracker/SDK
     - MLInputDodger
-  - MKLoRaTracker/SDK-LT (1.0.0):
+  - MKLoRaTracker/SDK (1.0.0):
     - CTMediator
     - FMDB
     - HHTransition
@@ -1252,7 +1252,7 @@ SPEC CHECKSUMS:
   MKBaseBleModule: 553e5ac68fd89acd0642ae7fc0ba7a5f2ce25950
   MKBaseModuleLibrary: 7fb73829fe9bef794deeb4484ec80256c03a95e6
   MKCustomUIModule: 9b0954210ca32870a83ba4fc221aa77ff59baf6c
-  MKLoRaTracker: c4436562227467062845359027dcb3a95ffc9399
+  MKLoRaTracker: 1fa2daf6b7ff95ec1071caff8371e235c00e5a7a
   MLInputDodger: 79a0e420a80d0d3bba122bf2639603cc76609ba8
   Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
   ZIPFoundation: 89df685c971926b0323087952320bdfee9f0b6ef

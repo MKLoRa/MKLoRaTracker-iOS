@@ -371,20 +371,7 @@ NSString *const mk_lt_communicationDataNum = @"mk_lt_communicationDataNum";
         NSString *rule = [MKBLEBaseSDKAdopter getDecimalStringWithHex:content range:NSMakeRange(0, 2)];
         NSString *uuid = @"";
         if ([rule integerValue] > 0 && content.length > 2) {
-            NSString *tempContent = [content substringWithRange:NSMakeRange(2, content.length - 2)];
-            
-            NSMutableArray *array = [NSMutableArray arrayWithObjects:[tempContent substringWithRange:NSMakeRange(0, 8)],
-                                     [tempContent substringWithRange:NSMakeRange(8, 4)],
-                                     [tempContent substringWithRange:NSMakeRange(12, 4)],
-                                     [tempContent substringWithRange:NSMakeRange(16,4)],
-                                     [tempContent substringWithRange:NSMakeRange(20, 12)], nil];
-            [array insertObject:@"-" atIndex:1];
-            [array insertObject:@"-" atIndex:3];
-            [array insertObject:@"-" atIndex:5];
-            [array insertObject:@"-" atIndex:7];
-            for (NSString *string in array) {
-                uuid = [uuid stringByAppendingString:string];
-            }
+            rule = [content substringWithRange:NSMakeRange(2, content.length - 2)];
         }
         resultDic = @{
             @"rule":rule,
@@ -490,20 +477,7 @@ NSString *const mk_lt_communicationDataNum = @"mk_lt_communicationDataNum";
         NSString *rule = [MKBLEBaseSDKAdopter getDecimalStringWithHex:content range:NSMakeRange(0, 2)];
         NSString *uuid = @"";
         if ([rule integerValue] > 0 && content.length > 2) {
-            NSString *tempContent = [content substringWithRange:NSMakeRange(2, content.length - 2)];
-            
-            NSMutableArray *array = [NSMutableArray arrayWithObjects:[tempContent substringWithRange:NSMakeRange(0, 8)],
-                                     [tempContent substringWithRange:NSMakeRange(8, 4)],
-                                     [tempContent substringWithRange:NSMakeRange(12, 4)],
-                                     [tempContent substringWithRange:NSMakeRange(16,4)],
-                                     [tempContent substringWithRange:NSMakeRange(20, 12)], nil];
-            [array insertObject:@"-" atIndex:1];
-            [array insertObject:@"-" atIndex:3];
-            [array insertObject:@"-" atIndex:5];
-            [array insertObject:@"-" atIndex:7];
-            for (NSString *string in array) {
-                uuid = [uuid stringByAppendingString:string];
-            }
+            uuid = [content substringWithRange:NSMakeRange(2, content.length - 2)];
         }
         resultDic = @{
             @"rule":rule,
@@ -653,20 +627,7 @@ NSString *const mk_lt_communicationDataNum = @"mk_lt_communicationDataNum";
         NSString *rule = [MKBLEBaseSDKAdopter getDecimalStringWithHex:content range:NSMakeRange(0, 2)];
         NSString *uuid = @"";
         if ([rule integerValue] > 0 && content.length > 2) {
-            NSString *tempContent = [content substringWithRange:NSMakeRange(2, content.length - 2)];
-            
-            NSMutableArray *array = [NSMutableArray arrayWithObjects:[tempContent substringWithRange:NSMakeRange(0, 8)],
-                                     [tempContent substringWithRange:NSMakeRange(8, 4)],
-                                     [tempContent substringWithRange:NSMakeRange(12, 4)],
-                                     [tempContent substringWithRange:NSMakeRange(16,4)],
-                                     [tempContent substringWithRange:NSMakeRange(20, 12)], nil];
-            [array insertObject:@"-" atIndex:1];
-            [array insertObject:@"-" atIndex:3];
-            [array insertObject:@"-" atIndex:5];
-            [array insertObject:@"-" atIndex:7];
-            for (NSString *string in array) {
-                uuid = [uuid stringByAppendingString:string];
-            }
+            uuid = [content substringWithRange:NSMakeRange(2, content.length - 2)];
         }
         resultDic = @{
             @"rule":rule,
@@ -772,20 +733,7 @@ NSString *const mk_lt_communicationDataNum = @"mk_lt_communicationDataNum";
         NSString *rule = [MKBLEBaseSDKAdopter getDecimalStringWithHex:content range:NSMakeRange(0, 2)];
         NSString *uuid = @"";
         if ([rule integerValue] > 0 && content.length > 2) {
-            NSString *tempContent = [content substringWithRange:NSMakeRange(2, content.length - 2)];
-            
-            NSMutableArray *array = [NSMutableArray arrayWithObjects:[tempContent substringWithRange:NSMakeRange(0, 8)],
-                                     [tempContent substringWithRange:NSMakeRange(8, 4)],
-                                     [tempContent substringWithRange:NSMakeRange(12, 4)],
-                                     [tempContent substringWithRange:NSMakeRange(16,4)],
-                                     [tempContent substringWithRange:NSMakeRange(20, 12)], nil];
-            [array insertObject:@"-" atIndex:1];
-            [array insertObject:@"-" atIndex:3];
-            [array insertObject:@"-" atIndex:5];
-            [array insertObject:@"-" atIndex:7];
-            for (NSString *string in array) {
-                uuid = [uuid stringByAppendingString:string];
-            }
+            uuid = [content substringWithRange:NSMakeRange(2, content.length - 2)];
         }
         resultDic = @{
             @"rule":rule,

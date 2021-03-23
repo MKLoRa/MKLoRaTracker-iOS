@@ -233,7 +233,7 @@
         self.CHH = 1;
     }
     self.dutyIsOn = NO;
-    self.adrIsOn = NO;
+    self.adrIsOn = YES;
     self.DR = 0;
     self.dellTime = 0;
 }
@@ -681,6 +681,11 @@
     }
     if (self.region < 0 || self.region > 9) {
         return NO;
+    }
+    if (self.region == 1 || self.region == 2 || self.region == 8) {
+        if (self.CHL < 0 || self.CHL > 95 || self.CHH < self.CHL || self.CHH > 95) {
+            return NO;
+        }
     }
     if (self.messageType != 0 && self.messageType != 1) {
         return NO;

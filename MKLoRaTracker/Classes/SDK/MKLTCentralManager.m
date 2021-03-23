@@ -203,11 +203,11 @@ static dispatch_once_t onceToken;
     __weak typeof(self) weakSelf = self;
     [self connectPeripheral:peripheral successBlock:^(CBPeripheral *peripheral) {
         __strong typeof(self) sself = weakSelf;
+        sself.sucBlock = nil;
+        sself.failedBlock = nil;
         if (sucBlock) {
             sucBlock(peripheral);
         }
-        sself.sucBlock = nil;
-        sself.failedBlock = nil;
     } failedBlock:^(NSError *error) {
         __strong typeof(self) sself = weakSelf;
         sself.sucBlock = nil;

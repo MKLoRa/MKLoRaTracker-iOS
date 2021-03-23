@@ -377,9 +377,10 @@ MKLoRaSettingCHCellDelegate>
 - (void)mk_loraSetting_chHighValueChanged:(NSString *)value
                               chHighIndex:(NSInteger)chHighIndex
                                 cellIndex:(NSInteger)index {
-    self.dataModel.CHH = chHighIndex;
+    self.dataModel.CHH = [value integerValue];
     MKLoRaSettingCHCellModel *cellModel = self.optionsList1[0];
-    cellModel.chHighIndex = self.dataModel.CHH;
+    cellModel.chHighIndex = chHighIndex;
+    cellModel.chLowValueList = [self.dataModel CHLValueList];
 }
 
 /// 选择了左侧高\低位的列表
@@ -389,9 +390,9 @@ MKLoRaSettingCHCellDelegate>
 - (void)mk_loraSetting_chLowValueChanged:(NSString *)value
                               chLowIndex:(NSInteger)chLowIndex
                                cellIndex:(NSInteger)index {
-    self.dataModel.CHL = chLowIndex;
+    self.dataModel.CHL = [value integerValue];
     MKLoRaSettingCHCellModel *cellModel = self.optionsList1[0];
-    cellModel.chLowIndex = self.dataModel.CHL;
+    cellModel.chLowIndex = chLowIndex;
     cellModel.chHighValueList = [self.dataModel CHHValueList];
 }
 

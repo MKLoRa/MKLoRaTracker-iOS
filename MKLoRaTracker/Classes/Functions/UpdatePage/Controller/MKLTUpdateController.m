@@ -76,13 +76,14 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:@"mk_lt_startDfuProcessNotification" object:nil];
     NSString *document = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
     NSString *filePath = [document stringByAppendingPathComponent:firmwareModel.leftMsg];
+    self.leftButton.enabled = NO;
     //BLE升级
     [[MKHudManager share] showHUDWithTitle:@"Waiting..." inView:self.view isPenetration:NO];
     WS(weakSelf);
     [self.dfuModule updateWithFileUrl:filePath progressBlock:^(CGFloat progress) {
         
     } sucBlock:^{
-        [[MKHudManager share] showHUDWithTitle:@"Update firmware successfully! Please reconnect the device." inView:weakSelf.view isPenetration:NO];
+        [[MKHudManager share] showHUDWithTitle:@"Update firmware successfully!" inView:weakSelf.view isPenetration:NO];
         [weakSelf performSelector:@selector(updateComplete) withObject:nil afterDelay:3.f];
     } failedBlock:^(NSError * _Nonnull error) {
         [[MKHudManager share] showHUDWithTitle:@"Opps!DFU Failed. Please try again!" inView:weakSelf.view isPenetration:NO];
@@ -103,6 +104,7 @@
 
 #pragma mark -
 - (void)updateComplete {
+    self.leftButton.enabled = YES;
     [[MKHudManager share] hide];
     [MKLTCentralManager sharedDealloc];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"mk_lt_centralDeallocNotification" object:nil];
