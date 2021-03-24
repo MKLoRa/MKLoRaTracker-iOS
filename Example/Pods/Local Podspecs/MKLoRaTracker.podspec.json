@@ -111,6 +111,15 @@
       },
       "subspecs": [
         {
+          "name": "AboutPage",
+          "subspecs": [
+            {
+              "name": "Controller",
+              "source_files": "MKLoRaTracker/Classes/Functions/AboutPage/Controller/**"
+            }
+          ]
+        },
+        {
           "name": "AdvertiserPage",
           "subspecs": [
             {
@@ -368,6 +377,9 @@
 
                 ],
                 "MKLoRaTracker/Functions/TabBarPage": [
+
+                ],
+                "MKLoRaTracker/Functions/AboutPage": [
 
                 ]
               }

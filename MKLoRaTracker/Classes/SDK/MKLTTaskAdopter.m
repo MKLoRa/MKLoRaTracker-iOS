@@ -371,7 +371,7 @@ NSString *const mk_lt_communicationDataNum = @"mk_lt_communicationDataNum";
         NSString *rule = [MKBLEBaseSDKAdopter getDecimalStringWithHex:content range:NSMakeRange(0, 2)];
         NSString *uuid = @"";
         if ([rule integerValue] > 0 && content.length > 2) {
-            rule = [content substringWithRange:NSMakeRange(2, content.length - 2)];
+            uuid = [content substringWithRange:NSMakeRange(2, content.length - 2)];
         }
         resultDic = @{
             @"rule":rule,

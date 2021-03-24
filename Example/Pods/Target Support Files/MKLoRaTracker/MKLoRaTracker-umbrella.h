@@ -15,6 +15,7 @@
 #import "MKLTConnectModel.h"
 #import "MKLTGPSReportIntervalCell.h"
 #import "MKLTNormalTextCell.h"
+#import "MKLTAboutController.h"
 #import "MKLTAdvertiserController.h"
 #import "MKLTAdvertiserDataModel.h"
 #import "MKLTAxisController.h"

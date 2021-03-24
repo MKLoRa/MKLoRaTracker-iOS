@@ -383,6 +383,7 @@ PODS:
     - MKLoRaTracker/ConnectModule
     - MKLoRaTracker/CTMediator
     - MKLoRaTracker/CustomCell
+    - MKLoRaTracker/Functions/AboutPage (= 1.0.0)
     - MKLoRaTracker/Functions/AdvertiserPage (= 1.0.0)
     - MKLoRaTracker/Functions/AxisPage (= 1.0.0)
     - MKLoRaTracker/Functions/DevicePage (= 1.0.0)
@@ -400,6 +401,33 @@ PODS:
     - MKLoRaTracker/Functions/TabBarPage (= 1.0.0)
     - MKLoRaTracker/Functions/UpdatePage (= 1.0.0)
     - MKLoRaTracker/Functions/VibrationSetting (= 1.0.0)
+    - MKLoRaTracker/SDK
+    - MLInputDodger
+  - MKLoRaTracker/Functions/AboutPage (1.0.0):
+    - CTMediator
+    - FMDB
+    - HHTransition
+    - iOSDFULibrary (= 4.6.1)
+    - MKBaseBleModule
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKLoRaTracker/ConnectModule
+    - MKLoRaTracker/CTMediator
+    - MKLoRaTracker/CustomCell
+    - MKLoRaTracker/Functions/AboutPage/Controller (= 1.0.0)
+    - MKLoRaTracker/SDK
+    - MLInputDodger
+  - MKLoRaTracker/Functions/AboutPage/Controller (1.0.0):
+    - CTMediator
+    - FMDB
+    - HHTransition
+    - iOSDFULibrary (= 4.6.1)
+    - MKBaseBleModule
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKLoRaTracker/ConnectModule
+    - MKLoRaTracker/CTMediator
+    - MKLoRaTracker/CustomCell
     - MKLoRaTracker/SDK
     - MLInputDodger
   - MKLoRaTracker/Functions/AdvertiserPage (1.0.0):
@@ -957,6 +985,7 @@ PODS:
     - MKLoRaTracker/ConnectModule
     - MKLoRaTracker/CTMediator
     - MKLoRaTracker/CustomCell
+    - MKLoRaTracker/Functions/AboutPage
     - MKLoRaTracker/Functions/ScanPage/Model
     - MKLoRaTracker/Functions/ScanPage/View
     - MKLoRaTracker/Functions/TabBarPage
@@ -1252,7 +1281,7 @@ SPEC CHECKSUMS:
   MKBaseBleModule: 553e5ac68fd89acd0642ae7fc0ba7a5f2ce25950
   MKBaseModuleLibrary: 7fb73829fe9bef794deeb4484ec80256c03a95e6
   MKCustomUIModule: 9b0954210ca32870a83ba4fc221aa77ff59baf6c
-  MKLoRaTracker: 1fa2daf6b7ff95ec1071caff8371e235c00e5a7a
+  MKLoRaTracker: 91e3bed56a94b207fd407226f2c80119039ccfc4
   MLInputDodger: 79a0e420a80d0d3bba122bf2639603cc76609ba8
   Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
   ZIPFoundation: 89df685c971926b0323087952320bdfee9f0b6ef

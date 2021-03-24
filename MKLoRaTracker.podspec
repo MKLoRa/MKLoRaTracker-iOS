@@ -67,6 +67,12 @@ TODO: Add long description of the pod here.
   
   s.subspec 'Functions' do |ss|
     
+    ss.subspec 'AboutPage' do |sss|
+      sss.subspec 'Controller' do |ssss|
+        ssss.source_files = 'MKLoRaTracker/Classes/Functions/AboutPage/Controller/**'
+      end
+    end
+    
     ss.subspec 'AdvertiserPage' do |sss|
       sss.subspec 'Controller' do |ssss|
         ssss.source_files = 'MKLoRaTracker/Classes/Functions/AdvertiserPage/Controller/**'
@@ -211,6 +217,7 @@ TODO: Add long description of the pod here.
         ssss.dependency 'MKLoRaTracker/Functions/ScanPage/View'
         
         ssss.dependency 'MKLoRaTracker/Functions/TabBarPage'
+        ssss.dependency 'MKLoRaTracker/Functions/AboutPage'
       end
       sss.subspec 'View' do |ssss|
         ssss.source_files = 'MKLoRaTracker/Classes/Functions/ScanPage/View/**'
