@@ -12,6 +12,7 @@
 
 #import "MKLTApplicationModule.h"
 #import "CTMediator+MKLTAdd.h"
+#import "MKLoRaWANLTModuleKey.h"
 #import "MKLTConnectModel.h"
 #import "MKLTGPSReportIntervalCell.h"
 #import "MKLTNormalTextCell.h"

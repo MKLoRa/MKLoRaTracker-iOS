@@ -64,13 +64,15 @@ MKTextFieldCellDelegate>
         return;
     }
     [[MKHudManager share] showHUDWithTitle:@"Setting..." inView:self.view isPenetration:NO];
-    WS(weakSelf);
+    @weakify(self);
     [self.dataModel configDataWithSucBlock:^{
+        @strongify(self);
         [[MKHudManager share] hide];
-        [weakSelf.view showCentralToast:@"Saved Successfully!"];
+        [self.view showCentralToast:@"Saved Successfully!"];
     } failedBlock:^(NSError * _Nonnull error) {
+        @strongify(self);
         [[MKHudManager share] hide];
-        [weakSelf.view showCentralToast:error.userInfo[@"errorInfo"]];
+        [self.view showCentralToast:error.userInfo[@"errorInfo"]];
     }];
 }
 
@@ -150,13 +152,15 @@ MKTextFieldCellDelegate>
 #pragma mark - interface
 - (void)readDataFromDevice {
     [[MKHudManager share] showHUDWithTitle:@"Reading..." inView:self.view isPenetration:NO];
-    WS(weakSelf);
+    @weakify(self);
     [self.dataModel readDataWithSucBlock:^{
+        @strongify(self);
         [[MKHudManager share] hide];
-        [weakSelf loadSectionDatas];
+        [self loadSectionDatas];
     } failedBlock:^(NSError * _Nonnull error) {
+        @strongify(self);
         [[MKHudManager share] hide];
-        [weakSelf.view showCentralToast:error.userInfo[@"errorInfo"]];
+        [self.view showCentralToast:error.userInfo[@"errorInfo"]];
     }];
 }
 

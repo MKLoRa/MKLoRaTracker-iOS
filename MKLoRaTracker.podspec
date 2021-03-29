@@ -36,10 +36,15 @@ TODO: Add long description of the pod here.
   
   s.subspec 'ApplicationModule' do |ss|
     ss.source_files = 'MKLoRaTracker/Classes/ApplicationModule/**'
+    
+    ss.dependency 'MKBaseModuleLibrary'
   end
   
   s.subspec 'CTMediator' do |ss|
     ss.source_files = 'MKLoRaTracker/Classes/CTMediator/**'
+    
+    ss.dependency 'CTMediator'
+    ss.dependency 'MKBaseModuleLibrary'
   end
   
   s.subspec 'CustomCell' do |ss|
@@ -49,10 +54,15 @@ TODO: Add long description of the pod here.
     ss.subspec 'MKLTGPSReportInterval' do |sss|
       sss.source_files = 'MKLoRaTracker/Classes/CustomCell/MKLTGPSReportInterval/**'
     end
+    
+    ss.dependency 'MKBaseModuleLibrary'
+    ss.dependency 'MKCustomUIModule'
   end
   
   s.subspec 'SDK' do |ss|
     ss.source_files = 'MKLoRaTracker/Classes/SDK/**'
+    
+    ss.dependency 'MKBaseBleModule'
   end
   
   s.subspec 'Target' do |ss|
@@ -62,7 +72,9 @@ TODO: Add long description of the pod here.
   
   s.subspec 'ConnectModule' do |ss|
     ss.source_files = 'MKLoRaTracker/Classes/ConnectModule/**'
+    
     ss.dependency 'MKLoRaTracker/SDK'
+    ss.dependency 'MKBaseModuleLibrary'
   end
   
   s.subspec 'Functions' do |ss|
@@ -289,16 +301,13 @@ TODO: Add long description of the pod here.
     ss.dependency 'MKLoRaTracker/CustomCell'
     ss.dependency 'MKLoRaTracker/CTMediator'
     ss.dependency 'MKLoRaTracker/ConnectModule'
+    
+    ss.dependency 'MKBaseModuleLibrary'
+    ss.dependency 'MKCustomUIModule'
+    ss.dependency 'HHTransition'
+    ss.dependency 'MLInputDodger'
+    ss.dependency 'iOSDFULibrary','4.6.1'
   
   end
-
-  s.dependency 'MKBaseBleModule'
-  s.dependency 'MKBaseModuleLibrary'
-  s.dependency 'MKCustomUIModule'
-  s.dependency 'HHTransition'
-  s.dependency 'FMDB'
-  s.dependency 'MLInputDodger'
-  s.dependency 'iOSDFULibrary','4.6.1'
-  s.dependency 'CTMediator'
   
 end

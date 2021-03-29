@@ -63,13 +63,15 @@ MKMixedChoiceCellDelegate>
 #pragma mark - super method
 - (void)rightButtonMethod {
     [[MKHudManager share] showHUDWithTitle:@"Config..." inView:self.view isPenetration:NO];
-    WS(weakSelf);
+    @weakify(self);
     [self.dataModel configDataWithSucBlock:^{
+        @strongify(self);
         [[MKHudManager share] hide];
-        [weakSelf.view showCentralToast:@"Success!"];
+        [self.view showCentralToast:@"Success!"];
     } failedBlock:^(NSError * _Nonnull error) {
+        @strongify(self);
         [[MKHudManager share] hide];
-        [weakSelf.view showCentralToast:error.userInfo[@"errorInfo"]];
+        [self.view showCentralToast:error.userInfo[@"errorInfo"]];
     }];
 }
 
@@ -169,13 +171,15 @@ MKMixedChoiceCellDelegate>
 #pragma mark - interface
 - (void)readDataFromDevice {
     [[MKHudManager share] showHUDWithTitle:@"Reading..." inView:self.view isPenetration:NO];
-    WS(weakSelf);
+    @weakify(self);
     [self.dataModel readDataWithSucBlock:^{
+        @strongify(self);
         [[MKHudManager share] hide];
-        [weakSelf loadSectionDatas];
+        [self loadSectionDatas];
     } failedBlock:^(NSError * _Nonnull error) {
+        @strongify(self);
         [[MKHudManager share] hide];
-        [weakSelf.view showCentralToast:error.userInfo[@"errorInfo"]];
+        [self.view showCentralToast:error.userInfo[@"errorInfo"]];
     }];
 }
 

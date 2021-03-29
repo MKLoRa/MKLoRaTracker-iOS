@@ -66,6 +66,7 @@
 
 #pragma mark - event method
 - (void)intervalButtonPressed {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"MKTextFieldNeedHiddenKeyboard" object:nil];
     NSInteger index = 0;
     if (self.dataModel.nonAlarmReportInterval > 0) {
         for (NSInteger i = 0; i < self.dataList.count; i ++) {
@@ -125,7 +126,7 @@
     if (!_intervalButton) {
         _intervalButton = [MKCustomUIAdopter customButtonWithTitle:@"10"
                                                         titleColor:COLOR_WHITE_MACROS
-                                                   backgroundColor:UIColorFromRGB(0x2F84D0)
+                                                   backgroundColor:NAVBAR_COLOR_MACROS
                                                             target:self
                                                             action:@selector(intervalButtonPressed)];
     }

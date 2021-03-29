@@ -68,13 +68,15 @@ MKMeasureTxPowerCellDelegate>
 
 - (void)rightButtonMethod {
     [[MKHudManager share] showHUDWithTitle:@"Setting..." inView:self.view isPenetration:NO];
-    WS(weakSelf);
+    @weakify(self);
     [self.dataModel configDataWithSucBlock:^{
+        @strongify(self);
         [[MKHudManager share] hide];
-        [weakSelf.view showCentralToast:@"Saved Successfully!"];
+        [self.view showCentralToast:@"Saved Successfully!"];
     } failedBlock:^(NSError * _Nonnull error) {
+        @strongify(self);
         [[MKHudManager share] hide];
-        [weakSelf.view showCentralToast:error.userInfo[@"errorInfo"]];
+        [self.view showCentralToast:error.userInfo[@"errorInfo"]];
     }];
 }
 
@@ -158,13 +160,15 @@ MKMeasureTxPowerCellDelegate>
 #pragma mark - interface
 - (void)readDataFromDevice {
     [[MKHudManager share] showHUDWithTitle:@"Reading..." inView:self.view isPenetration:NO];
-    WS(weakSelf);
+    @weakify(self);
     [self.dataModel readDataWithSucBlock:^{
+        @strongify(self);
         [[MKHudManager share] hide];
-        [weakSelf processCellDatas];
+        [self processCellDatas];
     } failedBlock:^(NSError * _Nonnull error) {
+        @strongify(self);
         [[MKHudManager share] hide];
-        [weakSelf.view showCentralToast:error.userInfo[@"errorInfo"]];
+        [self.view showCentralToast:error.userInfo[@"errorInfo"]];
     }];
 }
 

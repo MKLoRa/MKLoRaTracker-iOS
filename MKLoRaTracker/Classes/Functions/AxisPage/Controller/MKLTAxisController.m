@@ -86,25 +86,27 @@ MKLTAxisSensorCellDelegate>
 #pragma mark - super method
 - (void)rightButtonMethod {
     [[MKHudManager share] showHUDWithTitle:@"Config..." inView:self.view isPenetration:NO];
-    WS(weakSelf);
+    @weakify(self);
     [self.dataModel configDataWithSucBlock:^{
+        @strongify(self);
         [[MKHudManager share] hide];
-        [weakSelf.view showCentralToast:@"Success!"];
+        [self.view showCentralToast:@"Success!"];
     } failedBlock:^(NSError * _Nonnull error) {
         [[MKHudManager share] hide];
-        [weakSelf.view showCentralToast:error.userInfo[@"errorInfo"]];
+        [self.view showCentralToast:error.userInfo[@"errorInfo"]];
     }];
 }
 
 - (void)leftButtonMethod {
     [[MKHudManager share] showHUDWithTitle:@"Config..." inView:self.view isPenetration:NO];
-    WS(weakSelf);
+    @weakify(self);
     [self.dataModel configSensorDataStatus:NO sucBlock:^{
         [[MKHudManager share] hide];
         [super leftButtonMethod];
     } failedBlock:^(NSError * _Nonnull error) {
+        @strongify(self);
         [[MKHudManager share] hide];
-        [weakSelf.view showCentralToast:error.userInfo[@"errorInfo"]];
+        [self.view showCentralToast:error.userInfo[@"errorInfo"]];
         [super leftButtonMethod];
     }];
 }
@@ -272,52 +274,58 @@ MKLTAxisSensorCellDelegate>
 #pragma mark - interface
 - (void)readDataFromDevice {
     [[MKHudManager share] showHUDWithTitle:@"Reading..." inView:self.view isPenetration:NO];
-    WS(weakSelf);
+    @weakify(self);
     [self.dataModel readDataWithSucBlock:^{
+        @strongify(self);
         [[MKHudManager share] hide];
-        [weakSelf loadSectionDatas];
+        [self loadSectionDatas];
     } failedBlock:^(NSError * _Nonnull error) {
+        @strongify(self);
         [[MKHudManager share] hide];
-        [weakSelf.view showCentralToast:error.userInfo[@"errorInfo"]];
+        [self.view showCentralToast:error.userInfo[@"errorInfo"]];
     }];
 }
 
 - (void)configAxisSwitch:(BOOL)isOn {
     [[MKHudManager share] showHUDWithTitle:@"Config..." inView:self.view isPenetration:NO];
-    WS(weakSelf);
+    @weakify(self);
     [self.dataModel configAxisSwitchStatus:isOn sucBlock:^{
+        @strongify(self);
         [[MKHudManager share] hide];
         
-        weakSelf.dataModel.axisIsOn = isOn;
-        MKTextSwitchCellModel *cellModel1 = weakSelf.section0List[0];
+        self.dataModel.axisIsOn = isOn;
+        MKTextSwitchCellModel *cellModel1 = self.section0List[0];
         cellModel1.isOn = isOn;
         
-        MKLTAxisSensorCellModel *cellModel2 = weakSelf.section4List[0];
-        cellModel2.selected = weakSelf.dataModel.sensorDataIsOn;
-        [weakSelf.tableView reloadData];
+        MKLTAxisSensorCellModel *cellModel2 = self.section4List[0];
+        cellModel2.selected = self.dataModel.sensorDataIsOn;
+        [self.tableView reloadData];
     } failedBlock:^(NSError * _Nonnull error) {
+        @strongify(self);
         [[MKHudManager share] hide];
-        [weakSelf.view showCentralToast:error.userInfo[@"errorInfo"]];
+        [self.view showCentralToast:error.userInfo[@"errorInfo"]];
     }];
 }
 
 - (void)configSensorDataStatus:(BOOL)isOn {
     [[MKHudManager share] showHUDWithTitle:@"Config..." inView:self.view isPenetration:NO];
-    WS(weakSelf);
+    @weakify(self);
     [self.dataModel configSensorDataStatus:isOn sucBlock:^{
+        @strongify(self);
         [[MKHudManager share] hide];
         
-        MKTextSwitchCellModel *cellModel1 = weakSelf.section0List[0];
-        cellModel1.isOn = weakSelf.dataModel.axisIsOn;
+        MKTextSwitchCellModel *cellModel1 = self.section0List[0];
+        cellModel1.isOn = self.dataModel.axisIsOn;
         
-        weakSelf.dataModel.sensorDataIsOn = isOn;
-        MKLTAxisSensorCellModel *cellModel2 = weakSelf.section4List[0];
+        self.dataModel.sensorDataIsOn = isOn;
+        MKLTAxisSensorCellModel *cellModel2 = self.section4List[0];
         cellModel2.selected = isOn;
         
-        [weakSelf.tableView reloadData];
+        [self.tableView reloadData];
     } failedBlock:^(NSError * _Nonnull error) {
+        @strongify(self);
         [[MKHudManager share] hide];
-        [weakSelf.view showCentralToast:error.userInfo[@"errorInfo"]];
+        [self.view showCentralToast:error.userInfo[@"errorInfo"]];
     }];
 }
 

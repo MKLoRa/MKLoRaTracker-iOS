@@ -81,13 +81,15 @@ MKLoRaSettingCHCellDelegate>
 #pragma mark - super method
 - (void)rightButtonMethod {
     [[MKHudManager share] showHUDWithTitle:@"Config..." inView:self.view isPenetration:NO];
-    WS(weakSelf);
+    @weakify(self);
     [self.dataModel configDataWithSucBlock:^{
+        @strongify(self);
         [[MKHudManager share] hide];
-        [weakSelf.view showCentralToast:@"Success!"];
+        [self.view showCentralToast:@"Success!"];
     } failedBlock:^(NSError * _Nonnull error) {
+        @strongify(self);
         [[MKHudManager share] hide];
-        [weakSelf.view showCentralToast:error.userInfo[@"errorInfo"]];
+        [self.view showCentralToast:error.userInfo[@"errorInfo"]];
     }];
 }
 
@@ -407,13 +409,15 @@ MKLoRaSettingCHCellDelegate>
 #pragma mark - interface
 - (void)readDatasFromDevice {
     [[MKHudManager share] showHUDWithTitle:@"Reading..." inView:self.view isPenetration:NO];
-    WS(weakSelf);
+    @weakify(self);
     [self.dataModel readDataWithSucBlock:^{
+        @strongify(self);
         [[MKHudManager share] hide];
-        [weakSelf loadSectionDatas];
+        [self loadSectionDatas];
     } failedBlock:^(NSError * _Nonnull error) {
+        @strongify(self);
         [[MKHudManager share] hide];
-        [weakSelf.view showCentralToast:error.userInfo[@"errorInfo"]];
+        [self.view showCentralToast:error.userInfo[@"errorInfo"]];
     }];
 }
 
@@ -600,7 +604,7 @@ MKLoRaSettingCHCellDelegate>
     MKTextSwitchCellModel *dutyModel = [[MKTextSwitchCellModel alloc] init];
     dutyModel.index = 0;
     dutyModel.msg = @"Duty-cycle";
-    dutyModel.noteMsg = @"*It is only used for EU868,CN779, EU433,,and RU864. Off: The uplink report interval will not be limit by region freqency. On:The uplink report interval will be limit by region freqency.";
+    dutyModel.noteMsg = @"*It is only used for EU868,CN779, EU433 and RU864. Off: The uplink report interval will not be limit by region freqency. On:The uplink report interval will be limit by region freqency.";
     dutyModel.noteMsgColor = RGBCOLOR(102, 102, 102);
     dutyModel.isOn = self.dataModel.dutyIsOn;
     [self.optionsList2 addObject:dutyModel];

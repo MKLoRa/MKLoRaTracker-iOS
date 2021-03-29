@@ -89,17 +89,19 @@ MKLTGPSReportIntervalCellDelegate>
 #pragma mark - super method
 - (void)rightButtonMethod {
     [[MKHudManager share] showHUDWithTitle:@"Config..." inView:self.view isPenetration:NO];
-    WS(weakSelf);
+    @weakify(self);
     [self.dataModel configDataWithSucBlock:^{
+        @strongify(self);
         [[MKHudManager share] hide];
-        [weakSelf.view showCentralToast:@"Success!"];
+        [self.view showCentralToast:@"Success!"];
         //因为gps report interval按钮标题要与nonAlarmInterval联动，所以需要刷新gps report interval所在cell
-        MKLTGPSReportIntervalCellModel *cellModel = weakSelf.section7List[0];
+        MKLTGPSReportIntervalCellModel *cellModel = self.section7List[0];
         cellModel.nonAlarmReportInterval = [self.dataModel.nonAlarmInterval integerValue];
-        [weakSelf.tableView mk_reloadSection:7 withRowAnimation:UITableViewRowAnimationNone];
+        [self.tableView mk_reloadSection:7 withRowAnimation:UITableViewRowAnimationNone];
     } failedBlock:^(NSError * _Nonnull error) {
+        @strongify(self);
         [[MKHudManager share] hide];
-        [weakSelf.view showCentralToast:error.userInfo[@"errorInfo"]];
+        [self.view showCentralToast:error.userInfo[@"errorInfo"]];
     }];
 }
 
@@ -178,7 +180,7 @@ MKLTGPSReportIntervalCellDelegate>
                                                                       (sectionHeaderHeight - MKFont(20.f).lineHeight) / 2,
                                                                       kViewWidth - 30.f,
                                                                       MKFont(20.f).lineHeight)];
-        msgLabel.textColor = UIColorFromRGB(0x2F84D0);
+        msgLabel.textColor = NAVBAR_COLOR_MACROS;
         msgLabel.textAlignment = NSTextAlignmentLeft;
         if (section == 0) {
             msgLabel.text = @"Device Info Payload";
@@ -507,13 +509,15 @@ MKLTGPSReportIntervalCellDelegate>
 #pragma mark - interface
 - (void)readDataFromDevice {
     [[MKHudManager share] showHUDWithTitle:@"Reading..." inView:self.view isPenetration:NO];
-    WS(weakSelf);
+    @weakify(self);
     [self.dataModel readDataWithSucBlock:^{
+        @strongify(self);
         [[MKHudManager share] hide];
-        [weakSelf loadSectionDatas];
+        [self loadSectionDatas];
     } failedBlock:^(NSError * _Nonnull error) {
+        @strongify(self);
         [[MKHudManager share] hide];
-        [weakSelf.view showCentralToast:error.userInfo[@"errorInfo"]];
+        [self.view showCentralToast:error.userInfo[@"errorInfo"]];
     }];
 }
 

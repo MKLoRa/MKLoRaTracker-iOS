@@ -237,34 +237,37 @@ mk_textSwitchCellDelegate
 
 #pragma mark - 设置密码
 - (void)configPassword{
-    WS(weakSelf);
+    @weakify(self);
     self.currentAlert = nil;
     NSString *msg = @"Note:The password should be 8 characters.";
     self.currentAlert = [UIAlertController alertControllerWithTitle:@"Change Password"
                                                             message:msg
                                                      preferredStyle:UIAlertControllerStyleAlert];
     [self.currentAlert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
-        weakSelf.passwordTextField = nil;
-        weakSelf.passwordTextField = textField;
-        weakSelf.passwordAsciiStr = @"";
-        [weakSelf.passwordTextField setPlaceholder:@"Enter new password"];
-        [weakSelf.passwordTextField addTarget:weakSelf
-                                       action:@selector(passwordTextFieldValueChanged:)
-                             forControlEvents:UIControlEventEditingChanged];
+        @strongify(self);
+        self.passwordTextField = nil;
+        self.passwordTextField = textField;
+        self.passwordAsciiStr = @"";
+        [self.passwordTextField setPlaceholder:@"Enter new password"];
+        [self.passwordTextField addTarget:self
+                                   action:@selector(passwordTextFieldValueChanged:)
+                         forControlEvents:UIControlEventEditingChanged];
     }];
     [self.currentAlert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
-        weakSelf.confirmTextField = nil;
-        weakSelf.confirmTextField = textField;
-        weakSelf.confirmAsciiStr = @"";
-        [weakSelf.confirmTextField setPlaceholder:@"Enter new password again"];
-        [weakSelf.confirmTextField addTarget:weakSelf
-                                      action:@selector(passwordTextFieldValueChanged:)
-                            forControlEvents:UIControlEventEditingChanged];
+        @strongify(self);
+        self.confirmTextField = nil;
+        self.confirmTextField = textField;
+        self.confirmAsciiStr = @"";
+        [self.confirmTextField setPlaceholder:@"Enter new password again"];
+        [self.confirmTextField addTarget:self
+                                  action:@selector(passwordTextFieldValueChanged:)
+                        forControlEvents:UIControlEventEditingChanged];
     }];
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
     [self.currentAlert addAction:cancelAction];
     UIAlertAction *moreAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [weakSelf setPasswordToDevice];
+        @strongify(self);
+        [self setPasswordToDevice];
     }];
     [self.currentAlert addAction:moreAction];
     
@@ -345,9 +348,10 @@ mk_textSwitchCellDelegate
                                                      preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
     [self.currentAlert addAction:cancelAction];
-    WS(weakSelf);
+    @weakify(self);
     UIAlertAction *moreAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [weakSelf sendResetCommandToDevice];
+        @strongify(self);
+        [self sendResetCommandToDevice];
     }];
     [self.currentAlert addAction:moreAction];
     
@@ -374,15 +378,17 @@ mk_textSwitchCellDelegate
     self.currentAlert = [UIAlertController alertControllerWithTitle:@"Warning!"
                                                             message:msg
                                                      preferredStyle:UIAlertControllerStyleAlert];
-    WS(weakSelf);
+    @weakify(self);
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-        MKTextSwitchCellModel *model = weakSelf.section1List[0];
+        @strongify(self);
+        MKTextSwitchCellModel *model = self.section1List[0];
         model.isOn = !connect;
-        [weakSelf.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:1]] withRowAnimation:UITableViewRowAnimationNone];
+        [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:1]] withRowAnimation:UITableViewRowAnimationNone];
     }];
     [self.currentAlert addAction:cancelAction];
     UIAlertAction *moreAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [weakSelf setConnectStatusToDevice:connect];
+        @strongify(self);
+        [self setConnectStatusToDevice:connect];
     }];
     [self.currentAlert addAction:moreAction];
     
@@ -415,15 +421,17 @@ mk_textSwitchCellDelegate
     self.currentAlert = [UIAlertController alertControllerWithTitle:@"Warning!"
                                                             message:msg
                                                      preferredStyle:UIAlertControllerStyleAlert];
-    WS(weakSelf);
+    @weakify(self);
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-        MKTextSwitchCellModel *model = weakSelf.section1List[1];
+        @strongify(self);
+        MKTextSwitchCellModel *model = self.section1List[1];
         model.isOn = NO;
-        [weakSelf.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:1 inSection:1]] withRowAnimation:UITableViewRowAnimationNone];
+        [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:1 inSection:1]] withRowAnimation:UITableViewRowAnimationNone];
     }];
     [self.currentAlert addAction:cancelAction];
     UIAlertAction *moreAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [weakSelf commandPowerOff];
+        @strongify(self);
+        [self commandPowerOff];
     }];
     [self.currentAlert addAction:moreAction];
     
@@ -448,13 +456,15 @@ mk_textSwitchCellDelegate
 #pragma mark - interface
 - (void)readDataFromDevice {
     [[MKHudManager share] showHUDWithTitle:@"Reading..." inView:self.view isPenetration:NO];
-    WS(weakSelf);
+    @weakify(self);
     [self.dataModel readDataWithSucBlock:^{
+        @strongify(self);
         [[MKHudManager share] hide];
-        [weakSelf updateCellState];
+        [self updateCellState];
     } failedBlock:^(NSError * _Nonnull error) {
+        @strongify(self);
         [[MKHudManager share] hide];
-        [weakSelf.view showCentralToast:error.userInfo[@"errorInfo"]];
+        [self.view showCentralToast:error.userInfo[@"errorInfo"]];
     }];
 }
 

@@ -135,7 +135,7 @@ static CGFloat const valueLabelWidth = 110.f;
 - (UIButton *)connectButton{
     if (!_connectButton) {
         _connectButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_connectButton setBackgroundColor:UIColorFromRGB(0x2F84D0)];
+        [_connectButton setBackgroundColor:NAVBAR_COLOR_MACROS];
         [_connectButton setTitle:@"CONNECT" forState:UIControlStateNormal];
         [_connectButton setTitleColor:COLOR_WHITE_MACROS forState:UIControlStateNormal];
         [_connectButton.titleLabel setFont:MKFont(15.f)];

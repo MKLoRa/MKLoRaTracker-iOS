@@ -160,7 +160,7 @@
     if (!_selectedButton) {
         _selectedButton = [MKCustomUIAdopter customButtonWithTitle:@"0"
                                                         titleColor:COLOR_WHITE_MACROS
-                                                   backgroundColor:UIColorFromRGB(0x2F84D0)
+                                                   backgroundColor:NAVBAR_COLOR_MACROS
                                                             target:self
                                                             action:@selector(selectedButtonPressed)];
     }

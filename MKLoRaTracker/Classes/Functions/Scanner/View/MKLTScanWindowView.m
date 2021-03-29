@@ -359,7 +359,7 @@ static CGFloat const maxLabelHeight = 15.f;
     if (!_cancelButton) {
         _cancelButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [_cancelButton setTitle:@"Cancel" forState:UIControlStateNormal];
-        [_cancelButton setTitleColor:UIColorFromRGB(0x2F84D0) forState:UIControlStateNormal];
+        [_cancelButton setTitleColor:NAVBAR_COLOR_MACROS forState:UIControlStateNormal];
         [_cancelButton.titleLabel setFont:MKFont(15.f)];
         [_cancelButton addTarget:self
                           action:@selector(cancelButtonPressed)
@@ -372,7 +372,7 @@ static CGFloat const maxLabelHeight = 15.f;
     if (!_confirmButton) {
         _confirmButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [_confirmButton setTitle:@"OK" forState:UIControlStateNormal];
-        [_confirmButton setTitleColor:UIColorFromRGB(0x2F84D0) forState:UIControlStateNormal];
+        [_confirmButton setTitleColor:NAVBAR_COLOR_MACROS forState:UIControlStateNormal];
         [_confirmButton.titleLabel setFont:MKFont(15.f)];
         [_confirmButton addTarget:self
                            action:@selector(confirmButtonPressed)

@@ -10,11 +10,18 @@
 
 #import "MKLTScanController.h"
 
+#import "MKLTAboutController.h"
+
 @implementation Target_LoRaWANLT_Module
 
 /// 扫描页面
 - (UIViewController *)Action_LoRaWANLT_Module_ScanController:(NSDictionary *)params {
     return [[MKLTScanController alloc] init];
+}
+
+/// 关于页面
+- (UIViewController *)Action_LoRaWANLT_Module_AboutController:(NSDictionary *)params {
+    return [[MKLTAboutController alloc] init];
 }
 
 @end

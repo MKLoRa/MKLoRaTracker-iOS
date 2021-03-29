@@ -23,43 +23,38 @@
       "MKLoRaTracker/Assets/*.png"
     ]
   },
-  "dependencies": {
-    "MKBaseBleModule": [
-
-    ],
-    "MKBaseModuleLibrary": [
-
-    ],
-    "MKCustomUIModule": [
-
-    ],
-    "HHTransition": [
-
-    ],
-    "FMDB": [
-
-    ],
-    "MLInputDodger": [
-
-    ],
-    "iOSDFULibrary": [
-      "4.6.1"
-    ],
-    "CTMediator": [
-
-    ]
-  },
   "subspecs": [
     {
       "name": "ApplicationModule",
-      "source_files": "MKLoRaTracker/Classes/ApplicationModule/**"
+      "source_files": "MKLoRaTracker/Classes/ApplicationModule/**",
+      "dependencies": {
+        "MKBaseModuleLibrary": [
+
+        ]
+      }
     },
     {
       "name": "CTMediator",
-      "source_files": "MKLoRaTracker/Classes/CTMediator/**"
+      "source_files": "MKLoRaTracker/Classes/CTMediator/**",
+      "dependencies": {
+        "CTMediator": [
+
+        ],
+        "MKBaseModuleLibrary": [
+
+        ]
+      }
     },
     {
       "name": "CustomCell",
+      "dependencies": {
+        "MKBaseModuleLibrary": [
+
+        ],
+        "MKCustomUIModule": [
+
+        ]
+      },
       "subspecs": [
         {
           "name": "MKLTNormalTextCell",
@@ -73,7 +68,12 @@
     },
     {
       "name": "SDK",
-      "source_files": "MKLoRaTracker/Classes/SDK/**"
+      "source_files": "MKLoRaTracker/Classes/SDK/**",
+      "dependencies": {
+        "MKBaseBleModule": [
+
+        ]
+      }
     },
     {
       "name": "Target",
@@ -89,6 +89,9 @@
       "source_files": "MKLoRaTracker/Classes/ConnectModule/**",
       "dependencies": {
         "MKLoRaTracker/SDK": [
+
+        ],
+        "MKBaseModuleLibrary": [
 
         ]
       }
@@ -107,6 +110,21 @@
         ],
         "MKLoRaTracker/ConnectModule": [
 
+        ],
+        "MKBaseModuleLibrary": [
+
+        ],
+        "MKCustomUIModule": [
+
+        ],
+        "HHTransition": [
+
+        ],
+        "MLInputDodger": [
+
+        ],
+        "iOSDFULibrary": [
+          "4.6.1"
         ]
       },
       "subspecs": [

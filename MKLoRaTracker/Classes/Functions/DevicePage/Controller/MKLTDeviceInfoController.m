@@ -128,16 +128,18 @@ MKLTFirmwareCellDelegate>
 #pragma mark - interface
 - (void)startReadDatas {
     [[MKHudManager share] showHUDWithTitle:@"Reading..." inView:self.view isPenetration:NO];
-    WS(weakSelf);
+    @weakify(self);
     [self.dataModel startLoadSystemInformation:self.onlyBattery sucBlock:^{
+        @strongify(self);
         [[MKHudManager share] hide];
-        if (!weakSelf.onlyBattery) {
-            weakSelf.onlyBattery = YES;
+        if (!self.onlyBattery) {
+            self.onlyBattery = YES;
         }
-        [weakSelf loadDatasFromDevice];
+        [self loadDatasFromDevice];
     } failedBlock:^(NSError * _Nonnull error) {
+        @strongify(self);
         [[MKHudManager share] hide];
-        [weakSelf.view showCentralToast:error.userInfo[@"errorInfo"]];
+        [self.view showCentralToast:error.userInfo[@"errorInfo"]];
     }];
 }
 

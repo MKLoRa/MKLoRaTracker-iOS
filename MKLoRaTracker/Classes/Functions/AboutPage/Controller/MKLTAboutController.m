@@ -131,7 +131,7 @@
         _versionLabel.textColor = RGBCOLOR(189, 189, 189);
         _versionLabel.textAlignment = NSTextAlignmentCenter;
         _versionLabel.font = MKFont(16.f);
-        _versionLabel.text = [@"APP Version:" stringByAppendingString:kAppVersion];
+        _versionLabel.text = @"APP Version:1.0.2";
     }
     return _versionLabel;
 }
@@ -162,7 +162,7 @@
     if (!_companyNetLabel) {
         _companyNetLabel = [[UILabel alloc] init];
         _companyNetLabel.textAlignment = NSTextAlignmentCenter;
-        _companyNetLabel.textColor = UIColorFromRGB(0x2F84D0);
+        _companyNetLabel.textColor = NAVBAR_COLOR_MACROS;
         _companyNetLabel.font = MKFont(16.f);
         _companyNetLabel.text = @"www.mokosmart.com";
         [_companyNetLabel addTapAction:self selector:@selector(openWebBrowser)];

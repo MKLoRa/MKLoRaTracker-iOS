@@ -17,6 +17,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// 扫描页面
 - (UIViewController *)Action_LoRaWANLT_Module_ScanController:(NSDictionary *)params;
 
+/// 关于页面
+- (UIViewController *)Action_LoRaWANLT_Module_AboutController:(NSDictionary *)params;
+
 @end
 
 NS_ASSUME_NONNULL_END

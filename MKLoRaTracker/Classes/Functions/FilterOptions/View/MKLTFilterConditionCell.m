@@ -97,7 +97,7 @@
     }
     [self.centerButton setTitle:_dataModel.dataList[_dataModel.conditionIndex] forState:UIControlStateNormal];
     self.centerButton.enabled = _dataModel.enable;
-    [self.centerButton setBackgroundColor:(_dataModel.enable ? UIColorFromRGB(0x2F84D0) : [UIColor grayColor])];
+    [self.centerButton setBackgroundColor:(_dataModel.enable ? NAVBAR_COLOR_MACROS : [UIColor grayColor])];
     [self.centerButton setTitleColor:(_dataModel.enable ? COLOR_WHITE_MACROS : DEFAULT_TEXT_COLOR) forState:UIControlStateNormal];
     self.leftMsgLabel.text = SafeStr(_dataModel.leftMsg);
     self.rightMsgLabel.text = SafeStr(_dataModel.rightMsg);
@@ -128,7 +128,7 @@
     if (!_centerButton) {
         _centerButton = [MKCustomUIAdopter customButtonWithTitle:@"And"
                                                       titleColor:COLOR_WHITE_MACROS
-                                                 backgroundColor:UIColorFromRGB(0x2F84D0)
+                                                 backgroundColor:NAVBAR_COLOR_MACROS
                                                           target:self
                                                           action:@selector(centerButtonPressed)];
         _centerButton.titleLabel.font = MKFont(14.f);

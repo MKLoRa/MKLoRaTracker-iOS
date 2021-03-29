@@ -75,21 +75,21 @@
 
 #pragma mark - notes
 - (void)gotoScanPage {
-    WS(weakSelf);
+    @weakify(self);
     [self dismissViewControllerAnimated:YES completion:^{
-        __strong typeof(self) sself = weakSelf;
-        if ([sself.delegate respondsToSelector:@selector(mk_lt_needResetScanDelegate:)]) {
-            [sself.delegate mk_lt_needResetScanDelegate:NO];
+        @strongify(self);
+        if ([self.delegate respondsToSelector:@selector(mk_lt_needResetScanDelegate:)]) {
+            [self.delegate mk_lt_needResetScanDelegate:NO];
         }
     }];
 }
 
 - (void)dfuUpdateComplete {
-    WS(weakSelf);
+    @weakify(self);
     [self dismissViewControllerAnimated:YES completion:^{
-        __strong typeof(self) sself = weakSelf;
-        if ([sself.delegate respondsToSelector:@selector(mk_lt_needResetScanDelegate:)]) {
-            [sself.delegate mk_lt_needResetScanDelegate:YES];
+        @strongify(self);
+        if ([self.delegate respondsToSelector:@selector(mk_lt_needResetScanDelegate:)]) {
+            [self.delegate mk_lt_needResetScanDelegate:YES];
         }
     }];
 }
@@ -137,9 +137,10 @@
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title
                                                                              message:msg
                                                                       preferredStyle:UIAlertControllerStyleAlert];
-    WS(weakSelf);
+    @weakify(self);
     UIAlertAction *moreAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [weakSelf gotoScanPage];
+        @strongify(self);
+        [self gotoScanPage];
     }];
     [alertController addAction:moreAction];
     
@@ -169,7 +170,7 @@
 
     MKLTSettingController *setting = [[MKLTSettingController alloc] init];
     setting.tabBarItem.title = @"SETTINGS";
-    setting.tabBarItem.image = LOADICON(@"MKLoRaTracker", @"MKLTTabBarController", @"lt_setting_taabBarUnselected.png");
+    setting.tabBarItem.image = LOADICON(@"MKLoRaTracker", @"MKLTTabBarController", @"lt_setting_tabBarUnselected.png");
     setting.tabBarItem.selectedImage = LOADICON(@"MKLoRaTracker", @"MKLTTabBarController", @"lt_setting_tabBarSelected.png");
     MKBaseNavigationController *settingPage = [[MKBaseNavigationController alloc] initWithRootViewController:setting];
     

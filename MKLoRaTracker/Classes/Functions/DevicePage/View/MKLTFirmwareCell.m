@@ -108,7 +108,7 @@
     if (!_dfuButton) {
         _dfuButton = [MKCustomUIAdopter customButtonWithTitle:@"DFU"
                                                    titleColor:COLOR_WHITE_MACROS
-                                              backgroundColor:UIColorFromRGB(0x2F84D0)
+                                              backgroundColor:NAVBAR_COLOR_MACROS
                                                        target:self
                                                        action:@selector(dfuButtonPressed)];
         _dfuButton.titleLabel.font = MKFont(13.f);
