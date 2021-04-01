@@ -344,12 +344,19 @@
               "dependencies": {
                 "MKLoRaTracker/Functions/PayloadPage/Model": [
 
+                ],
+                "MKLoRaTracker/Functions/PayloadPage/View": [
+
                 ]
               }
             },
             {
               "name": "Model",
               "source_files": "MKLoRaTracker/Classes/Functions/PayloadPage/Model/**"
+            },
+            {
+              "name": "View",
+              "source_files": "MKLoRaTracker/Classes/Functions/PayloadPage/View/**"
             }
           ]
         },

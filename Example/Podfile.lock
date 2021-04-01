@@ -720,6 +720,7 @@ PODS:
     - MKLoRaTracker/CustomCell
     - MKLoRaTracker/Functions/PayloadPage/Controller (= 1.0.0)
     - MKLoRaTracker/Functions/PayloadPage/Model (= 1.0.0)
+    - MKLoRaTracker/Functions/PayloadPage/View (= 1.0.0)
     - MKLoRaTracker/SDK
     - MLInputDodger
   - MKLoRaTracker/Functions/PayloadPage/Controller (1.0.0):
@@ -731,9 +732,20 @@ PODS:
     - MKLoRaTracker/CTMediator
     - MKLoRaTracker/CustomCell
     - MKLoRaTracker/Functions/PayloadPage/Model
+    - MKLoRaTracker/Functions/PayloadPage/View
     - MKLoRaTracker/SDK
     - MLInputDodger
   - MKLoRaTracker/Functions/PayloadPage/Model (1.0.0):
+    - HHTransition
+    - iOSDFULibrary (= 4.6.1)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKLoRaTracker/ConnectModule
+    - MKLoRaTracker/CTMediator
+    - MKLoRaTracker/CustomCell
+    - MKLoRaTracker/SDK
+    - MLInputDodger
+  - MKLoRaTracker/Functions/PayloadPage/View (1.0.0):
     - HHTransition
     - iOSDFULibrary (= 4.6.1)
     - MKBaseModuleLibrary
@@ -1041,7 +1053,7 @@ SPEC CHECKSUMS:
   MKBaseBleModule: 2c18242ab1c5267ed7b4ec2e3521ea4f9750e93e
   MKBaseModuleLibrary: 3f6402005cd7aafb0a1564261b3ba798bd6b8ba9
   MKCustomUIModule: b203dd0d8b9dbab53f41cf0ca5718dc98d97dbe4
-  MKLoRaTracker: 90e75acb3ae9ce9f15878db19d1ee32888ffd6b2
+  MKLoRaTracker: 34e19ffbbecec62355b58de34dea44dc60654f67
   MLInputDodger: 79a0e420a80d0d3bba122bf2639603cc76609ba8
   Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
   ZIPFoundation: 89df685c971926b0323087952320bdfee9f0b6ef

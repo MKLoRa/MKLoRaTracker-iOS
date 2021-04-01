@@ -29,6 +29,8 @@
 
 #import "MKLTUplinkPayloadModel.h"
 
+#import "MKLTUplinkSectionHeader.h"
+
 static CGFloat const sectionHeaderHeight = 55.f;
 
 @interface MKLTUplinkPayloadController ()
@@ -168,44 +170,26 @@ MKLTGPSReportIntervalCellDelegate>
     if (section == 0 || section == 1 || section == 5 || ([MKLTConnectModel shared].supportGps && section == 7) || section == 9) {
         return 60.f;
     }
-    return 0.01;
+    return 0.f;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    if (section == 0 || section == 1 || section == 5 || section == 9 || ([MKLTConnectModel shared].supportGps && section == 7)) {
-        UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kViewWidth, sectionHeaderHeight)];
-        headerView.backgroundColor = RGBCOLOR(242, 242, 242);
-        
-        UILabel *msgLabel = [[UILabel alloc] initWithFrame:CGRectMake(15.f,
-                                                                      (sectionHeaderHeight - MKFont(20.f).lineHeight) / 2,
-                                                                      kViewWidth - 30.f,
-                                                                      MKFont(20.f).lineHeight)];
-        msgLabel.textColor = NAVBAR_COLOR_MACROS;
-        msgLabel.textAlignment = NSTextAlignmentLeft;
-        if (section == 0) {
-            msgLabel.text = @"Device Info Payload";
-        }else if (section == 1) {
-            msgLabel.text = @"Tracking And Location Payload";
-        }else if (section == 5) {
-            msgLabel.text = @"SOS Payload";
-        }else if (section == 7) {
-            msgLabel.text = @"GPS Payload";
-        }else if (section == 9) {
-            msgLabel.text = @"3-Axis Payload";
-        }
-        [headerView addSubview:msgLabel];
-        
-        UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(15.f,
-                                                                    sectionHeaderHeight - CUTTING_LINE_HEIGHT,
-                                                                    kViewWidth - 30.f,
-                                                                    CUTTING_LINE_HEIGHT)];
-        lineView.backgroundColor = CUTTING_LINE_COLOR;
-        [headerView addSubview:lineView];
-        
-        return headerView;
+    
+    MKLTUplinkSectionHeader *headerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"MKLTUplinkSectionHeaderIdenty"];
+    if (section == 0) {
+        headerView.titleMsg = @"Device Info Payload";
+    }else if (section == 1) {
+        headerView.titleMsg = @"Tracking And Location Payload";
+    }else if (section == 5) {
+        headerView.titleMsg = @"SOS Payload";
+    }else if (section == 7 && [MKLTConnectModel shared].supportGps) {
+        headerView.titleMsg = @"GPS Payload";
+    }else if (section == 9) {
+        headerView.titleMsg = @"3-Axis Payload";
+    }else {
+        headerView.titleMsg = @"";
     }
-    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kViewWidth, 0.01)];
-    headerView.backgroundColor = COLOR_WHITE_MACROS;
+    
     return headerView;
 }
 
@@ -722,6 +706,8 @@ MKLTGPSReportIntervalCellDelegate>
         _tableView = [[MKBaseTableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
         _tableView.delegate = self;
         _tableView.dataSource = self;
+        
+        [_tableView registerClass:[MKLTUplinkSectionHeader class] forHeaderFooterViewReuseIdentifier:@"MKLTUplinkSectionHeaderIdenty"];
     }
     return _tableView;
 }
