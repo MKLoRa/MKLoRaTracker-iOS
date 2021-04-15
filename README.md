@@ -94,11 +94,11 @@ The `MKLTCentralManager ` contains the method of connecting the device.
 
 Through the manager, you can get the current Bluetooth status of the mobile phone, and the connection status of the device. If you want to monitor the changes of these two states, you can register the following notifications to achieve:
 
-* When the Bluetooth status of the mobile phone changes，<font color=#FF0000 face="黑体">mk*_*lt*_*centralManagerStateChangedNotification</font> will be posted.You can get status in this way:
+* When the Bluetooth status of the mobile phone changes，<font color=#FF0000 face="黑体">`mk_lt_centralManagerStateChangedNotification`</font> will be posted.You can get status in this way:
 
 `[[MKLTCentralManager shared] centralStatus];`
 
-* When the device connection status changes， <font color=#FF0000 face="黑体"> mk*_*lt*_*peripheralConnectStateChangedNotification </font> will be posted.You can get the status in this way:
+* When the device connection status changes， <font color=#FF0000 face="黑体"> `mk_lt_peripheralConnectStateChangedNotification` </font> will be posted.You can get the status in this way:
 
 `[MKLTCentralManager shared].connectState;`
 
@@ -114,7 +114,7 @@ When the device is connected, the developer can monitor the three-axis data of t
 ```
 
 
-*  2.Register for <font color=#FF0000 face="黑体"> mk*_*lt*_*receive3AxisSensorDataNotification </font> notifications to monitor device three-axis data changes
+*  2.Register for <font color=#FF0000 face="黑体"> `mk_lt_receive3AxisSensorDataNotification` </font> notifications to monitor device three-axis data changes
 
 
 ```
@@ -145,7 +145,7 @@ When the device is connected, the developer can monitor the three-axis data of t
 
 #### 5.Monitoring device disconnect reason.
 
-Register for <font color=#FF0000 face="黑体"> mk*_*lt*_*deviceDisconnectTypeNotification </font> notifications to monitor data.
+Register for <font color=#FF0000 face="黑体"> `mk_lt_deviceDisconnectTypeNotification` </font> notifications to monitor data.
 
 
 ```
