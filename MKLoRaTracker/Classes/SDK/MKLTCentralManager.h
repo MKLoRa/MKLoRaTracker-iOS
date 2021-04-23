@@ -111,13 +111,11 @@ extern NSString *const mk_lt_deviceDisconnectTypeNotification;
 /// Start a task for data communication with the device
 /// @param operationID operation id
 /// @param characteristic characteristic for communication
-/// @param resetNum How many data will the communication device return
 /// @param commandData Data to be sent to the device for this communication
 /// @param successBlock Successful callback
 /// @param failureBlock Failure callback
 - (void)addTaskWithTaskID:(mk_lt_taskOperationID)operationID
            characteristic:(CBCharacteristic *)characteristic
-                 resetNum:(BOOL)resetNum
               commandData:(NSString *)commandData
              successBlock:(void (^)(id returnData))successBlock
              failureBlock:(void (^)(NSError *error))failureBlock;

@@ -232,13 +232,11 @@ static dispatch_once_t onceToken;
 
 - (void)addTaskWithTaskID:(mk_lt_taskOperationID)operationID
            characteristic:(CBCharacteristic *)characteristic
-                 resetNum:(BOOL)resetNum
               commandData:(NSString *)commandData
              successBlock:(void (^)(id returnData))successBlock
              failureBlock:(void (^)(NSError *error))failureBlock {
     MKLTOperation <MKBLEBaseOperationProtocol>*operation = [self generateOperationWithOperationID:operationID
                                                                                    characteristic:characteristic
-                                                                                         resetNum:resetNum
                                                                                       commandData:commandData
                                                                                      successBlock:successBlock
                                                                                      failureBlock:failureBlock];
@@ -282,22 +280,22 @@ static dispatch_once_t onceToken;
         int asciiCode = [self.password characterAtIndex:i];
         commandData = [commandData stringByAppendingString:[NSString stringWithFormat:@"%1lx",(unsigned long)asciiCode]];
     }
-    
-    MKLTOperation *operation = [[MKLTOperation alloc] initOperationWithID:mk_lt_connectPasswordOperation resetNum:NO commandBlock:^{
+    __weak typeof(self) weakSelf = self;
+    MKLTOperation *operation = [[MKLTOperation alloc] initOperationWithID:mk_lt_connectPasswordOperation commandBlock:^{
         [[MKBLEBaseCentralManager shared] sendDataToPeripheral:commandData characteristic:[MKBLEBaseCentralManager shared].peripheral.lt_password type:CBCharacteristicWriteWithResponse];
-    } completeBlock:^(NSError * _Nonnull error, mk_lt_taskOperationID operationID, id  _Nonnull returnData) {
-        NSDictionary *dataDic = ((NSArray *)returnData[mk_lt_dataInformation])[0];
-        if (![dataDic[@"state"] isEqualToString:@"01"]) {
+    } completeBlock:^(NSError * _Nullable error, id  _Nullable returnData) {
+        __strong typeof(self) sself = weakSelf;
+        if (error || !MKValidDict(returnData) || ![returnData[@"state"] isEqualToString:@"01"]) {
             //密码错误
-            [self operationFailedBlockWithMsg:@"Password Error" failedBlock:self.failedBlock];
+            [sself operationFailedBlockWithMsg:@"Password Error" failedBlock:sself.failedBlock];
             return ;
         }
         //密码正确
         MKBLEBase_main_safe(^{
-            self.connectStatus = mk_lt_centralConnectStatusConnected;
+            sself.connectStatus = mk_lt_centralConnectStatusConnected;
             [[NSNotificationCenter defaultCenter] postNotificationName:mk_lt_peripheralConnectStateChangedNotification object:nil];
-            if (self.sucBlock) {
-                self.sucBlock([MKBLEBaseCentralManager shared].peripheral);
+            if (sself.sucBlock) {
+                sself.sucBlock([MKBLEBaseCentralManager shared].peripheral);
             }
         });
     }];
@@ -307,7 +305,6 @@ static dispatch_once_t onceToken;
 #pragma mark - task method
 - (MKLTOperation <MKBLEBaseOperationProtocol>*)generateOperationWithOperationID:(mk_lt_taskOperationID)operationID
                                                                  characteristic:(CBCharacteristic *)characteristic
-                                                                       resetNum:(BOOL)resetNum
                                                                     commandData:(NSString *)commandData
                                                                    successBlock:(void (^)(id returnData))successBlock
                                                                    failureBlock:(void (^)(NSError *error))failureBlock{
@@ -324,9 +321,9 @@ static dispatch_once_t onceToken;
         return nil;
     }
     __weak typeof(self) weakSelf = self;
-    MKLTOperation <MKBLEBaseOperationProtocol>*operation = [[MKLTOperation alloc] initOperationWithID:operationID resetNum:resetNum commandBlock:^{
+    MKLTOperation <MKBLEBaseOperationProtocol>*operation = [[MKLTOperation alloc] initOperationWithID:operationID commandBlock:^{
         [[MKBLEBaseCentralManager shared] sendDataToPeripheral:commandData characteristic:characteristic type:CBCharacteristicWriteWithResponse];
-    } completeBlock:^(NSError * _Nonnull error, mk_lt_taskOperationID operationID, id  _Nonnull returnData) {
+    } completeBlock:^(NSError * _Nullable error, id _Nullable returnData) {
         __strong typeof(self) sself = weakSelf;
         if (error) {
             MKBLEBase_main_safe(^{
@@ -340,29 +337,9 @@ static dispatch_once_t onceToken;
             [sself operationFailedBlockWithMsg:@"Request data error" failedBlock:failureBlock];
             return ;
         }
-        NSString *lev = returnData[mk_lt_dataStatusLev];
-        if ([lev isEqualToString:@"1"]) {
-            //通用无附加信息的
-            NSArray *dataList = (NSArray *)returnData[mk_lt_dataInformation];
-            if (!dataList) {
-                [sself operationFailedBlockWithMsg:@"Request data error" failedBlock:failureBlock];
-                return;
-            }
-            NSDictionary *resultDic = @{@"msg":@"success",
-                                        @"code":@"1",
-                                        @"result":(dataList.count == 1 ? dataList[0] : dataList),
-                                        };
-            MKBLEBase_main_safe(^{
-                if (successBlock) {
-                    successBlock(resultDic);
-                }
-            });
-            return;
-        }
-        //对于有附加信息的
         NSDictionary *resultDic = @{@"msg":@"success",
                                     @"code":@"1",
-                                    @"result":returnData[mk_lt_dataInformation],
+                                    @"result":returnData,
                                     };
         MKBLEBase_main_safe(^{
             if (successBlock) {
@@ -386,9 +363,9 @@ static dispatch_once_t onceToken;
         return nil;
     }
     __weak typeof(self) weakSelf = self;
-    MKLTOperation <MKBLEBaseOperationProtocol>*operation = [[MKLTOperation alloc] initOperationWithID:operationID resetNum:NO commandBlock:^{
+    MKLTOperation <MKBLEBaseOperationProtocol>*operation = [[MKLTOperation alloc] initOperationWithID:operationID commandBlock:^{
         [[MKBLEBaseCentralManager shared].peripheral readValueForCharacteristic:characteristic];
-    } completeBlock:^(NSError * _Nonnull error, mk_lt_taskOperationID operationID, id  _Nonnull returnData) {
+    } completeBlock:^(NSError * _Nullable error, id _Nullable returnData) {
         __strong typeof(self) sself = weakSelf;
         if (error) {
             MKBLEBase_main_safe(^{
@@ -402,29 +379,9 @@ static dispatch_once_t onceToken;
             [sself operationFailedBlockWithMsg:@"Request data error" failedBlock:failureBlock];
             return ;
         }
-        NSString *lev = returnData[mk_lt_dataStatusLev];
-        if ([lev isEqualToString:@"1"]) {
-            //通用无附加信息的
-            NSArray *dataList = (NSArray *)returnData[mk_lt_dataInformation];
-            if (!dataList) {
-                [sself operationFailedBlockWithMsg:@"Request data error" failedBlock:failureBlock];
-                return;
-            }
-            NSDictionary *resultDic = @{@"msg":@"success",
-                                        @"code":@"1",
-                                        @"result":(dataList.count == 1 ? dataList[0] : dataList),
-                                        };
-            MKBLEBase_main_safe(^{
-                if (successBlock) {
-                    successBlock(resultDic);
-                }
-            });
-            return;
-        }
-        //对于有附加信息的
         NSDictionary *resultDic = @{@"msg":@"success",
                                     @"code":@"1",
-                                    @"result":returnData[mk_lt_dataInformation],
+                                    @"result":returnData,
                                     };
         MKBLEBase_main_safe(^{
             if (successBlock) {

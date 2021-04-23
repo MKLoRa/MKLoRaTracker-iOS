@@ -10,8 +10,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-extern NSString *const mk_lt_communicationDataNum;
-
 @class CBCharacteristic;
 
 @interface MKLTTaskAdopter : NSObject

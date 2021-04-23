@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "summary": "A short description of MKLoRaTracker.",
   "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/aadyx2007@163.com/MKLoRaTracker",
+  "homepage": "https://github.com/MKLoRa/MKLoRaTracker-iOS",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
@@ -12,7 +12,7 @@
     "aadyx2007@163.com": "aadyx2007@163.com"
   },
   "source": {
-    "git": "https://github.com/aadyx2007@163.com/MKLoRaTracker.git",
+    "git": "https://github.com/MKLoRa/MKLoRaTracker-iOS.git",
     "tag": "1.0.0"
   },
   "platforms": {
@@ -124,7 +124,7 @@
 
         ],
         "iOSDFULibrary": [
-          "4.6.1"
+
         ]
       },
       "subspecs": [
