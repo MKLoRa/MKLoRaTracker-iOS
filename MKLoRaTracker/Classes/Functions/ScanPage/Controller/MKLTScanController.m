@@ -33,7 +33,6 @@
 #import "MKLTScanPageCell.h"
 
 #import "MKLTTabBarController.h"
-#import "MKLTAboutController.h"
 
 static NSString *const localPasswordKey = @"mk_lt_passwordKey";
 

@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'MKLoRaTracker'
-  s.version          = '1.0.1'
+  s.version          = '1.0.2'
   s.summary          = 'A short description of MKLoRaTracker.'
 
 # This description is used to generate tags and improve search results.
@@ -233,7 +233,6 @@ TODO: Add long description of the pod here.
         ssss.dependency 'MKLoRaTracker/Functions/ScanPage/View'
         
         ssss.dependency 'MKLoRaTracker/Functions/TabBarPage'
-        ssss.dependency 'MKLoRaTracker/Functions/AboutPage'
       end
       sss.subspec 'View' do |ssss|
         ssss.source_files = 'MKLoRaTracker/Classes/Functions/ScanPage/View/**'

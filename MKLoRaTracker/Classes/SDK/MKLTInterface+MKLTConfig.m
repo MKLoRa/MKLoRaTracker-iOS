@@ -147,10 +147,6 @@
                    failedBlock:failedBlock];
 }
 
-/// Configure the broadcast name of the device.
-/// @param deviceName 1~10 ascii characters
-/// @param sucBlock Success callback
-/// @param failedBlock Failure callback
 + (void)lt_configDeviceName:(NSString *)deviceName
                    sucBlock:(void (^)(void))sucBlock
                 failedBlock:(void (^)(NSError *error))failedBlock {

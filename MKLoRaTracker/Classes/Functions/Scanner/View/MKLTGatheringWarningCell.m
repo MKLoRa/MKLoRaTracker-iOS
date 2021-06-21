@@ -110,8 +110,7 @@
         }
     }
     MKPickerView *pickView = [[MKPickerView alloc] init];
-    pickView.dataList = self.dataList;
-    [pickView showPickViewWithIndex:row block:^(NSInteger currentRow) {
+    [pickView showPickViewWithDataList:self.dataList selectedRow:row block:^(NSInteger currentRow) {
         [self.selectedButton setTitle:self.dataList[currentRow] forState:UIControlStateNormal];
         self.noteLabel.text = [NSString stringWithFormat:@"* People gathering warning will take effect，when the BLE RSSI scanned is greater than %@dBm.",self.dataList[currentRow]];
         if ([self.delegate respondsToSelector:@selector(mk_gatheringWarningRssiValueChanged:)]) {

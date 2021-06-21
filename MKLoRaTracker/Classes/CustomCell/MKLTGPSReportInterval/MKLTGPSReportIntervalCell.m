@@ -80,8 +80,7 @@
     }
     
     MKPickerView *pickView = [[MKPickerView alloc] init];
-    pickView.dataList = self.dataList;
-    [pickView showPickViewWithIndex:index block:^(NSInteger currentRow) {
+    [pickView showPickViewWithDataList:self.dataList selectedRow:index block:^(NSInteger currentRow) {
         NSInteger tempValue = [self.dataList[currentRow] integerValue] * self.dataModel.nonAlarmReportInterval;
         NSString *titleValue = [NSString stringWithFormat:@"%ld",(long)tempValue];
         [self.intervalButton setTitle:titleValue forState:UIControlStateNormal];
