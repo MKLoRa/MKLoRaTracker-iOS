@@ -25,6 +25,8 @@
 #import "MKTextSwitchCell.h"
 #import "MKTrackerAboutController.h"
 #import "MKTrackerLogController.h"
+#import "MKUpdateController.h"
+#import "MKDFUModule.h"
 #import "MKCustomUIAdopter.h"
 #import "MKHaveRefreshCollectionView.h"
 #import "MKHaveRefreshTableView.h"
