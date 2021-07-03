@@ -21,6 +21,7 @@
 #import "MKNormalTextCell.h"
 #import "MKTextButtonCell.h"
 #import "MKTextSwitchCell.h"
+#import "MKAlertController.h"
 
 #import "MKLTInterface+MKLTConfig.h"
 
@@ -54,9 +55,6 @@ mk_textSwitchCellDelegate
 
 @property (nonatomic, strong)UITextField *confirmTextField;
 
-/// 当前present的alert
-@property (nonatomic, strong)UIAlertController *currentAlert;
-
 @property (nonatomic, copy)NSString *passwordAsciiStr;
 
 @property (nonatomic, copy)NSString *confirmAsciiStr;
@@ -67,7 +65,6 @@ mk_textSwitchCellDelegate
 
 - (void)dealloc {
     NSLog(@"MKLTSettingController销毁");
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -81,10 +78,6 @@ mk_textSwitchCellDelegate
     [super viewDidLoad];
     [self loadSubViews];
     [self loadSectionsData];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(dismissAlert)
-                                                 name:@"mk_lt_settingPageNeedDismissAlert"
-                                               object:nil];
 }
 
 #pragma mark - super method
@@ -202,13 +195,6 @@ mk_textSwitchCellDelegate
     }
 }
 
-#pragma mark - note
-- (void)dismissAlert {
-    if (self.currentAlert && (self.presentedViewController == self.currentAlert)) {
-        [self.currentAlert dismissViewControllerAnimated:NO completion:nil];
-    }
-}
-
 #pragma mark - section0 的点击事件
 - (void)pushAdvertiserPage {
     MKLTAdvertiserController *vc = [[MKLTAdvertiserController alloc] init];
@@ -238,12 +224,12 @@ mk_textSwitchCellDelegate
 #pragma mark - 设置密码
 - (void)configPassword{
     @weakify(self);
-    self.currentAlert = nil;
     NSString *msg = @"Note:The password should be 8 characters.";
-    self.currentAlert = [UIAlertController alertControllerWithTitle:@"Change Password"
-                                                            message:msg
-                                                     preferredStyle:UIAlertControllerStyleAlert];
-    [self.currentAlert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+    MKAlertController *alertView = [MKAlertController alertControllerWithTitle:@"Change Password"
+                                                                       message:msg
+                                                                preferredStyle:UIAlertControllerStyleAlert];
+    alertView.notificationName = @"mk_lt_needDismissAlert";
+    [alertView addTextFieldWithConfigurationHandler:^(UITextField *textField) {
         @strongify(self);
         self.passwordTextField = nil;
         self.passwordTextField = textField;
@@ -253,7 +239,7 @@ mk_textSwitchCellDelegate
                                    action:@selector(passwordTextFieldValueChanged:)
                          forControlEvents:UIControlEventEditingChanged];
     }];
-    [self.currentAlert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+    [alertView addTextFieldWithConfigurationHandler:^(UITextField *textField) {
         @strongify(self);
         self.confirmTextField = nil;
         self.confirmTextField = textField;
@@ -264,14 +250,14 @@ mk_textSwitchCellDelegate
                         forControlEvents:UIControlEventEditingChanged];
     }];
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
-    [self.currentAlert addAction:cancelAction];
+    [alertView addAction:cancelAction];
     UIAlertAction *moreAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         @strongify(self);
         [self setPasswordToDevice];
     }];
-    [self.currentAlert addAction:moreAction];
+    [alertView addAction:moreAction];
     
-    [self presentViewController:self.currentAlert animated:YES completion:nil];
+    [self presentViewController:alertView animated:YES completion:nil];
 }
 
 - (void)passwordTextFieldValueChanged:(UITextField *)textField{
@@ -342,20 +328,20 @@ mk_textSwitchCellDelegate
 
 - (void)factoryReset{
     NSString *msg = @"After factory reset,all the data will be reseted to the factory values.";
-    self.currentAlert = nil;
-    self.currentAlert = [UIAlertController alertControllerWithTitle:@"Factory Reset"
-                                                            message:msg
-                                                     preferredStyle:UIAlertControllerStyleAlert];
+    MKAlertController *alertView = [MKAlertController alertControllerWithTitle:@"Factory Reset"
+                                                                       message:msg
+                                                                preferredStyle:UIAlertControllerStyleAlert];
+    alertView.notificationName = @"mk_lt_needDismissAlert";
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
-    [self.currentAlert addAction:cancelAction];
+    [alertView addAction:cancelAction];
     @weakify(self);
     UIAlertAction *moreAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         @strongify(self);
         [self sendResetCommandToDevice];
     }];
-    [self.currentAlert addAction:moreAction];
+    [alertView addAction:moreAction];
     
-    [self presentViewController:self.currentAlert animated:YES completion:nil];
+    [self presentViewController:alertView animated:YES completion:nil];
 }
 
 - (void)sendResetCommandToDevice{
@@ -374,10 +360,10 @@ mk_textSwitchCellDelegate
 #pragma mark - 设置可连接性
 - (void)configConnectEnable:(BOOL)connect{
     NSString *msg = (connect ? @"Are you sure to make the device connectable?" : @"Are you sure to make the device unconnectable?");
-    self.currentAlert = nil;
-    self.currentAlert = [UIAlertController alertControllerWithTitle:@"Warning!"
-                                                            message:msg
-                                                     preferredStyle:UIAlertControllerStyleAlert];
+    MKAlertController *alertView = [MKAlertController alertControllerWithTitle:@"Warning!"
+                                                                       message:msg
+                                                                preferredStyle:UIAlertControllerStyleAlert];
+    alertView.notificationName = @"mk_lt_needDismissAlert";
     @weakify(self);
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
         @strongify(self);
@@ -385,14 +371,14 @@ mk_textSwitchCellDelegate
         model.isOn = !connect;
         [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:1]] withRowAnimation:UITableViewRowAnimationNone];
     }];
-    [self.currentAlert addAction:cancelAction];
+    [alertView addAction:cancelAction];
     UIAlertAction *moreAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         @strongify(self);
         [self setConnectStatusToDevice:connect];
     }];
-    [self.currentAlert addAction:moreAction];
+    [alertView addAction:moreAction];
     
-    [self presentViewController:self.currentAlert animated:YES completion:nil];
+    [self presentViewController:alertView animated:YES completion:nil];
 }
 
 - (void)setConnectStatusToDevice:(BOOL)connect{
@@ -417,10 +403,10 @@ mk_textSwitchCellDelegate
 #pragma mark - 开关机
 - (void)powerOff{
     NSString *msg = @"Are you sure to turn off the device? Please make sure the device has a button to turn on!";
-    self.currentAlert = nil;
-    self.currentAlert = [UIAlertController alertControllerWithTitle:@"Warning!"
-                                                            message:msg
-                                                     preferredStyle:UIAlertControllerStyleAlert];
+    MKAlertController *alertView = [MKAlertController alertControllerWithTitle:@"Warning!"
+                                                                       message:msg
+                                                                preferredStyle:UIAlertControllerStyleAlert];
+    alertView.notificationName = @"mk_lt_needDismissAlert";
     @weakify(self);
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
         @strongify(self);
@@ -428,14 +414,14 @@ mk_textSwitchCellDelegate
         model.isOn = NO;
         [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:1 inSection:1]] withRowAnimation:UITableViewRowAnimationNone];
     }];
-    [self.currentAlert addAction:cancelAction];
+    [alertView addAction:cancelAction];
     UIAlertAction *moreAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         @strongify(self);
         [self commandPowerOff];
     }];
-    [self.currentAlert addAction:moreAction];
+    [alertView addAction:moreAction];
     
-    [self presentViewController:self.currentAlert animated:YES completion:nil];
+    [self presentViewController:alertView animated:YES completion:nil];
 }
 
 - (void)commandPowerOff{

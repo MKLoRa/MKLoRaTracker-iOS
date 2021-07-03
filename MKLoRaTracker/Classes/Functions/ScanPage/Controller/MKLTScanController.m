@@ -21,6 +21,7 @@
 #import "MKSearchButton.h"
 #import "MKSearchConditionsView.h"
 #import "MKCustomUIAdopter.h"
+#import "MKAlertController.h"
 
 #import "MKLTSDK.h"
 
@@ -207,7 +208,7 @@ MKLTTabBarControllerDelegate>
 - (void)showCentralStatus{
     if ([MKLTCentralManager shared].centralStatus != mk_lt_centralManagerStatusEnable) {
         NSString *msg = @"The current system of bluetooth is not available!";
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Dismiss"
+        MKAlertController *alertController = [MKAlertController alertControllerWithTitle:@"Dismiss"
                                                                                  message:msg
                                                                           preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *moreAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
@@ -366,7 +367,7 @@ MKLTTabBarControllerDelegate>
         dispatch_cancel(self.scanTimer);
     }
     NSString *msg = @"Please enter connection password.";
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Enter password"
+    MKAlertController *alertController = [MKAlertController alertControllerWithTitle:@"Enter password"
                                                                              message:msg
                                                                       preferredStyle:UIAlertControllerStyleAlert];
     @weakify(self);

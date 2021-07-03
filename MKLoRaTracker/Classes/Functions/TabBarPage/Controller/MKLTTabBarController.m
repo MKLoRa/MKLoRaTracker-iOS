@@ -11,6 +11,8 @@
 #import "MKMacroDefines.h"
 #import "MKBaseNavigationController.h"
 
+#import "MKAlertController.h"
+
 #import "MKLTLoRaController.h"
 #import "MKLTScannerController.h"
 #import "MKLTSettingController.h"
@@ -134,7 +136,7 @@
 
 #pragma mark - private method
 - (void)showAlertWithMsg:(NSString *)msg title:(NSString *)title{
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title
+    MKAlertController *alertController = [MKAlertController alertControllerWithTitle:title
                                                                              message:msg
                                                                       preferredStyle:UIAlertControllerStyleAlert];
     @weakify(self);
@@ -145,7 +147,7 @@
     [alertController addAction:moreAction];
     
     //让setting页面推出的alert消失
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"mk_lt_settingPageNeedDismissAlert" object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"mk_lt_needDismissAlert" object:nil];
     //让所有MKPickView消失
     [[NSNotificationCenter defaultCenter] postNotificationName:@"mk_customUIModule_dismissPickView" object:nil];
     [self performSelector:@selector(presentAlert:) withObject:alertController afterDelay:1.2f];

@@ -2,7 +2,7 @@ PODS:
   - CircleProgressBar (0.32)
   - CTMediator (44)
   - HHTransition (3.0.2)
-  - iOSDFULibrary (4.9.0):
+  - iOSDFULibrary (4.10.4):
     - ZIPFoundation (= 0.9.11)
   - Masonry (1.1.0)
   - MBProgressHUD (1.2.0)
@@ -48,72 +48,72 @@ PODS:
   - MKBaseModuleLibrary/Tools/MKClassInfo (1.1.0)
   - MKBaseModuleLibrary/Tools/MKDateFormatter (1.1.0)
   - MKBaseModuleLibrary/Tools/MKModuleManager (1.1.0)
-  - MKCustomUIModule (1.1.5):
+  - MKCustomUIModule (1.1.7):
     - CircleProgressBar
     - Masonry
     - MBProgressHUD
     - MJRefresh
     - MKBaseModuleLibrary
-    - MKCustomUIModule/Cell (= 1.1.5)
-    - MKCustomUIModule/Controller (= 1.1.5)
-    - MKCustomUIModule/UIAdopter (= 1.1.5)
-    - MKCustomUIModule/View (= 1.1.5)
-  - MKCustomUIModule/Cell (1.1.5):
+    - MKCustomUIModule/Cell (= 1.1.7)
+    - MKCustomUIModule/Controller (= 1.1.7)
+    - MKCustomUIModule/UIAdopter (= 1.1.7)
+    - MKCustomUIModule/View (= 1.1.7)
+  - MKCustomUIModule/Cell (1.1.7):
     - CircleProgressBar
     - Masonry
     - MBProgressHUD
     - MJRefresh
     - MKBaseModuleLibrary
-    - MKCustomUIModule/Cell/LoRaCell (= 1.1.5)
-    - MKCustomUIModule/Cell/NormalCell (= 1.1.5)
-  - MKCustomUIModule/Cell/LoRaCell (1.1.5):
+    - MKCustomUIModule/Cell/LoRaCell (= 1.1.7)
+    - MKCustomUIModule/Cell/NormalCell (= 1.1.7)
+  - MKCustomUIModule/Cell/LoRaCell (1.1.7):
     - CircleProgressBar
     - Masonry
     - MBProgressHUD
     - MJRefresh
     - MKBaseModuleLibrary
-    - MKCustomUIModule/Cell/LoRaCell/MKAdvancedSettingCell (= 1.1.5)
-    - MKCustomUIModule/Cell/LoRaCell/MKFilterDataCell (= 1.1.5)
-    - MKCustomUIModule/Cell/LoRaCell/MKFilterRawAdvDataCell (= 1.1.5)
-    - MKCustomUIModule/Cell/LoRaCell/MKLoraDeviceTypeCell (= 1.1.5)
-    - MKCustomUIModule/Cell/LoRaCell/MKLoRaSettingCHCell (= 1.1.5)
-    - MKCustomUIModule/Cell/LoRaCell/MKMeasureTxPowerCell (= 1.1.5)
-    - MKCustomUIModule/Cell/LoRaCell/MKMixedChoiceCell (= 1.1.5)
-    - MKCustomUIModule/Cell/LoRaCell/MKRawAdvDataOperationCell (= 1.1.5)
-  - MKCustomUIModule/Cell/LoRaCell/MKAdvancedSettingCell (1.1.5):
+    - MKCustomUIModule/Cell/LoRaCell/MKAdvancedSettingCell (= 1.1.7)
+    - MKCustomUIModule/Cell/LoRaCell/MKFilterDataCell (= 1.1.7)
+    - MKCustomUIModule/Cell/LoRaCell/MKFilterRawAdvDataCell (= 1.1.7)
+    - MKCustomUIModule/Cell/LoRaCell/MKLoraDeviceTypeCell (= 1.1.7)
+    - MKCustomUIModule/Cell/LoRaCell/MKLoRaSettingCHCell (= 1.1.7)
+    - MKCustomUIModule/Cell/LoRaCell/MKMeasureTxPowerCell (= 1.1.7)
+    - MKCustomUIModule/Cell/LoRaCell/MKMixedChoiceCell (= 1.1.7)
+    - MKCustomUIModule/Cell/LoRaCell/MKRawAdvDataOperationCell (= 1.1.7)
+  - MKCustomUIModule/Cell/LoRaCell/MKAdvancedSettingCell (1.1.7):
     - CircleProgressBar
     - Masonry
     - MBProgressHUD
     - MJRefresh
     - MKBaseModuleLibrary
-  - MKCustomUIModule/Cell/LoRaCell/MKFilterDataCell (1.1.5):
-    - CircleProgressBar
-    - Masonry
-    - MBProgressHUD
-    - MJRefresh
-    - MKBaseModuleLibrary
-    - MKCustomUIModule/View/MKTextField
-  - MKCustomUIModule/Cell/LoRaCell/MKFilterRawAdvDataCell (1.1.5):
+  - MKCustomUIModule/Cell/LoRaCell/MKFilterDataCell (1.1.7):
     - CircleProgressBar
     - Masonry
     - MBProgressHUD
     - MJRefresh
     - MKBaseModuleLibrary
     - MKCustomUIModule/View/MKTextField
-  - MKCustomUIModule/Cell/LoRaCell/MKLoraDeviceTypeCell (1.1.5):
+  - MKCustomUIModule/Cell/LoRaCell/MKFilterRawAdvDataCell (1.1.7):
     - CircleProgressBar
     - Masonry
     - MBProgressHUD
     - MJRefresh
     - MKBaseModuleLibrary
-  - MKCustomUIModule/Cell/LoRaCell/MKLoRaSettingCHCell (1.1.5):
+    - MKCustomUIModule/View/MKTextField
+  - MKCustomUIModule/Cell/LoRaCell/MKLoraDeviceTypeCell (1.1.7):
+    - CircleProgressBar
+    - Masonry
+    - MBProgressHUD
+    - MJRefresh
+    - MKBaseModuleLibrary
+  - MKCustomUIModule/Cell/LoRaCell/MKLoRaSettingCHCell (1.1.7):
     - CircleProgressBar
     - Masonry
     - MBProgressHUD
     - MJRefresh
     - MKBaseModuleLibrary
     - MKCustomUIModule/View/MKPickerView
-  - MKCustomUIModule/Cell/LoRaCell/MKMeasureTxPowerCell (1.1.5):
+  - MKCustomUIModule/Cell/LoRaCell/MKMeasureTxPowerCell (1.1.7):
     - CircleProgressBar
     - Masonry
     - MBProgressHUD
@@ -121,30 +121,30 @@ PODS:
     - MKBaseModuleLibrary
     - MKCustomUIModule/UIAdopter
     - MKCustomUIModule/View/MKSlider
-  - MKCustomUIModule/Cell/LoRaCell/MKMixedChoiceCell (1.1.5):
+  - MKCustomUIModule/Cell/LoRaCell/MKMixedChoiceCell (1.1.7):
     - CircleProgressBar
     - Masonry
     - MBProgressHUD
     - MJRefresh
     - MKBaseModuleLibrary
-  - MKCustomUIModule/Cell/LoRaCell/MKRawAdvDataOperationCell (1.1.5):
+  - MKCustomUIModule/Cell/LoRaCell/MKRawAdvDataOperationCell (1.1.7):
     - CircleProgressBar
     - Masonry
     - MBProgressHUD
     - MJRefresh
     - MKBaseModuleLibrary
-  - MKCustomUIModule/Cell/NormalCell (1.1.5):
+  - MKCustomUIModule/Cell/NormalCell (1.1.7):
     - CircleProgressBar
     - Masonry
     - MBProgressHUD
     - MJRefresh
     - MKBaseModuleLibrary
-    - MKCustomUIModule/Cell/NormalCell/MKNormalSliderCell (= 1.1.5)
-    - MKCustomUIModule/Cell/NormalCell/MKNormalTextCell (= 1.1.5)
-    - MKCustomUIModule/Cell/NormalCell/MKTextButtonCell (= 1.1.5)
-    - MKCustomUIModule/Cell/NormalCell/MKTextFieldCell (= 1.1.5)
-    - MKCustomUIModule/Cell/NormalCell/MKTextSwitchCell (= 1.1.5)
-  - MKCustomUIModule/Cell/NormalCell/MKNormalSliderCell (1.1.5):
+    - MKCustomUIModule/Cell/NormalCell/MKNormalSliderCell (= 1.1.7)
+    - MKCustomUIModule/Cell/NormalCell/MKNormalTextCell (= 1.1.7)
+    - MKCustomUIModule/Cell/NormalCell/MKTextButtonCell (= 1.1.7)
+    - MKCustomUIModule/Cell/NormalCell/MKTextFieldCell (= 1.1.7)
+    - MKCustomUIModule/Cell/NormalCell/MKTextSwitchCell (= 1.1.7)
+  - MKCustomUIModule/Cell/NormalCell/MKNormalSliderCell (1.1.7):
     - CircleProgressBar
     - Masonry
     - MBProgressHUD
@@ -152,179 +152,159 @@ PODS:
     - MKBaseModuleLibrary
     - MKCustomUIModule/UIAdopter
     - MKCustomUIModule/View/MKSlider
-  - MKCustomUIModule/Cell/NormalCell/MKNormalTextCell (1.1.5):
+  - MKCustomUIModule/Cell/NormalCell/MKNormalTextCell (1.1.7):
     - CircleProgressBar
     - Masonry
     - MBProgressHUD
     - MJRefresh
     - MKBaseModuleLibrary
-  - MKCustomUIModule/Cell/NormalCell/MKTextButtonCell (1.1.5):
+  - MKCustomUIModule/Cell/NormalCell/MKTextButtonCell (1.1.7):
     - CircleProgressBar
     - Masonry
     - MBProgressHUD
     - MJRefresh
     - MKBaseModuleLibrary
     - MKCustomUIModule/View/MKPickerView
-  - MKCustomUIModule/Cell/NormalCell/MKTextFieldCell (1.1.5):
+  - MKCustomUIModule/Cell/NormalCell/MKTextFieldCell (1.1.7):
     - CircleProgressBar
     - Masonry
     - MBProgressHUD
     - MJRefresh
     - MKBaseModuleLibrary
     - MKCustomUIModule/View/MKTextField
-  - MKCustomUIModule/Cell/NormalCell/MKTextSwitchCell (1.1.5):
+  - MKCustomUIModule/Cell/NormalCell/MKTextSwitchCell (1.1.7):
     - CircleProgressBar
     - Masonry
     - MBProgressHUD
     - MJRefresh
     - MKBaseModuleLibrary
-  - MKCustomUIModule/Controller (1.1.5):
+  - MKCustomUIModule/Controller (1.1.7):
     - CircleProgressBar
     - Masonry
     - MBProgressHUD
     - MJRefresh
     - MKBaseModuleLibrary
-    - MKCustomUIModule/Controller/MKTrackerAboutPage (= 1.1.5)
-    - MKCustomUIModule/Controller/MKTrackerLogPage (= 1.1.5)
-    - MKCustomUIModule/Controller/MKUpdatePage (= 1.1.5)
-  - MKCustomUIModule/Controller/MKTrackerAboutPage (1.1.5):
+    - MKCustomUIModule/Controller/MKAlertController (= 1.1.7)
+    - MKCustomUIModule/Controller/MKTrackerAboutPage (= 1.1.7)
+    - MKCustomUIModule/Controller/MKTrackerLogPage (= 1.1.7)
+  - MKCustomUIModule/Controller/MKAlertController (1.1.7):
     - CircleProgressBar
     - Masonry
     - MBProgressHUD
     - MJRefresh
     - MKBaseModuleLibrary
-    - MKCustomUIModule/Controller/MKTrackerAboutPage/Controller (= 1.1.5)
-  - MKCustomUIModule/Controller/MKTrackerAboutPage/Controller (1.1.5):
+  - MKCustomUIModule/Controller/MKTrackerAboutPage (1.1.7):
     - CircleProgressBar
     - Masonry
     - MBProgressHUD
     - MJRefresh
     - MKBaseModuleLibrary
-  - MKCustomUIModule/Controller/MKTrackerLogPage (1.1.5):
+    - MKCustomUIModule/Controller/MKTrackerAboutPage/Controller (= 1.1.7)
+  - MKCustomUIModule/Controller/MKTrackerAboutPage/Controller (1.1.7):
     - CircleProgressBar
     - Masonry
     - MBProgressHUD
     - MJRefresh
     - MKBaseModuleLibrary
-    - MKCustomUIModule/Controller/MKTrackerLogPage/Controller (= 1.1.5)
-  - MKCustomUIModule/Controller/MKTrackerLogPage/Controller (1.1.5):
+  - MKCustomUIModule/Controller/MKTrackerLogPage (1.1.7):
     - CircleProgressBar
     - Masonry
     - MBProgressHUD
     - MJRefresh
     - MKBaseModuleLibrary
-  - MKCustomUIModule/Controller/MKUpdatePage (1.1.5):
+    - MKCustomUIModule/Controller/MKTrackerLogPage/Controller (= 1.1.7)
+  - MKCustomUIModule/Controller/MKTrackerLogPage/Controller (1.1.7):
     - CircleProgressBar
-    - iOSDFULibrary
     - Masonry
     - MBProgressHUD
     - MJRefresh
     - MKBaseModuleLibrary
-    - MKCustomUIModule/Controller/MKUpdatePage/Controller (= 1.1.5)
-    - MKCustomUIModule/Controller/MKUpdatePage/Model (= 1.1.5)
-  - MKCustomUIModule/Controller/MKUpdatePage/Controller (1.1.5):
-    - CircleProgressBar
-    - iOSDFULibrary
-    - Masonry
-    - MBProgressHUD
-    - MJRefresh
-    - MKBaseModuleLibrary
-    - MKCustomUIModule/Cell/NormalCell/MKNormalTextCell
-    - MKCustomUIModule/Controller/MKUpdatePage/Model
-    - MKCustomUIModule/View/MKHudManager
-  - MKCustomUIModule/Controller/MKUpdatePage/Model (1.1.5):
-    - CircleProgressBar
-    - iOSDFULibrary
-    - Masonry
-    - MBProgressHUD
-    - MJRefresh
-    - MKBaseModuleLibrary
-  - MKCustomUIModule/UIAdopter (1.1.5):
+  - MKCustomUIModule/UIAdopter (1.1.7):
     - CircleProgressBar
     - Masonry
     - MBProgressHUD
     - MJRefresh
     - MKBaseModuleLibrary
     - MKCustomUIModule/View
-  - MKCustomUIModule/View (1.1.5):
+  - MKCustomUIModule/View (1.1.7):
     - CircleProgressBar
     - Masonry
     - MBProgressHUD
     - MJRefresh
     - MKBaseModuleLibrary
-    - MKCustomUIModule/View/HaveRefreshView (= 1.1.5)
-    - MKCustomUIModule/View/MKHexKeyBoard (= 1.1.5)
-    - MKCustomUIModule/View/MKHudManager (= 1.1.5)
-    - MKCustomUIModule/View/MKPageControl (= 1.1.5)
-    - MKCustomUIModule/View/MKPickerView (= 1.1.5)
-    - MKCustomUIModule/View/MKProgressView (= 1.1.5)
-    - MKCustomUIModule/View/MKSearchButton (= 1.1.5)
-    - MKCustomUIModule/View/MKSearchConditionsView (= 1.1.5)
-    - MKCustomUIModule/View/MKSlider (= 1.1.5)
-    - MKCustomUIModule/View/MKTableSectionHeader (= 1.1.5)
-    - MKCustomUIModule/View/MKTextField (= 1.1.5)
-  - MKCustomUIModule/View/HaveRefreshView (1.1.5):
+    - MKCustomUIModule/View/HaveRefreshView (= 1.1.7)
+    - MKCustomUIModule/View/MKHexKeyBoard (= 1.1.7)
+    - MKCustomUIModule/View/MKHudManager (= 1.1.7)
+    - MKCustomUIModule/View/MKPageControl (= 1.1.7)
+    - MKCustomUIModule/View/MKPickerView (= 1.1.7)
+    - MKCustomUIModule/View/MKProgressView (= 1.1.7)
+    - MKCustomUIModule/View/MKSearchButton (= 1.1.7)
+    - MKCustomUIModule/View/MKSearchConditionsView (= 1.1.7)
+    - MKCustomUIModule/View/MKSlider (= 1.1.7)
+    - MKCustomUIModule/View/MKTableSectionHeader (= 1.1.7)
+    - MKCustomUIModule/View/MKTextField (= 1.1.7)
+  - MKCustomUIModule/View/HaveRefreshView (1.1.7):
     - CircleProgressBar
     - Masonry
     - MBProgressHUD
     - MJRefresh
     - MKBaseModuleLibrary
-  - MKCustomUIModule/View/MKHexKeyBoard (1.1.5):
+  - MKCustomUIModule/View/MKHexKeyBoard (1.1.7):
     - CircleProgressBar
     - Masonry
     - MBProgressHUD
     - MJRefresh
     - MKBaseModuleLibrary
-  - MKCustomUIModule/View/MKHudManager (1.1.5):
+  - MKCustomUIModule/View/MKHudManager (1.1.7):
     - CircleProgressBar
     - Masonry
     - MBProgressHUD
     - MJRefresh
     - MKBaseModuleLibrary
-  - MKCustomUIModule/View/MKPageControl (1.1.5):
+  - MKCustomUIModule/View/MKPageControl (1.1.7):
     - CircleProgressBar
     - Masonry
     - MBProgressHUD
     - MJRefresh
     - MKBaseModuleLibrary
-  - MKCustomUIModule/View/MKPickerView (1.1.5):
+  - MKCustomUIModule/View/MKPickerView (1.1.7):
     - CircleProgressBar
     - Masonry
     - MBProgressHUD
     - MJRefresh
     - MKBaseModuleLibrary
-  - MKCustomUIModule/View/MKProgressView (1.1.5):
+  - MKCustomUIModule/View/MKProgressView (1.1.7):
     - CircleProgressBar
     - Masonry
     - MBProgressHUD
     - MJRefresh
     - MKBaseModuleLibrary
-  - MKCustomUIModule/View/MKSearchButton (1.1.5):
+  - MKCustomUIModule/View/MKSearchButton (1.1.7):
     - CircleProgressBar
     - Masonry
     - MBProgressHUD
     - MJRefresh
     - MKBaseModuleLibrary
-  - MKCustomUIModule/View/MKSearchConditionsView (1.1.5):
+  - MKCustomUIModule/View/MKSearchConditionsView (1.1.7):
     - CircleProgressBar
     - Masonry
     - MBProgressHUD
     - MJRefresh
     - MKBaseModuleLibrary
     - MKCustomUIModule/View/MKSlider
-  - MKCustomUIModule/View/MKSlider (1.1.5):
+  - MKCustomUIModule/View/MKSlider (1.1.7):
     - CircleProgressBar
     - Masonry
     - MBProgressHUD
     - MJRefresh
     - MKBaseModuleLibrary
-  - MKCustomUIModule/View/MKTableSectionHeader (1.1.5):
+  - MKCustomUIModule/View/MKTableSectionHeader (1.1.7):
     - CircleProgressBar
     - Masonry
     - MBProgressHUD
     - MJRefresh
     - MKBaseModuleLibrary
-  - MKCustomUIModule/View/MKTextField (1.1.5):
+  - MKCustomUIModule/View/MKTextField (1.1.7):
     - CircleProgressBar
     - Masonry
     - MBProgressHUD
@@ -1079,13 +1059,13 @@ SPEC CHECKSUMS:
   CircleProgressBar: 3920079be5224b62b3d9ed6eeb23ac01c835b681
   CTMediator: 933dba523da87bf875e4a7e8728945fbc512f1d2
   HHTransition: ca5035c126a6a2dc1eb9a90d084013784bf4bf0a
-  iOSDFULibrary: 4dc9e1b6ef296c5fbcdff8abca77b54397f10777
+  iOSDFULibrary: 5d41d0ac69418d63755195db5f46e99588ae7d48
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   MJRefresh: d2c1970d1cf6e77fcfcdfe76c943dfab8dbfa5c1
   MKBaseBleModule: 6019b69cf3c5a220b1cfe18e71e1e5e63f4757da
   MKBaseModuleLibrary: 3f6402005cd7aafb0a1564261b3ba798bd6b8ba9
-  MKCustomUIModule: 04bbb80ee7607edbf09a7d554ca3393985f308bc
+  MKCustomUIModule: f4bb8abaab64f25224c886723ecaae75cacdca2d
   MKLoRaTracker: db49176a41592c3f1494b0fbc13ec68ae1e8f0fb
   MLInputDodger: 79a0e420a80d0d3bba122bf2639603cc76609ba8
   Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
