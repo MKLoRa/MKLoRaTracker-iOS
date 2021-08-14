@@ -8,46 +8,43 @@ PODS:
   - MBProgressHUD (1.2.0)
   - MJRefresh (3.6.1)
   - MKBaseBleModule (1.1.1)
-  - MKBaseModuleLibrary (1.1.0):
-    - MKBaseModuleLibrary/Base (= 1.1.0)
-    - MKBaseModuleLibrary/Category (= 1.1.0)
-    - MKBaseModuleLibrary/Defines (= 1.1.0)
-    - MKBaseModuleLibrary/Tools (= 1.1.0)
-  - MKBaseModuleLibrary/Base (1.1.0):
-    - MKBaseModuleLibrary/Base/Cell (= 1.1.0)
-    - MKBaseModuleLibrary/Base/Controller (= 1.1.0)
-    - MKBaseModuleLibrary/Base/NavigationController (= 1.1.0)
-    - MKBaseModuleLibrary/Base/View (= 1.1.0)
-  - MKBaseModuleLibrary/Base/Cell (1.1.0):
-    - MKBaseModuleLibrary/Base/Cell/MKBaseCell (= 1.1.0)
-  - MKBaseModuleLibrary/Base/Cell/MKBaseCell (1.1.0):
+  - MKBaseModuleLibrary (1.1.1):
+    - MKBaseModuleLibrary/Base (= 1.1.1)
+    - MKBaseModuleLibrary/Category (= 1.1.1)
+    - MKBaseModuleLibrary/Defines (= 1.1.1)
+    - MKBaseModuleLibrary/Tools (= 1.1.1)
+  - MKBaseModuleLibrary/Base (1.1.1):
+    - MKBaseModuleLibrary/Base/Cell (= 1.1.1)
+    - MKBaseModuleLibrary/Base/Controller (= 1.1.1)
+    - MKBaseModuleLibrary/Base/NavigationController (= 1.1.1)
+    - MKBaseModuleLibrary/Base/View (= 1.1.1)
+  - MKBaseModuleLibrary/Base/Cell (1.1.1):
+    - MKBaseModuleLibrary/Base/Cell/MKBaseCell (= 1.1.1)
+  - MKBaseModuleLibrary/Base/Cell/MKBaseCell (1.1.1):
     - Masonry
     - MKBaseModuleLibrary/Defines
-  - MKBaseModuleLibrary/Base/Controller (1.1.0):
-    - MKBaseModuleLibrary/Base/View/WRNavigationBar
+  - MKBaseModuleLibrary/Base/Controller (1.1.1):
     - MKBaseModuleLibrary/Category
     - MKBaseModuleLibrary/Defines
-  - MKBaseModuleLibrary/Base/NavigationController (1.1.0)
-  - MKBaseModuleLibrary/Base/View (1.1.0):
-    - MKBaseModuleLibrary/Base/View/CollectionView (= 1.1.0)
-    - MKBaseModuleLibrary/Base/View/TableView (= 1.1.0)
-    - MKBaseModuleLibrary/Base/View/WRNavigationBar (= 1.1.0)
-  - MKBaseModuleLibrary/Base/View/CollectionView (1.1.0)
-  - MKBaseModuleLibrary/Base/View/TableView (1.1.0)
-  - MKBaseModuleLibrary/Base/View/WRNavigationBar (1.1.0):
-    - MKBaseModuleLibrary/Defines
-  - MKBaseModuleLibrary/Category (1.1.0):
+    - WRNavigationBar
+  - MKBaseModuleLibrary/Base/NavigationController (1.1.1)
+  - MKBaseModuleLibrary/Base/View (1.1.1):
+    - MKBaseModuleLibrary/Base/View/CollectionView (= 1.1.1)
+    - MKBaseModuleLibrary/Base/View/TableView (= 1.1.1)
+  - MKBaseModuleLibrary/Base/View/CollectionView (1.1.1)
+  - MKBaseModuleLibrary/Base/View/TableView (1.1.1)
+  - MKBaseModuleLibrary/Category (1.1.1):
     - MKBaseModuleLibrary/Defines
     - MKBaseModuleLibrary/Tools/MKClassInfo
     - Toast
-  - MKBaseModuleLibrary/Defines (1.1.0)
-  - MKBaseModuleLibrary/Tools (1.1.0):
-    - MKBaseModuleLibrary/Tools/MKClassInfo (= 1.1.0)
-    - MKBaseModuleLibrary/Tools/MKDateFormatter (= 1.1.0)
-    - MKBaseModuleLibrary/Tools/MKModuleManager (= 1.1.0)
-  - MKBaseModuleLibrary/Tools/MKClassInfo (1.1.0)
-  - MKBaseModuleLibrary/Tools/MKDateFormatter (1.1.0)
-  - MKBaseModuleLibrary/Tools/MKModuleManager (1.1.0)
+  - MKBaseModuleLibrary/Defines (1.1.1)
+  - MKBaseModuleLibrary/Tools (1.1.1):
+    - MKBaseModuleLibrary/Tools/MKClassInfo (= 1.1.1)
+    - MKBaseModuleLibrary/Tools/MKDateFormatter (= 1.1.1)
+    - MKBaseModuleLibrary/Tools/MKModuleManager (= 1.1.1)
+  - MKBaseModuleLibrary/Tools/MKClassInfo (1.1.1)
+  - MKBaseModuleLibrary/Tools/MKDateFormatter (1.1.1)
+  - MKBaseModuleLibrary/Tools/MKModuleManager (1.1.1)
   - MKCustomUIModule (1.1.7):
     - CircleProgressBar
     - Masonry
@@ -310,34 +307,34 @@ PODS:
     - MBProgressHUD
     - MJRefresh
     - MKBaseModuleLibrary
-  - MKLoRaTracker (1.0.2):
-    - MKLoRaTracker/ApplicationModule (= 1.0.2)
-    - MKLoRaTracker/ConnectModule (= 1.0.2)
-    - MKLoRaTracker/CTMediator (= 1.0.2)
-    - MKLoRaTracker/CustomCell (= 1.0.2)
-    - MKLoRaTracker/Functions (= 1.0.2)
-    - MKLoRaTracker/SDK (= 1.0.2)
-    - MKLoRaTracker/Target (= 1.0.2)
-  - MKLoRaTracker/ApplicationModule (1.0.2):
+  - MKLoRaTracker (1.0.4):
+    - MKLoRaTracker/ApplicationModule (= 1.0.4)
+    - MKLoRaTracker/ConnectModule (= 1.0.4)
+    - MKLoRaTracker/CTMediator (= 1.0.4)
+    - MKLoRaTracker/CustomCell (= 1.0.4)
+    - MKLoRaTracker/Functions (= 1.0.4)
+    - MKLoRaTracker/SDK (= 1.0.4)
+    - MKLoRaTracker/Target (= 1.0.4)
+  - MKLoRaTracker/ApplicationModule (1.0.4):
     - MKBaseModuleLibrary
-  - MKLoRaTracker/ConnectModule (1.0.2):
+  - MKLoRaTracker/ConnectModule (1.0.4):
     - MKBaseModuleLibrary
     - MKLoRaTracker/SDK
-  - MKLoRaTracker/CTMediator (1.0.2):
+  - MKLoRaTracker/CTMediator (1.0.4):
     - CTMediator
     - MKBaseModuleLibrary
-  - MKLoRaTracker/CustomCell (1.0.2):
+  - MKLoRaTracker/CustomCell (1.0.4):
     - MKBaseModuleLibrary
     - MKCustomUIModule
-    - MKLoRaTracker/CustomCell/MKLTGPSReportInterval (= 1.0.2)
-    - MKLoRaTracker/CustomCell/MKLTNormalTextCell (= 1.0.2)
-  - MKLoRaTracker/CustomCell/MKLTGPSReportInterval (1.0.2):
+    - MKLoRaTracker/CustomCell/MKLTGPSReportInterval (= 1.0.4)
+    - MKLoRaTracker/CustomCell/MKLTNormalTextCell (= 1.0.4)
+  - MKLoRaTracker/CustomCell/MKLTGPSReportInterval (1.0.4):
     - MKBaseModuleLibrary
     - MKCustomUIModule
-  - MKLoRaTracker/CustomCell/MKLTNormalTextCell (1.0.2):
+  - MKLoRaTracker/CustomCell/MKLTNormalTextCell (1.0.4):
     - MKBaseModuleLibrary
     - MKCustomUIModule
-  - MKLoRaTracker/Functions (1.0.2):
+  - MKLoRaTracker/Functions (1.0.4):
     - HHTransition
     - iOSDFULibrary
     - MKBaseModuleLibrary
@@ -345,27 +342,27 @@ PODS:
     - MKLoRaTracker/ConnectModule
     - MKLoRaTracker/CTMediator
     - MKLoRaTracker/CustomCell
-    - MKLoRaTracker/Functions/AboutPage (= 1.0.2)
-    - MKLoRaTracker/Functions/AdvertiserPage (= 1.0.2)
-    - MKLoRaTracker/Functions/AxisPage (= 1.0.2)
-    - MKLoRaTracker/Functions/DevicePage (= 1.0.2)
-    - MKLoRaTracker/Functions/FilterCondition (= 1.0.2)
-    - MKLoRaTracker/Functions/FilterOptions (= 1.0.2)
-    - MKLoRaTracker/Functions/GPSPage (= 1.0.2)
-    - MKLoRaTracker/Functions/LoRaPage (= 1.0.2)
-    - MKLoRaTracker/Functions/LoRaSettingPage (= 1.0.2)
-    - MKLoRaTracker/Functions/NetworkCheck (= 1.0.2)
-    - MKLoRaTracker/Functions/PayloadPage (= 1.0.2)
-    - MKLoRaTracker/Functions/Scanner (= 1.0.2)
-    - MKLoRaTracker/Functions/ScanPage (= 1.0.2)
-    - MKLoRaTracker/Functions/SettingPage (= 1.0.2)
-    - MKLoRaTracker/Functions/SOSPage (= 1.0.2)
-    - MKLoRaTracker/Functions/TabBarPage (= 1.0.2)
-    - MKLoRaTracker/Functions/UpdatePage (= 1.0.2)
-    - MKLoRaTracker/Functions/VibrationSetting (= 1.0.2)
+    - MKLoRaTracker/Functions/AboutPage (= 1.0.4)
+    - MKLoRaTracker/Functions/AdvertiserPage (= 1.0.4)
+    - MKLoRaTracker/Functions/AxisPage (= 1.0.4)
+    - MKLoRaTracker/Functions/DevicePage (= 1.0.4)
+    - MKLoRaTracker/Functions/FilterCondition (= 1.0.4)
+    - MKLoRaTracker/Functions/FilterOptions (= 1.0.4)
+    - MKLoRaTracker/Functions/GPSPage (= 1.0.4)
+    - MKLoRaTracker/Functions/LoRaPage (= 1.0.4)
+    - MKLoRaTracker/Functions/LoRaSettingPage (= 1.0.4)
+    - MKLoRaTracker/Functions/NetworkCheck (= 1.0.4)
+    - MKLoRaTracker/Functions/PayloadPage (= 1.0.4)
+    - MKLoRaTracker/Functions/Scanner (= 1.0.4)
+    - MKLoRaTracker/Functions/ScanPage (= 1.0.4)
+    - MKLoRaTracker/Functions/SettingPage (= 1.0.4)
+    - MKLoRaTracker/Functions/SOSPage (= 1.0.4)
+    - MKLoRaTracker/Functions/TabBarPage (= 1.0.4)
+    - MKLoRaTracker/Functions/UpdatePage (= 1.0.4)
+    - MKLoRaTracker/Functions/VibrationSetting (= 1.0.4)
     - MKLoRaTracker/SDK
     - MLInputDodger
-  - MKLoRaTracker/Functions/AboutPage (1.0.2):
+  - MKLoRaTracker/Functions/AboutPage (1.0.4):
     - HHTransition
     - iOSDFULibrary
     - MKBaseModuleLibrary
@@ -373,10 +370,10 @@ PODS:
     - MKLoRaTracker/ConnectModule
     - MKLoRaTracker/CTMediator
     - MKLoRaTracker/CustomCell
-    - MKLoRaTracker/Functions/AboutPage/Controller (= 1.0.2)
+    - MKLoRaTracker/Functions/AboutPage/Controller (= 1.0.4)
     - MKLoRaTracker/SDK
     - MLInputDodger
-  - MKLoRaTracker/Functions/AboutPage/Controller (1.0.2):
+  - MKLoRaTracker/Functions/AboutPage/Controller (1.0.4):
     - HHTransition
     - iOSDFULibrary
     - MKBaseModuleLibrary
@@ -386,7 +383,7 @@ PODS:
     - MKLoRaTracker/CustomCell
     - MKLoRaTracker/SDK
     - MLInputDodger
-  - MKLoRaTracker/Functions/AdvertiserPage (1.0.2):
+  - MKLoRaTracker/Functions/AdvertiserPage (1.0.4):
     - HHTransition
     - iOSDFULibrary
     - MKBaseModuleLibrary
@@ -394,11 +391,11 @@ PODS:
     - MKLoRaTracker/ConnectModule
     - MKLoRaTracker/CTMediator
     - MKLoRaTracker/CustomCell
-    - MKLoRaTracker/Functions/AdvertiserPage/Controller (= 1.0.2)
-    - MKLoRaTracker/Functions/AdvertiserPage/Model (= 1.0.2)
+    - MKLoRaTracker/Functions/AdvertiserPage/Controller (= 1.0.4)
+    - MKLoRaTracker/Functions/AdvertiserPage/Model (= 1.0.4)
     - MKLoRaTracker/SDK
     - MLInputDodger
-  - MKLoRaTracker/Functions/AdvertiserPage/Controller (1.0.2):
+  - MKLoRaTracker/Functions/AdvertiserPage/Controller (1.0.4):
     - HHTransition
     - iOSDFULibrary
     - MKBaseModuleLibrary
@@ -409,7 +406,7 @@ PODS:
     - MKLoRaTracker/Functions/AdvertiserPage/Model
     - MKLoRaTracker/SDK
     - MLInputDodger
-  - MKLoRaTracker/Functions/AdvertiserPage/Model (1.0.2):
+  - MKLoRaTracker/Functions/AdvertiserPage/Model (1.0.4):
     - HHTransition
     - iOSDFULibrary
     - MKBaseModuleLibrary
@@ -419,7 +416,7 @@ PODS:
     - MKLoRaTracker/CustomCell
     - MKLoRaTracker/SDK
     - MLInputDodger
-  - MKLoRaTracker/Functions/AxisPage (1.0.2):
+  - MKLoRaTracker/Functions/AxisPage (1.0.4):
     - HHTransition
     - iOSDFULibrary
     - MKBaseModuleLibrary
@@ -427,12 +424,12 @@ PODS:
     - MKLoRaTracker/ConnectModule
     - MKLoRaTracker/CTMediator
     - MKLoRaTracker/CustomCell
-    - MKLoRaTracker/Functions/AxisPage/Controller (= 1.0.2)
-    - MKLoRaTracker/Functions/AxisPage/Model (= 1.0.2)
-    - MKLoRaTracker/Functions/AxisPage/View (= 1.0.2)
+    - MKLoRaTracker/Functions/AxisPage/Controller (= 1.0.4)
+    - MKLoRaTracker/Functions/AxisPage/Model (= 1.0.4)
+    - MKLoRaTracker/Functions/AxisPage/View (= 1.0.4)
     - MKLoRaTracker/SDK
     - MLInputDodger
-  - MKLoRaTracker/Functions/AxisPage/Controller (1.0.2):
+  - MKLoRaTracker/Functions/AxisPage/Controller (1.0.4):
     - HHTransition
     - iOSDFULibrary
     - MKBaseModuleLibrary
@@ -444,7 +441,7 @@ PODS:
     - MKLoRaTracker/Functions/AxisPage/View
     - MKLoRaTracker/SDK
     - MLInputDodger
-  - MKLoRaTracker/Functions/AxisPage/Model (1.0.2):
+  - MKLoRaTracker/Functions/AxisPage/Model (1.0.4):
     - HHTransition
     - iOSDFULibrary
     - MKBaseModuleLibrary
@@ -454,7 +451,7 @@ PODS:
     - MKLoRaTracker/CustomCell
     - MKLoRaTracker/SDK
     - MLInputDodger
-  - MKLoRaTracker/Functions/AxisPage/View (1.0.2):
+  - MKLoRaTracker/Functions/AxisPage/View (1.0.4):
     - HHTransition
     - iOSDFULibrary
     - MKBaseModuleLibrary
@@ -464,7 +461,7 @@ PODS:
     - MKLoRaTracker/CustomCell
     - MKLoRaTracker/SDK
     - MLInputDodger
-  - MKLoRaTracker/Functions/DevicePage (1.0.2):
+  - MKLoRaTracker/Functions/DevicePage (1.0.4):
     - HHTransition
     - iOSDFULibrary
     - MKBaseModuleLibrary
@@ -472,12 +469,12 @@ PODS:
     - MKLoRaTracker/ConnectModule
     - MKLoRaTracker/CTMediator
     - MKLoRaTracker/CustomCell
-    - MKLoRaTracker/Functions/DevicePage/Controller (= 1.0.2)
-    - MKLoRaTracker/Functions/DevicePage/Model (= 1.0.2)
-    - MKLoRaTracker/Functions/DevicePage/View (= 1.0.2)
+    - MKLoRaTracker/Functions/DevicePage/Controller (= 1.0.4)
+    - MKLoRaTracker/Functions/DevicePage/Model (= 1.0.4)
+    - MKLoRaTracker/Functions/DevicePage/View (= 1.0.4)
     - MKLoRaTracker/SDK
     - MLInputDodger
-  - MKLoRaTracker/Functions/DevicePage/Controller (1.0.2):
+  - MKLoRaTracker/Functions/DevicePage/Controller (1.0.4):
     - HHTransition
     - iOSDFULibrary
     - MKBaseModuleLibrary
@@ -490,7 +487,7 @@ PODS:
     - MKLoRaTracker/Functions/UpdatePage
     - MKLoRaTracker/SDK
     - MLInputDodger
-  - MKLoRaTracker/Functions/DevicePage/Model (1.0.2):
+  - MKLoRaTracker/Functions/DevicePage/Model (1.0.4):
     - HHTransition
     - iOSDFULibrary
     - MKBaseModuleLibrary
@@ -500,7 +497,7 @@ PODS:
     - MKLoRaTracker/CustomCell
     - MKLoRaTracker/SDK
     - MLInputDodger
-  - MKLoRaTracker/Functions/DevicePage/View (1.0.2):
+  - MKLoRaTracker/Functions/DevicePage/View (1.0.4):
     - HHTransition
     - iOSDFULibrary
     - MKBaseModuleLibrary
@@ -510,7 +507,7 @@ PODS:
     - MKLoRaTracker/CustomCell
     - MKLoRaTracker/SDK
     - MLInputDodger
-  - MKLoRaTracker/Functions/FilterCondition (1.0.2):
+  - MKLoRaTracker/Functions/FilterCondition (1.0.4):
     - HHTransition
     - iOSDFULibrary
     - MKBaseModuleLibrary
@@ -518,11 +515,11 @@ PODS:
     - MKLoRaTracker/ConnectModule
     - MKLoRaTracker/CTMediator
     - MKLoRaTracker/CustomCell
-    - MKLoRaTracker/Functions/FilterCondition/Controller (= 1.0.2)
-    - MKLoRaTracker/Functions/FilterCondition/Model (= 1.0.2)
+    - MKLoRaTracker/Functions/FilterCondition/Controller (= 1.0.4)
+    - MKLoRaTracker/Functions/FilterCondition/Model (= 1.0.4)
     - MKLoRaTracker/SDK
     - MLInputDodger
-  - MKLoRaTracker/Functions/FilterCondition/Controller (1.0.2):
+  - MKLoRaTracker/Functions/FilterCondition/Controller (1.0.4):
     - HHTransition
     - iOSDFULibrary
     - MKBaseModuleLibrary
@@ -533,7 +530,7 @@ PODS:
     - MKLoRaTracker/Functions/FilterCondition/Model
     - MKLoRaTracker/SDK
     - MLInputDodger
-  - MKLoRaTracker/Functions/FilterCondition/Model (1.0.2):
+  - MKLoRaTracker/Functions/FilterCondition/Model (1.0.4):
     - HHTransition
     - iOSDFULibrary
     - MKBaseModuleLibrary
@@ -543,7 +540,7 @@ PODS:
     - MKLoRaTracker/CustomCell
     - MKLoRaTracker/SDK
     - MLInputDodger
-  - MKLoRaTracker/Functions/FilterOptions (1.0.2):
+  - MKLoRaTracker/Functions/FilterOptions (1.0.4):
     - HHTransition
     - iOSDFULibrary
     - MKBaseModuleLibrary
@@ -551,12 +548,12 @@ PODS:
     - MKLoRaTracker/ConnectModule
     - MKLoRaTracker/CTMediator
     - MKLoRaTracker/CustomCell
-    - MKLoRaTracker/Functions/FilterOptions/Controller (= 1.0.2)
-    - MKLoRaTracker/Functions/FilterOptions/Model (= 1.0.2)
-    - MKLoRaTracker/Functions/FilterOptions/View (= 1.0.2)
+    - MKLoRaTracker/Functions/FilterOptions/Controller (= 1.0.4)
+    - MKLoRaTracker/Functions/FilterOptions/Model (= 1.0.4)
+    - MKLoRaTracker/Functions/FilterOptions/View (= 1.0.4)
     - MKLoRaTracker/SDK
     - MLInputDodger
-  - MKLoRaTracker/Functions/FilterOptions/Controller (1.0.2):
+  - MKLoRaTracker/Functions/FilterOptions/Controller (1.0.4):
     - HHTransition
     - iOSDFULibrary
     - MKBaseModuleLibrary
@@ -569,7 +566,7 @@ PODS:
     - MKLoRaTracker/Functions/FilterOptions/View
     - MKLoRaTracker/SDK
     - MLInputDodger
-  - MKLoRaTracker/Functions/FilterOptions/Model (1.0.2):
+  - MKLoRaTracker/Functions/FilterOptions/Model (1.0.4):
     - HHTransition
     - iOSDFULibrary
     - MKBaseModuleLibrary
@@ -579,7 +576,7 @@ PODS:
     - MKLoRaTracker/CustomCell
     - MKLoRaTracker/SDK
     - MLInputDodger
-  - MKLoRaTracker/Functions/FilterOptions/View (1.0.2):
+  - MKLoRaTracker/Functions/FilterOptions/View (1.0.4):
     - HHTransition
     - iOSDFULibrary
     - MKBaseModuleLibrary
@@ -589,7 +586,7 @@ PODS:
     - MKLoRaTracker/CustomCell
     - MKLoRaTracker/SDK
     - MLInputDodger
-  - MKLoRaTracker/Functions/GPSPage (1.0.2):
+  - MKLoRaTracker/Functions/GPSPage (1.0.4):
     - HHTransition
     - iOSDFULibrary
     - MKBaseModuleLibrary
@@ -597,11 +594,11 @@ PODS:
     - MKLoRaTracker/ConnectModule
     - MKLoRaTracker/CTMediator
     - MKLoRaTracker/CustomCell
-    - MKLoRaTracker/Functions/GPSPage/Controller (= 1.0.2)
-    - MKLoRaTracker/Functions/GPSPage/Model (= 1.0.2)
+    - MKLoRaTracker/Functions/GPSPage/Controller (= 1.0.4)
+    - MKLoRaTracker/Functions/GPSPage/Model (= 1.0.4)
     - MKLoRaTracker/SDK
     - MLInputDodger
-  - MKLoRaTracker/Functions/GPSPage/Controller (1.0.2):
+  - MKLoRaTracker/Functions/GPSPage/Controller (1.0.4):
     - HHTransition
     - iOSDFULibrary
     - MKBaseModuleLibrary
@@ -612,7 +609,7 @@ PODS:
     - MKLoRaTracker/Functions/GPSPage/Model
     - MKLoRaTracker/SDK
     - MLInputDodger
-  - MKLoRaTracker/Functions/GPSPage/Model (1.0.2):
+  - MKLoRaTracker/Functions/GPSPage/Model (1.0.4):
     - HHTransition
     - iOSDFULibrary
     - MKBaseModuleLibrary
@@ -622,7 +619,7 @@ PODS:
     - MKLoRaTracker/CustomCell
     - MKLoRaTracker/SDK
     - MLInputDodger
-  - MKLoRaTracker/Functions/LoRaPage (1.0.2):
+  - MKLoRaTracker/Functions/LoRaPage (1.0.4):
     - HHTransition
     - iOSDFULibrary
     - MKBaseModuleLibrary
@@ -630,11 +627,11 @@ PODS:
     - MKLoRaTracker/ConnectModule
     - MKLoRaTracker/CTMediator
     - MKLoRaTracker/CustomCell
-    - MKLoRaTracker/Functions/LoRaPage/Controller (= 1.0.2)
-    - MKLoRaTracker/Functions/LoRaPage/Model (= 1.0.2)
+    - MKLoRaTracker/Functions/LoRaPage/Controller (= 1.0.4)
+    - MKLoRaTracker/Functions/LoRaPage/Model (= 1.0.4)
     - MKLoRaTracker/SDK
     - MLInputDodger
-  - MKLoRaTracker/Functions/LoRaPage/Controller (1.0.2):
+  - MKLoRaTracker/Functions/LoRaPage/Controller (1.0.4):
     - HHTransition
     - iOSDFULibrary
     - MKBaseModuleLibrary
@@ -648,7 +645,7 @@ PODS:
     - MKLoRaTracker/Functions/PayloadPage
     - MKLoRaTracker/SDK
     - MLInputDodger
-  - MKLoRaTracker/Functions/LoRaPage/Model (1.0.2):
+  - MKLoRaTracker/Functions/LoRaPage/Model (1.0.4):
     - HHTransition
     - iOSDFULibrary
     - MKBaseModuleLibrary
@@ -658,7 +655,7 @@ PODS:
     - MKLoRaTracker/CustomCell
     - MKLoRaTracker/SDK
     - MLInputDodger
-  - MKLoRaTracker/Functions/LoRaSettingPage (1.0.2):
+  - MKLoRaTracker/Functions/LoRaSettingPage (1.0.4):
     - HHTransition
     - iOSDFULibrary
     - MKBaseModuleLibrary
@@ -666,11 +663,11 @@ PODS:
     - MKLoRaTracker/ConnectModule
     - MKLoRaTracker/CTMediator
     - MKLoRaTracker/CustomCell
-    - MKLoRaTracker/Functions/LoRaSettingPage/Controller (= 1.0.2)
-    - MKLoRaTracker/Functions/LoRaSettingPage/Model (= 1.0.2)
+    - MKLoRaTracker/Functions/LoRaSettingPage/Controller (= 1.0.4)
+    - MKLoRaTracker/Functions/LoRaSettingPage/Model (= 1.0.4)
     - MKLoRaTracker/SDK
     - MLInputDodger
-  - MKLoRaTracker/Functions/LoRaSettingPage/Controller (1.0.2):
+  - MKLoRaTracker/Functions/LoRaSettingPage/Controller (1.0.4):
     - HHTransition
     - iOSDFULibrary
     - MKBaseModuleLibrary
@@ -681,7 +678,7 @@ PODS:
     - MKLoRaTracker/Functions/LoRaSettingPage/Model
     - MKLoRaTracker/SDK
     - MLInputDodger
-  - MKLoRaTracker/Functions/LoRaSettingPage/Model (1.0.2):
+  - MKLoRaTracker/Functions/LoRaSettingPage/Model (1.0.4):
     - HHTransition
     - iOSDFULibrary
     - MKBaseModuleLibrary
@@ -691,7 +688,7 @@ PODS:
     - MKLoRaTracker/CustomCell
     - MKLoRaTracker/SDK
     - MLInputDodger
-  - MKLoRaTracker/Functions/NetworkCheck (1.0.2):
+  - MKLoRaTracker/Functions/NetworkCheck (1.0.4):
     - HHTransition
     - iOSDFULibrary
     - MKBaseModuleLibrary
@@ -699,11 +696,11 @@ PODS:
     - MKLoRaTracker/ConnectModule
     - MKLoRaTracker/CTMediator
     - MKLoRaTracker/CustomCell
-    - MKLoRaTracker/Functions/NetworkCheck/Controller (= 1.0.2)
-    - MKLoRaTracker/Functions/NetworkCheck/Model (= 1.0.2)
+    - MKLoRaTracker/Functions/NetworkCheck/Controller (= 1.0.4)
+    - MKLoRaTracker/Functions/NetworkCheck/Model (= 1.0.4)
     - MKLoRaTracker/SDK
     - MLInputDodger
-  - MKLoRaTracker/Functions/NetworkCheck/Controller (1.0.2):
+  - MKLoRaTracker/Functions/NetworkCheck/Controller (1.0.4):
     - HHTransition
     - iOSDFULibrary
     - MKBaseModuleLibrary
@@ -714,7 +711,7 @@ PODS:
     - MKLoRaTracker/Functions/NetworkCheck/Model
     - MKLoRaTracker/SDK
     - MLInputDodger
-  - MKLoRaTracker/Functions/NetworkCheck/Model (1.0.2):
+  - MKLoRaTracker/Functions/NetworkCheck/Model (1.0.4):
     - HHTransition
     - iOSDFULibrary
     - MKBaseModuleLibrary
@@ -724,7 +721,7 @@ PODS:
     - MKLoRaTracker/CustomCell
     - MKLoRaTracker/SDK
     - MLInputDodger
-  - MKLoRaTracker/Functions/PayloadPage (1.0.2):
+  - MKLoRaTracker/Functions/PayloadPage (1.0.4):
     - HHTransition
     - iOSDFULibrary
     - MKBaseModuleLibrary
@@ -732,12 +729,12 @@ PODS:
     - MKLoRaTracker/ConnectModule
     - MKLoRaTracker/CTMediator
     - MKLoRaTracker/CustomCell
-    - MKLoRaTracker/Functions/PayloadPage/Controller (= 1.0.2)
-    - MKLoRaTracker/Functions/PayloadPage/Model (= 1.0.2)
-    - MKLoRaTracker/Functions/PayloadPage/View (= 1.0.2)
+    - MKLoRaTracker/Functions/PayloadPage/Controller (= 1.0.4)
+    - MKLoRaTracker/Functions/PayloadPage/Model (= 1.0.4)
+    - MKLoRaTracker/Functions/PayloadPage/View (= 1.0.4)
     - MKLoRaTracker/SDK
     - MLInputDodger
-  - MKLoRaTracker/Functions/PayloadPage/Controller (1.0.2):
+  - MKLoRaTracker/Functions/PayloadPage/Controller (1.0.4):
     - HHTransition
     - iOSDFULibrary
     - MKBaseModuleLibrary
@@ -749,7 +746,7 @@ PODS:
     - MKLoRaTracker/Functions/PayloadPage/View
     - MKLoRaTracker/SDK
     - MLInputDodger
-  - MKLoRaTracker/Functions/PayloadPage/Model (1.0.2):
+  - MKLoRaTracker/Functions/PayloadPage/Model (1.0.4):
     - HHTransition
     - iOSDFULibrary
     - MKBaseModuleLibrary
@@ -759,7 +756,7 @@ PODS:
     - MKLoRaTracker/CustomCell
     - MKLoRaTracker/SDK
     - MLInputDodger
-  - MKLoRaTracker/Functions/PayloadPage/View (1.0.2):
+  - MKLoRaTracker/Functions/PayloadPage/View (1.0.4):
     - HHTransition
     - iOSDFULibrary
     - MKBaseModuleLibrary
@@ -769,7 +766,7 @@ PODS:
     - MKLoRaTracker/CustomCell
     - MKLoRaTracker/SDK
     - MLInputDodger
-  - MKLoRaTracker/Functions/Scanner (1.0.2):
+  - MKLoRaTracker/Functions/Scanner (1.0.4):
     - HHTransition
     - iOSDFULibrary
     - MKBaseModuleLibrary
@@ -777,12 +774,12 @@ PODS:
     - MKLoRaTracker/ConnectModule
     - MKLoRaTracker/CTMediator
     - MKLoRaTracker/CustomCell
-    - MKLoRaTracker/Functions/Scanner/Controller (= 1.0.2)
-    - MKLoRaTracker/Functions/Scanner/Model (= 1.0.2)
-    - MKLoRaTracker/Functions/Scanner/View (= 1.0.2)
+    - MKLoRaTracker/Functions/Scanner/Controller (= 1.0.4)
+    - MKLoRaTracker/Functions/Scanner/Model (= 1.0.4)
+    - MKLoRaTracker/Functions/Scanner/View (= 1.0.4)
     - MKLoRaTracker/SDK
     - MLInputDodger
-  - MKLoRaTracker/Functions/Scanner/Controller (1.0.2):
+  - MKLoRaTracker/Functions/Scanner/Controller (1.0.4):
     - HHTransition
     - iOSDFULibrary
     - MKBaseModuleLibrary
@@ -795,7 +792,7 @@ PODS:
     - MKLoRaTracker/Functions/Scanner/View
     - MKLoRaTracker/SDK
     - MLInputDodger
-  - MKLoRaTracker/Functions/Scanner/Model (1.0.2):
+  - MKLoRaTracker/Functions/Scanner/Model (1.0.4):
     - HHTransition
     - iOSDFULibrary
     - MKBaseModuleLibrary
@@ -805,7 +802,7 @@ PODS:
     - MKLoRaTracker/CustomCell
     - MKLoRaTracker/SDK
     - MLInputDodger
-  - MKLoRaTracker/Functions/Scanner/View (1.0.2):
+  - MKLoRaTracker/Functions/Scanner/View (1.0.4):
     - HHTransition
     - iOSDFULibrary
     - MKBaseModuleLibrary
@@ -815,7 +812,7 @@ PODS:
     - MKLoRaTracker/CustomCell
     - MKLoRaTracker/SDK
     - MLInputDodger
-  - MKLoRaTracker/Functions/ScanPage (1.0.2):
+  - MKLoRaTracker/Functions/ScanPage (1.0.4):
     - HHTransition
     - iOSDFULibrary
     - MKBaseModuleLibrary
@@ -823,12 +820,12 @@ PODS:
     - MKLoRaTracker/ConnectModule
     - MKLoRaTracker/CTMediator
     - MKLoRaTracker/CustomCell
-    - MKLoRaTracker/Functions/ScanPage/Controller (= 1.0.2)
-    - MKLoRaTracker/Functions/ScanPage/Model (= 1.0.2)
-    - MKLoRaTracker/Functions/ScanPage/View (= 1.0.2)
+    - MKLoRaTracker/Functions/ScanPage/Controller (= 1.0.4)
+    - MKLoRaTracker/Functions/ScanPage/Model (= 1.0.4)
+    - MKLoRaTracker/Functions/ScanPage/View (= 1.0.4)
     - MKLoRaTracker/SDK
     - MLInputDodger
-  - MKLoRaTracker/Functions/ScanPage/Controller (1.0.2):
+  - MKLoRaTracker/Functions/ScanPage/Controller (1.0.4):
     - HHTransition
     - iOSDFULibrary
     - MKBaseModuleLibrary
@@ -841,7 +838,7 @@ PODS:
     - MKLoRaTracker/Functions/TabBarPage
     - MKLoRaTracker/SDK
     - MLInputDodger
-  - MKLoRaTracker/Functions/ScanPage/Model (1.0.2):
+  - MKLoRaTracker/Functions/ScanPage/Model (1.0.4):
     - HHTransition
     - iOSDFULibrary
     - MKBaseModuleLibrary
@@ -851,7 +848,7 @@ PODS:
     - MKLoRaTracker/CustomCell
     - MKLoRaTracker/SDK
     - MLInputDodger
-  - MKLoRaTracker/Functions/ScanPage/View (1.0.2):
+  - MKLoRaTracker/Functions/ScanPage/View (1.0.4):
     - HHTransition
     - iOSDFULibrary
     - MKBaseModuleLibrary
@@ -862,7 +859,7 @@ PODS:
     - MKLoRaTracker/Functions/ScanPage/Model
     - MKLoRaTracker/SDK
     - MLInputDodger
-  - MKLoRaTracker/Functions/SettingPage (1.0.2):
+  - MKLoRaTracker/Functions/SettingPage (1.0.4):
     - HHTransition
     - iOSDFULibrary
     - MKBaseModuleLibrary
@@ -870,11 +867,11 @@ PODS:
     - MKLoRaTracker/ConnectModule
     - MKLoRaTracker/CTMediator
     - MKLoRaTracker/CustomCell
-    - MKLoRaTracker/Functions/SettingPage/Controller (= 1.0.2)
-    - MKLoRaTracker/Functions/SettingPage/Model (= 1.0.2)
+    - MKLoRaTracker/Functions/SettingPage/Controller (= 1.0.4)
+    - MKLoRaTracker/Functions/SettingPage/Model (= 1.0.4)
     - MKLoRaTracker/SDK
     - MLInputDodger
-  - MKLoRaTracker/Functions/SettingPage/Controller (1.0.2):
+  - MKLoRaTracker/Functions/SettingPage/Controller (1.0.4):
     - HHTransition
     - iOSDFULibrary
     - MKBaseModuleLibrary
@@ -890,7 +887,7 @@ PODS:
     - MKLoRaTracker/Functions/VibrationSetting
     - MKLoRaTracker/SDK
     - MLInputDodger
-  - MKLoRaTracker/Functions/SettingPage/Model (1.0.2):
+  - MKLoRaTracker/Functions/SettingPage/Model (1.0.4):
     - HHTransition
     - iOSDFULibrary
     - MKBaseModuleLibrary
@@ -900,7 +897,7 @@ PODS:
     - MKLoRaTracker/CustomCell
     - MKLoRaTracker/SDK
     - MLInputDodger
-  - MKLoRaTracker/Functions/SOSPage (1.0.2):
+  - MKLoRaTracker/Functions/SOSPage (1.0.4):
     - HHTransition
     - iOSDFULibrary
     - MKBaseModuleLibrary
@@ -908,11 +905,11 @@ PODS:
     - MKLoRaTracker/ConnectModule
     - MKLoRaTracker/CTMediator
     - MKLoRaTracker/CustomCell
-    - MKLoRaTracker/Functions/SOSPage/Controller (= 1.0.2)
-    - MKLoRaTracker/Functions/SOSPage/Model (= 1.0.2)
+    - MKLoRaTracker/Functions/SOSPage/Controller (= 1.0.4)
+    - MKLoRaTracker/Functions/SOSPage/Model (= 1.0.4)
     - MKLoRaTracker/SDK
     - MLInputDodger
-  - MKLoRaTracker/Functions/SOSPage/Controller (1.0.2):
+  - MKLoRaTracker/Functions/SOSPage/Controller (1.0.4):
     - HHTransition
     - iOSDFULibrary
     - MKBaseModuleLibrary
@@ -923,7 +920,7 @@ PODS:
     - MKLoRaTracker/Functions/SOSPage/Model
     - MKLoRaTracker/SDK
     - MLInputDodger
-  - MKLoRaTracker/Functions/SOSPage/Model (1.0.2):
+  - MKLoRaTracker/Functions/SOSPage/Model (1.0.4):
     - HHTransition
     - iOSDFULibrary
     - MKBaseModuleLibrary
@@ -933,7 +930,7 @@ PODS:
     - MKLoRaTracker/CustomCell
     - MKLoRaTracker/SDK
     - MLInputDodger
-  - MKLoRaTracker/Functions/TabBarPage (1.0.2):
+  - MKLoRaTracker/Functions/TabBarPage (1.0.4):
     - HHTransition
     - iOSDFULibrary
     - MKBaseModuleLibrary
@@ -941,10 +938,10 @@ PODS:
     - MKLoRaTracker/ConnectModule
     - MKLoRaTracker/CTMediator
     - MKLoRaTracker/CustomCell
-    - MKLoRaTracker/Functions/TabBarPage/Controller (= 1.0.2)
+    - MKLoRaTracker/Functions/TabBarPage/Controller (= 1.0.4)
     - MKLoRaTracker/SDK
     - MLInputDodger
-  - MKLoRaTracker/Functions/TabBarPage/Controller (1.0.2):
+  - MKLoRaTracker/Functions/TabBarPage/Controller (1.0.4):
     - HHTransition
     - iOSDFULibrary
     - MKBaseModuleLibrary
@@ -958,7 +955,7 @@ PODS:
     - MKLoRaTracker/Functions/SettingPage
     - MKLoRaTracker/SDK
     - MLInputDodger
-  - MKLoRaTracker/Functions/UpdatePage (1.0.2):
+  - MKLoRaTracker/Functions/UpdatePage (1.0.4):
     - HHTransition
     - iOSDFULibrary
     - MKBaseModuleLibrary
@@ -966,11 +963,11 @@ PODS:
     - MKLoRaTracker/ConnectModule
     - MKLoRaTracker/CTMediator
     - MKLoRaTracker/CustomCell
-    - MKLoRaTracker/Functions/UpdatePage/Controller (= 1.0.2)
-    - MKLoRaTracker/Functions/UpdatePage/Model (= 1.0.2)
+    - MKLoRaTracker/Functions/UpdatePage/Controller (= 1.0.4)
+    - MKLoRaTracker/Functions/UpdatePage/Model (= 1.0.4)
     - MKLoRaTracker/SDK
     - MLInputDodger
-  - MKLoRaTracker/Functions/UpdatePage/Controller (1.0.2):
+  - MKLoRaTracker/Functions/UpdatePage/Controller (1.0.4):
     - HHTransition
     - iOSDFULibrary
     - MKBaseModuleLibrary
@@ -981,7 +978,7 @@ PODS:
     - MKLoRaTracker/Functions/UpdatePage/Model
     - MKLoRaTracker/SDK
     - MLInputDodger
-  - MKLoRaTracker/Functions/UpdatePage/Model (1.0.2):
+  - MKLoRaTracker/Functions/UpdatePage/Model (1.0.4):
     - HHTransition
     - iOSDFULibrary
     - MKBaseModuleLibrary
@@ -991,7 +988,7 @@ PODS:
     - MKLoRaTracker/CustomCell
     - MKLoRaTracker/SDK
     - MLInputDodger
-  - MKLoRaTracker/Functions/VibrationSetting (1.0.2):
+  - MKLoRaTracker/Functions/VibrationSetting (1.0.4):
     - HHTransition
     - iOSDFULibrary
     - MKBaseModuleLibrary
@@ -999,11 +996,11 @@ PODS:
     - MKLoRaTracker/ConnectModule
     - MKLoRaTracker/CTMediator
     - MKLoRaTracker/CustomCell
-    - MKLoRaTracker/Functions/VibrationSetting/Controller (= 1.0.2)
-    - MKLoRaTracker/Functions/VibrationSetting/Model (= 1.0.2)
+    - MKLoRaTracker/Functions/VibrationSetting/Controller (= 1.0.4)
+    - MKLoRaTracker/Functions/VibrationSetting/Model (= 1.0.4)
     - MKLoRaTracker/SDK
     - MLInputDodger
-  - MKLoRaTracker/Functions/VibrationSetting/Controller (1.0.2):
+  - MKLoRaTracker/Functions/VibrationSetting/Controller (1.0.4):
     - HHTransition
     - iOSDFULibrary
     - MKBaseModuleLibrary
@@ -1014,7 +1011,7 @@ PODS:
     - MKLoRaTracker/Functions/VibrationSetting/Model
     - MKLoRaTracker/SDK
     - MLInputDodger
-  - MKLoRaTracker/Functions/VibrationSetting/Model (1.0.2):
+  - MKLoRaTracker/Functions/VibrationSetting/Model (1.0.4):
     - HHTransition
     - iOSDFULibrary
     - MKBaseModuleLibrary
@@ -1024,12 +1021,13 @@ PODS:
     - MKLoRaTracker/CustomCell
     - MKLoRaTracker/SDK
     - MLInputDodger
-  - MKLoRaTracker/SDK (1.0.2):
+  - MKLoRaTracker/SDK (1.0.4):
     - MKBaseBleModule
-  - MKLoRaTracker/Target (1.0.2):
+  - MKLoRaTracker/Target (1.0.4):
     - MKLoRaTracker/Functions
   - MLInputDodger (1.5.2)
   - Toast (4.0.0)
+  - WRNavigationBar (1.4.0)
   - ZIPFoundation (0.9.11)
 
 DEPENDENCIES:
@@ -1049,6 +1047,7 @@ SPEC REPOS:
     - MKCustomUIModule
     - MLInputDodger
     - Toast
+    - WRNavigationBar
     - ZIPFoundation
 
 EXTERNAL SOURCES:
@@ -1064,11 +1063,12 @@ SPEC CHECKSUMS:
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   MJRefresh: d2c1970d1cf6e77fcfcdfe76c943dfab8dbfa5c1
   MKBaseBleModule: 6019b69cf3c5a220b1cfe18e71e1e5e63f4757da
-  MKBaseModuleLibrary: 3f6402005cd7aafb0a1564261b3ba798bd6b8ba9
+  MKBaseModuleLibrary: 9aae82beb3b77eb3795c8e9fe0f4a641a9648e65
   MKCustomUIModule: f4bb8abaab64f25224c886723ecaae75cacdca2d
-  MKLoRaTracker: db49176a41592c3f1494b0fbc13ec68ae1e8f0fb
+  MKLoRaTracker: cc932d9bbc466a21f3f87359994957e2cc8090b2
   MLInputDodger: 79a0e420a80d0d3bba122bf2639603cc76609ba8
   Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
+  WRNavigationBar: 10bfdf96addf14d640d07c2ef08a029c18d8af10
   ZIPFoundation: b1f0de4eed33e74a676f76e12559ab6b75990197
 
 PODFILE CHECKSUM: 920c067a23ce9b0554708bdf6099f504a0982d37
