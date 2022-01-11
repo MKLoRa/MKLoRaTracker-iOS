@@ -87,6 +87,7 @@ static dispatch_once_t onceToken;
                                 advertisementData:(NSDictionary<NSString *,id> *)advertisementData
                                              RSSI:(NSNumber *)RSSI {
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        NSLog(@"%@",advertisementData);
         NSDictionary *dataModel = [self parseModelWithRssi:RSSI advDic:advertisementData peripheral:peripheral];
         if (!dataModel) {
             return ;

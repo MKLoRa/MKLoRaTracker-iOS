@@ -48,7 +48,6 @@ import CoreBluetooth
     private var dfuControlPointCharacteristic : DFUControlPoint?
     private var dfuVersionCharacteristic      : DFUVersion?
     
-
     /// This method returns true if DFU Control Point characteristc has been discovered.
     /// A device without this characteristic is not supported and even can't be resetted
     /// by sending a Reset command.
@@ -65,7 +64,7 @@ import CoreBluetooth
     private var success: Callback?
     /// A temporary callback used to report an operation error.
     private var report:  ErrorCallback?
-    /// A temporaty callback used to report progress status.
+    /// A temporary callback used to report progress status.
     private var progressDelegate: DFUProgressDelegate?
     private var progressQueue: DispatchQueue?
     
@@ -155,14 +154,11 @@ import CoreBluetooth
         self.report  = report
         
         // Get the peripheral object
-        #if swift(>=5.5)
-        guard let peripheral = service.peripheral else {
+        let optPeripheral: CBPeripheral? = service.peripheral
+        guard let peripheral = optPeripheral else {
             report(.invalidInternalState, "Assert service.peripheral != nil failed")
             return
         }
-        #else
-        let peripheral = service.peripheral
-        #endif
         
         // Set the peripheral delegate to self
         peripheral.delegate = self
@@ -201,14 +197,11 @@ import CoreBluetooth
         // - we must be in the DFU mode already (otherwise the device would be useless...).
         // Note: On iOS the Generic Access and Generic Attribute services (nor HID Service)
         //       are not returned during service discovery.
-        #if swift(>=5.5)
-        guard let peripheral = service.peripheral else {
+        let optPeripheral: CBPeripheral? = service.peripheral
+        guard let peripheral = optPeripheral else {
             logger.e("Assert service.peripheral != nil failed")
             return false // Return value doesn't really matter.
         }
-        #else
-        let peripheral = service.peripheral
-        #endif
         let services = peripheral.services
         if services?.count == 1 {
             return false
