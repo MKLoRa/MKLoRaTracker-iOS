@@ -1331,10 +1331,6 @@
     if (!MKValidStr(protocol.dataType) || protocol.dataType.length != 2 || ![MKBLEBaseSDKAdopter checkHexCharacter:protocol.dataType]) {
         return NO;
     }
-    NSArray *typeList = [self dataTypeList];
-    if (![typeList containsObject:[protocol.dataType uppercaseString]]) {
-        return NO;
-    }
     if (protocol.minIndex == 0 && protocol.maxIndex == 0) {
         if (!MKValidStr(protocol.rawData) || protocol.rawData.length > 124 || ![MKBLEBaseSDKAdopter checkHexCharacter:protocol.rawData] || (protocol.rawData.length % 2 != 0)) {
             return NO;
@@ -1356,18 +1352,6 @@
         return NO;
     }
     return YES;
-}
-
-+ (NSArray *)dataTypeList {
-    return @[@"01",@"02",@"03",@"04",@"05",
-             @"06",@"07",@"08",@"09",@"0A",
-             @"0D",@"0E",@"0F",@"10",@"11",
-             @"12",@"14",@"15",@"16",@"17",
-             @"18",@"19",@"1A",@"1B",@"1C",
-             @"1D",@"1E",@"1F",@"20",@"21",
-             @"22",@"23",@"24",@"25",@"26",
-             @"27",@"28",@"29",@"2A",@"2B",
-             @"2C",@"2D",@"3D",@"FF"];
 }
 
 @end
