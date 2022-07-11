@@ -241,7 +241,7 @@ static CGFloat const textFieldHeight = 30.f;
 - (void)showAlertWithTitle:(NSString *)title
                    message:(NSString *)message
           notificationName:(NSString *)notificationName {
-    if (self.actionList.count == 0) {
+    if (self.actionList.count == 0 || self.actionList.count > 2) {
         return;
     }
     [kAppWindow addSubview:self];
@@ -259,6 +259,11 @@ static CGFloat const textFieldHeight = 30.f;
     [self.centerView addSubview:self.messageLabel];
     [self.centerView addSubview:self.textFieldView];
     [self.centerView addSubview:self.horizontalLine];
+    
+    [self.buttonList removeAllObjects];
+    [self.textFieldList removeAllObjects];
+    [self.asciiStringList removeAllObjects];
+    
     for (NSInteger i = 0; i < self.actionList.count; i ++) {
         MKAlertViewAction *action = self.actionList[i];
         NSString *selectorName = [@"buttonPressed" stringByAppendingString:[NSString stringWithFormat:@"%@",@(i)]];
