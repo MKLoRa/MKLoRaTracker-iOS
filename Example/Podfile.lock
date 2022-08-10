@@ -2,7 +2,7 @@ PODS:
   - CircleProgressBar (0.32)
   - CTMediator (44)
   - HHTransition (3.0.2)
-  - iOSDFULibrary (4.11.1):
+  - iOSDFULibrary (4.13.0):
     - ZIPFoundation (= 0.9.11)
   - Masonry (1.1.0)
   - MBProgressHUD (1.2.0)
@@ -1173,7 +1173,7 @@ SPEC CHECKSUMS:
   CircleProgressBar: 3920079be5224b62b3d9ed6eeb23ac01c835b681
   CTMediator: 933dba523da87bf875e4a7e8728945fbc512f1d2
   HHTransition: ca5035c126a6a2dc1eb9a90d084013784bf4bf0a
-  iOSDFULibrary: 3500ac00451aa7d8ec48a752e91099669a2c1d27
+  iOSDFULibrary: 3b9de67ed4bfb901b5f09c2fea843f65e152612d
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   MJRefresh: fdf5e979eb406a0341468932d1dfc8b7f9fce961
