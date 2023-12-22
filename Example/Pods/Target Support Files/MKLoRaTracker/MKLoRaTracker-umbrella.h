@@ -10,7 +10,6 @@
 #endif
 #endif
 
-#import "MKLTApplicationModule.h"
 #import "CTMediator+MKLTAdd.h"
 #import "MKLoRaWANLTModuleKey.h"
 #import "MKLTConnectModel.h"

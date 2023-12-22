@@ -1,6 +1,6 @@
 {
   "name": "MKLoRaTracker",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "summary": "A short description of MKLoRaTracker.",
   "description": "TODO: Add long description of the pod here.",
   "homepage": "https://github.com/MKLoRa/MKLoRaTracker-iOS",
@@ -13,10 +13,10 @@
   },
   "source": {
     "git": "https://github.com/MKLoRa/MKLoRaTracker-iOS.git",
-    "tag": "1.0.4"
+    "tag": "1.0.5"
   },
   "platforms": {
-    "ios": "12.0"
+    "ios": "14.0"
   },
   "resource_bundles": {
     "MKLoRaTracker": [
@@ -24,15 +24,6 @@
     ]
   },
   "subspecs": [
-    {
-      "name": "ApplicationModule",
-      "source_files": "MKLoRaTracker/Classes/ApplicationModule/**",
-      "dependencies": {
-        "MKBaseModuleLibrary": [
-
-        ]
-      }
-    },
     {
       "name": "CTMediator",
       "source_files": "MKLoRaTracker/Classes/CTMediator/**",
@@ -124,7 +115,7 @@
 
         ],
         "iOSDFULibrary": [
-
+          "4.13.0"
         ]
       },
       "subspecs": [
